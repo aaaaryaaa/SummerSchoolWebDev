@@ -4,6 +4,10 @@ const Schema = mongoose.Schema
 
 //creating schema 
 const week4 = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
     phno: {
         type: Number,
         required: true
