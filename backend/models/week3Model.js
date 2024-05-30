@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 //creating schema 
-const week2 = new Schema({
+const week3 = new Schema({
     phno: {
         type: Number,
         required: true
@@ -23,11 +23,7 @@ const week2 = new Schema({
     task4: {
         type: Boolean,
         required: false
-    },
-    task5: {
-        type: Boolean,
-        required: false
     }
 }, {timestamps: true})
 
-module.exports=mongoose.model('Week2', week2)
+module.exports=mongoose.model('Week3', week3)

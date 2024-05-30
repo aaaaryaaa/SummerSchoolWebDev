@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 //creating schema 
 const week1 = new Schema({
-    regno: {
+    phno: {
         type: Number,
         required: true
     },
@@ -25,6 +25,10 @@ const week1 = new Schema({
         required: false
     },
     task5: {
+        type: Boolean,
+        required: false
+    },
+    task6: {
         type: Boolean,
         required: false
     }
