@@ -12,7 +12,7 @@ export default function Week1() {
 
     useEffect(() => {
         const fetchWeek = async () => {
-            const response = await fetch('/api/progress/week1')
+            const response = await fetch('http://localhost:4000/api/progress/week1')
             const json = await response.json()
 
             if (response.ok) {
@@ -21,7 +21,7 @@ export default function Week1() {
         }
 
         const fetchRecord = async () => {
-            const response = await fetch('/api/progress/week1/' + 9845780894)
+            const response = await fetch('http://localhost:4000/api/progress/week1/' + 9845780894)
             const json = await response.json()
 
             if (response.ok) {
@@ -52,7 +52,7 @@ export default function Week1() {
 
         const task = { task1, task2, task3, task4, task5, task6 }
 
-        const response = await fetch('/api/progress/week1/' + 9845780894, {
+        const response = await fetch('http://localhost:4000/api/progress/week1/' + 9845780894, {
             method: 'PATCH',
             body: JSON.stringify(task),
             headers: {
