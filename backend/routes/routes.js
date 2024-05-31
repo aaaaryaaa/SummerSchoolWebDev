@@ -7,8 +7,28 @@ const mongoose = require('mongoose')
 
 const router = express.Router()
 
+function containsOnlyDigits(str) {
+    return !isNaN(str) && !isNaN(parseFloat(str));
+  }
+
 router.get('/', (req,res) => {
     res.json({mssg:'Hi lol'})
+})
+
+router.get('/week1/:id', async (req,res)=> {
+    const {id} = req.params
+
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
+    }
+
+    const record = await Week1.findById(id)
+
+    if (!record) {
+        return res.status(404).json({ error: 'No such record in week1' })
+    }
+
+    res.status(200).json(record)
 })
 
 //all get requests
@@ -46,10 +66,10 @@ router.get('/week4', async (req, res) => {
 
 //all post requests
 router.post('/week1', async (req,res) => {
-    const {name, phno, task1, task2, task3, task4, task5, task6} = req.body
+    const {_id, name, task1, task2, task3, task4, task5, task6} = req.body
 
     try{
-        const week1 = await Week1.create({name, phno, task1, task2, task3, task4, task5,task6})
+        const week1 = await Week1.create({_id, name, task1, task2, task3, task4, task5,task6})
         res.status(200).json(week1)
     }catch(error){
         res.status(400).json({error: error.message})
@@ -57,10 +77,10 @@ router.post('/week1', async (req,res) => {
 })
 
 router.post('/week2', async (req,res) => {
-    const {name, phno, task1, task2, task3, task4, task5} = req.body
+    const {_id, name, task1, task2, task3, task4, task5} = req.body
 
     try{
-        const week2 = await Week2.create({name, phno, task1, task2, task3, task4, task5})
+        const week2 = await Week2.create({_id, name, task1, task2, task3, task4, task5})
         res.status(200).json(week2)
     }catch(error){
         res.status(400).json({error: error.message})
@@ -68,10 +88,10 @@ router.post('/week2', async (req,res) => {
 })
 
 router.post('/week3', async (req,res) => {
-    const {name, phno, task1, task2, task3, task4} = req.body
+    const {_id, name, task1, task2, task3, task4} = req.body
 
     try{
-        const week3 = await Week3.create({name, phno, task1, task2, task3, task4})
+        const week3 = await Week3.create({_id, name, task1, task2, task3, task4})
         res.status(200).json(week3)
     }catch(error){
         res.status(400).json({error: error.message})
@@ -79,10 +99,10 @@ router.post('/week3', async (req,res) => {
 })
 
 router.post('/week4', async (req,res) => {
-    const {name, phno, task1, task2} = req.body
+    const {_id, name, task1, task2} = req.body
 
     try{
-        const week4 = await Week4.create({name, phno, task1, task2})
+        const week4 = await Week4.create({_id, name, task1, task2})
         res.status(200).json(week4)
     }catch(error){
         res.status(400).json({error: error.message})
@@ -93,12 +113,11 @@ router.post('/week4', async (req,res) => {
 router.patch('/week1/:id', async (req, res) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such record for week1' })
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
     }
 
-
-    const record = await Week1.findByIdAndUpdate({ _id: id }, {
+    const record = await Week1.findOneAndUpdate({ _id: id }, {
 
         ...req.body
     })
@@ -113,10 +132,9 @@ router.patch('/week1/:id', async (req, res) => {
 router.patch('/week2/:id', async (req, res) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such record for week2' })
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
     }
-
 
     const record = await Week1.findByIdAndUpdate({ _id: id }, {
 
@@ -133,10 +151,9 @@ router.patch('/week2/:id', async (req, res) => {
 router.patch('/week3/:id', async (req, res) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such record for week3' })
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
     }
-
 
     const record = await Week1.findByIdAndUpdate({ _id: id }, {
 
@@ -153,10 +170,9 @@ router.patch('/week3/:id', async (req, res) => {
 router.patch('/week4/:id', async (req, res) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such record for week4' })
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
     }
-
 
     const record = await Week1.findByIdAndUpdate({ _id: id }, {
 
