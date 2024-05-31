@@ -1,52 +1,43 @@
-// routes/auth.js
-const passport = require("passport");
-const mongoose = require("mongoose");
-const User = mongoose.model("users");
+const bcrypt = require("bcrypt");
+const express = require("express");
+const router = express.Router();
+const Registration = require("../models/registration");
+const Enrollment = require("../models/Enrollment");
 
-module.exports = (app) => {
-  app.post("/auth/signup", async (req, res) => {
-    const { username, password, name, email } = req.body;
-    try {
-      const existingUser = await User.findOne({ username });
-      if (existingUser) {
-        return res.status(400).send({ message: "Username already exists." });
-      }
-      const user = new User({ username, password, name, email });
-      await user.save();
-      req.login(user, (err) => {
-        if (err) {
-          return res.status(500).send({ message: "Signup failed." });
-        }
-        return res.status(201).send(user);
-      });
-    } catch (error) {
-      res.status(500).send({ message: "Signup failed." });
+// Route for user sign up
+router.post("/signup", async (req, res) => {
+  const { phoneNumber, password, otherFields } = req.body;
+
+  try {
+    // Check if the phone number exists in the enrollment database
+    const enrolledUser = await Enrollment.findOne({ phoneNumber });
+    if (!enrolledUser) {
+      // Phone number not found in enrollment database, return error message
+      return res
+        .status(400)
+        .json({ error: "Please enroll first before signing up" });
     }
-  });
 
-  app.post("/auth/login", (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        return res.status(400).send(info);
-      }
-      req.login(user, (err) => {
-        if (err) {
-          return res.status(500).send({ message: "Login failed." });
-        }
-        return res.status(200).send(user);
-      });
-    })(req, res, next);
-  });
+    // Hash the password before storing it in the database
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  app.get("/api/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
+    // Create a new user record
+    const newUser = new Registration({
+      phoneNumber,
+      password: hashedPassword,
+      otherFields, // Include any other fields from the sign-up form
+    });
 
-  app.get("/api/current_user", (req, res) => {
-    res.send(req.user);
-  });
-};
+    // Save the user record to the database
+    await newUser.save();
+
+    // User successfully signed up
+    res.status(201).json({ message: "User signed up successfully" });
+  } catch (error) {
+    // Handle any errors
+    console.error("Error during sign up:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+module.exports = router;
