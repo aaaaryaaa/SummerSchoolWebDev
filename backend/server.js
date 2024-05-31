@@ -9,16 +9,14 @@ const app = express();
 
 app.use(express.json());
 
-// Middleware to log incoming requests
 app.use((req, res, next) => {
   console.log(req.method, req.path);
   next();
 });
 
-app.use("/api", routes); // Mount the routes middleware
+app.use("/api", routes); // Mount the general routes
 app.use("/api/auth", authRoutes); // Mount the auth routes
 
-// Connect to MongoDB and start the server
 const port = process.env.PORT || 6000;
 mongoose
   .connect(process.env.MONGO_URI)

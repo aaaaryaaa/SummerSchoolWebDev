@@ -59,10 +59,10 @@ router.get("/week4", async (req, res) => {
 
 //all post requests
 router.post("/registrations", async (req, res) => {
-  const { phoneNumber, name } = req.body;
+  const { phone_number, name } = req.body;
 
   try {
-    const registration = await Registration.create({ phoneNumber, name });
+    const registration = await Registration.create({ phone_number, name });
     res.status(201).json(registration);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -6,11 +6,11 @@ const Enrollment = require("../models/Enrollment");
 
 // Route for user sign up
 router.post("/signup", async (req, res) => {
-  const { phoneNumber, password, otherFields } = req.body;
+  const { phone_number, password, name } = req.body;
 
   try {
     // Check if the phone number exists in the enrollment database
-    const enrolledUser = await Enrollment.findOne({ phoneNumber });
+    const enrolledUser = await Enrollment.findOne({ phone_number });
     if (!enrolledUser) {
       // Phone number not found in enrollment database, return error message
       return res
@@ -23,9 +23,9 @@ router.post("/signup", async (req, res) => {
 
     // Create a new user record
     const newUser = new Registration({
-      phoneNumber,
+      phone_number,
       password: hashedPassword,
-      otherFields, // Include any other fields from the sign-up form
+      name, // Include any other fields from the sign-up form
     });
 
     // Save the user record to the database

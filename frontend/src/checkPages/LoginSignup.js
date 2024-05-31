@@ -4,7 +4,7 @@ import axios from "axios";
 const Homepage = () => {
   const [isSignup, setIsSignup] = useState(false); // Toggle between login and signup
   const [phone_number, setphone_number] = useState("");
-  const [name, setName] = useState(""); // Add name state
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
@@ -40,7 +40,7 @@ const Homepage = () => {
         {
           phone_number,
           password,
-          name, // Ensure the name is included in the request
+          name,
         }
       );
       setMessage(response.data.message);
