@@ -15,6 +15,7 @@ router.get('/', (req,res) => {
     res.json({mssg:'Hi lol'})
 })
 
+//all single get requests
 router.get('/week1/:id', async (req,res)=> {
     const {id} = req.params
 
@@ -23,6 +24,54 @@ router.get('/week1/:id', async (req,res)=> {
     }
 
     const record = await Week1.findById(id)
+
+    if (!record) {
+        return res.status(404).json({ error: 'No such record in week1' })
+    }
+
+    res.status(200).json(record)
+})
+
+router.get('/week2/:id', async (req,res)=> {
+    const {id} = req.params
+
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
+    }
+
+    const record = await Week2.findById(id)
+
+    if (!record) {
+        return res.status(404).json({ error: 'No such record in week1' })
+    }
+
+    res.status(200).json(record)
+})
+
+router.get('/week3/:id', async (req,res)=> {
+    const {id} = req.params
+
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
+    }
+
+    const record = await Week3.findById(id)
+
+    if (!record) {
+        return res.status(404).json({ error: 'No such record in week1' })
+    }
+
+    res.status(200).json(record)
+})
+
+router.get('/week4/:id', async (req,res)=> {
+    const {id} = req.params
+
+    if(!containsOnlyDigits(id)){
+        return res.status(404).json({ error: 'Not valid number' })
+    }
+
+    const record = await Week4.findById(id)
 
     if (!record) {
         return res.status(404).json({ error: 'No such record in week1' })
@@ -136,7 +185,7 @@ router.patch('/week2/:id', async (req, res) => {
         return res.status(404).json({ error: 'Not valid number' })
     }
 
-    const record = await Week1.findByIdAndUpdate({ _id: id }, {
+    const record = await Week2.findByIdAndUpdate({ _id: id }, {
 
         ...req.body
     })
@@ -155,7 +204,7 @@ router.patch('/week3/:id', async (req, res) => {
         return res.status(404).json({ error: 'Not valid number' })
     }
 
-    const record = await Week1.findByIdAndUpdate({ _id: id }, {
+    const record = await Week3.findByIdAndUpdate({ _id: id }, {
 
         ...req.body
     })
@@ -174,7 +223,7 @@ router.patch('/week4/:id', async (req, res) => {
         return res.status(404).json({ error: 'Not valid number' })
     }
 
-    const record = await Week1.findByIdAndUpdate({ _id: id }, {
+    const record = await Week4.findByIdAndUpdate({ _id: id }, {
 
         ...req.body
     })
