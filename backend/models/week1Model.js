@@ -4,12 +4,12 @@ const Schema = mongoose.Schema
 
 //creating schema 
 const week1 = new Schema({
-    name: {
-        type: String,
+    _id: {
+        type: Number,
         required: true
     },
-    phno: {
-        type: Number,
+    name: {
+        type: String,
         required: true
     },
     task1: {
@@ -18,7 +18,7 @@ const week1 = new Schema({
     },
     task2: {
         type: Boolean,
-        required: false //DESC not really required
+        required: false 
     },
     task3: {
         type: Boolean,
