@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api", routes); // Mount the general routes
+app.use("/api/progress", routes); // Mount the general routes
 app.use("/api/auth", authRoutes); // Mount the auth routes
 
 const port = process.env.PORT || 3000;
