@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Homepage = ({ user, setUser }) => {
   const navigate = useNavigate();
-
+  console.log(user.user.name);
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -16,7 +16,8 @@ const Homepage = ({ user, setUser }) => {
       <h1>Homepage</h1>
       {user ? (
         <div>
-          <h2>Welcome, {user.name}</h2>
+          <h2>Welcome, {user.user.name}</h2>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <div>

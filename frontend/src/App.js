@@ -11,9 +11,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Homepage user={user} />} />
+        <Route path="/" element={<Homepage user={user} setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
       </Routes>
     </Router>
   );
