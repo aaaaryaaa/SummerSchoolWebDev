@@ -7,7 +7,7 @@ const Enrollment = require("../models/Enrollment");
 
 // Signup route
 router.post("/signup", async (req, res) => {
-  const { phone_number, password,name } = req.body;
+  const { phone_number, password, name } = req.body;
 
   // Validate request body
   if (!phone_number || !password || !name) {

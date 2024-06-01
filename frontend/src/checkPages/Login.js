@@ -1,13 +1,15 @@
-// src/components/Login.js
+// src/checkPages/Login.js
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [formData, setFormData] = useState({
     phone_number: "",
     password: "",
   });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -23,9 +25,11 @@ const Login = () => {
         "http://localhost:3000/api/auth/login",
         formData
       );
-      setMessage(response.data.message);
+      const user = response.data; // Assuming the server returns the user object
+      setUser(user);
+      navigate("/");
     } catch (error) {
-      setMessage(error.response.data.error);
+      setMessage("An unexpected error occurred");
     }
   };
 

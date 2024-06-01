@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const enrollmentSchema = new mongoose.Schema({
-  phone_number: { type: String, required: true, unique: true },
+  phone_number: { type: String, required: true, unique: true},
   Name: {
     type: String,
     required: true,

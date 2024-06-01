@@ -1,10 +1,16 @@
 // src/checkPages/Homepage.js
 import React from "react";
-import { Link } from "react-router-dom";
-import Login from "./Login";
-import Signup from "./Signup";
+import { useNavigate } from "react-router-dom";
 
-export default function Homepage({ user, setUser }) {
+const Homepage = ({ user, setUser }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/login");
+  };
+
   return (
     <div>
       <h1>Homepage</h1>
@@ -15,11 +21,12 @@ export default function Homepage({ user, setUser }) {
       ) : (
         <div>
           <h2>Please Login or Signup</h2>
-          <Login setUser={setUser} />
-          <Signup setUser={setUser} />
+          <button onClick={() => navigate("/login")}>Login</button>
+          <button onClick={() => navigate("/signup")}>Signup</button>
         </div>
       )}
-      {/* Timeline and other content */}
     </div>
   );
-}
+};
+
+export default Homepage;
