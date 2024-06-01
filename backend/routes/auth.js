@@ -4,7 +4,6 @@ const router = express.Router();
 const Registration = require("../models/registration");
 const Enrollment = require("../models/Enrollment");
 
-// Route for user sign up
 router.post("/signup", async (req, res) => {
   const { phone_number, password, name } = req.body;
 
@@ -12,7 +11,6 @@ router.post("/signup", async (req, res) => {
     // Check if the phone number exists in the enrollment database
     const enrolledUser = await Enrollment.findOne({ phone_number });
     if (!enrolledUser) {
-      // Phone number not found in enrollment database, return error message
       return res
         .status(400)
         .json({ error: "Please enroll first before signing up" });
@@ -25,16 +23,18 @@ router.post("/signup", async (req, res) => {
     const newUser = new Registration({
       phone_number,
       password: hashedPassword,
-      name, // Include any other fields from the sign-up form
+      name,
     });
 
     // Save the user record to the database
     await newUser.save();
 
     // User successfully signed up
-    res.status(201).json({ message: "User signed up successfully" });
+    res.status(201).json({
+      message: "User signed up successfully",
+      user: { phone_number, name },
+    });
   } catch (error) {
-    // Handle any errors
     console.error("Error during sign up:", error);
     res.status(500).json({ error: "Internal server error" });
   }

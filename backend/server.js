@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 app.use("/api", routes); // Mount the general routes
 app.use("/api/auth", authRoutes); // Mount the auth routes
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3000;
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
