@@ -119,7 +119,7 @@ router.post("/registrations", async (req, res) => {
 });
 
 router.post("/week1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, link1, link2 } = req.body;
 
   try {
     const week1 = await Week1.create({
@@ -131,6 +131,8 @@ router.post("/week1", async (req, res) => {
       task4,
       task5,
       task6,
+      link1,
+      link2
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -139,7 +141,7 @@ router.post("/week1", async (req, res) => {
 });
 
 router.post("/week2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, link1, link2 } = req.body;
 
   try {
     const week2 = await Week2.create({
@@ -150,6 +152,8 @@ router.post("/week2", async (req, res) => {
       task3,
       task4,
       task5,
+      link1,
+      link2
     });
     res.status(200).json(week2);
   } catch (error) {
@@ -158,10 +162,10 @@ router.post("/week2", async (req, res) => {
 });
 
 router.post("/week3", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4 } = req.body;
+  const { _id, name, task1, task2, task3, task4, link1, link2 } = req.body;
 
   try {
-    const week3 = await Week3.create({ _id, name, task1, task2, task3, task4 });
+    const week3 = await Week3.create({ _id, name, task1, task2, task3, task4, link1, link2 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -169,10 +173,10 @@ router.post("/week3", async (req, res) => {
 });
 
 router.post("/week4", async (req, res) => {
-  const { _id, name, task1, task2 } = req.body;
+  const { _id, name, task1, task2, link1, link2 } = req.body;
 
   try {
-    const week4 = await Week4.create({ _id, name, task1, task2 });
+    const week4 = await Week4.create({ _id, name, task1, task2, link1, link2 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });

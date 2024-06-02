@@ -19,6 +19,14 @@ const week4 = new Schema({
     task2: {
         type: Boolean,
         required: false //DESC not really required
+    },
+    link1: {
+        type: String,
+        required: false
+    },
+    link2: {
+        type: String,
+        required: false 
     }
 }, {timestamps: true})
 

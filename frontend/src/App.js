@@ -10,7 +10,7 @@ import Week3 from './checkPages/Week3';
 import Week4 from './checkPages/Week4';
 
 function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
   return (
     <Router>
@@ -18,10 +18,10 @@ function App() {
         <Route path="/" element={<Homepage user={user} setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
-        <Route path="/week1" element={<Week1/>}></Route>
-        <Route path="/week2" element={<Week2/>}></Route>
-        <Route path="/week3" element={<Week3/>}></Route>
-        <Route path="/week4" element={<Week4/>}></Route>
+        <Route path="/week1" element={<Week1 user={user}/>}></Route>
+        <Route path="/week2" element={<Week2 user={user}/>}></Route>
+        <Route path="/week3" element={<Week3 user={user}/>}></Route>
+        <Route path="/week4" element={<Week4 user={user}/>}></Route>
       </Routes>
     </Router>
   );

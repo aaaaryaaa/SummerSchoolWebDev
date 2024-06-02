@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function Week2() {
+export default function Week2({ user }) {
+    const navigate = useNavigate()
+
     const [week, setWeek] = useState()
     const [record, setRecord] = useState()
     const [taskone, setTaskOne] = useState()
@@ -8,30 +11,35 @@ export default function Week2() {
     const [taskthree, setTaskThree] = useState()
     const [taskfour, setTaskFour] = useState()
     const [taskfive, setTaskFive] = useState()
+    const [linkone, setLinkOne] = useState()
+    const [linktwo, setLinkTwo] = useState()
+
+    const fetchWeek = async () => {
+        const response = await fetch('http://localhost:3000/api/progress/week2')
+        const json = await response.json()
+
+        if (response.ok) {
+            setWeek(json)
+        }
+    }
+
+    const fetchRecord = async () => {
+        const response = await fetch('http://localhost:3000/api/progress/week2/' + user.user.phone_number)
+        const json = await response.json()
+
+        if (response.ok) {
+            setRecord(json)
+            setTaskOne(json.task1)
+            setTaskTwo(json.task2)
+            setTaskThree(json.task3)
+            setTaskFour(json.task4)
+            setTaskFive(json.task5)
+            setLinkOne(json.link1)
+            setLinkTwo(json.link2)
+        }
+    }
 
     useEffect(() => {
-        const fetchWeek = async () => {
-            const response = await fetch('http://localhost:3000/api/progress/week2')
-            const json = await response.json()
-
-            if (response.ok) {
-                setWeek(json)
-            }
-        }
-
-        const fetchRecord = async () => {
-            const response = await fetch('http://localhost:3000/api/progress/week2/' + 9845780894)
-            const json = await response.json()
-
-            if (response.ok) {
-                setRecord(json)
-                setTaskOne(json.task1)
-                setTaskTwo(json.task2)
-                setTaskThree(json.task3)
-                setTaskFour(json.task4)
-                setTaskFive(json.task5)
-            }
-        }
 
         fetchRecord()
         fetchWeek()
@@ -41,15 +49,19 @@ export default function Week2() {
 
     // make handlesubmit for each task checkbox and make them as patch req
     const handleSubmit = async (e) => {
+        e.preventDefault()
+
         let task1 = taskone
         let task2 = tasktwo
         let task3 = taskthree
         let task4 = taskfour
         let task5 = taskfive
+        let link1 = linkone
+        let link2 = linktwo
 
-        const task = { task1, task2, task3, task4, task5 }
+        const task = { task1, task2, task3, task4, task5, link1, link2 }
 
-        const response = await fetch('http://localhost:3000/api/progress/week2/' + 9845780894, {
+        const response = await fetch('http://localhost:3000/api/progress/week2/' + user.user.phone_number, {
             method: 'PATCH',
             body: JSON.stringify(task),
             headers: {
@@ -59,134 +71,36 @@ export default function Week2() {
 
         const json = await response.json()
 
-        if(response.ok){
+        if (response.ok) {
             console.log(json)
         }
+
+        fetchRecord()
+        fetchWeek()
     }
+
+    const handleGoHome = () => {
+        navigate("/");
+      }
 
     const handleCheck1 = async (e) => {
         setTaskOne(!taskone)
-
-        // let task1 = !record.task1
-        // const task = { task1 }
-
-        // const response = await fetch('/api/progress/week1/' + 9845780894, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify(task),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const json = await response.json()
-
-        // if(!response.ok){
-        //     setTaskOne(!taskone)
-        // }
-
-        // if(response.ok){
-        //     console.log(json)
-        // }
     }
 
     const handleCheck2 = async (e) => {
         setTaskTwo(!tasktwo)
-
-        // let task2 = !record.task2
-        // const task = { task2 }
-
-        // const response = await fetch('/api/progress/week1/' + 9845780894, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify(task),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const json = await response.json()
-
-        // if(!response.ok){
-        //     setTaskTwo(!tasktwo)
-        // }
-
-        // if(response.ok){
-        //     console.log(json)
-        // }
     }
 
     const handleCheck3 = async (e) => {
         setTaskThree(!taskthree)
-
-        // let task3 = !record.task3
-        // const task = { task3 }
-
-        // const response = await fetch('/api/progress/week1/' + 9845780894, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify(task),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const json = await response.json()
-
-        // if(!response.ok){
-        //     setTaskThree(!taskthree)
-        // }
-
-        // if(response.ok){
-        //     console.log(json)
-        // }
     }
 
     const handleCheck4 = async (e) => {
         setTaskFour(!taskfour)
-
-        // let task4 = !record.task4
-        // const task = { task4 }
-
-        // const response = await fetch('/api/progress/week1/' + 9845780894, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify(task),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const json = await response.json()
-
-        // if(!response.ok){
-        //     setTaskFour(!taskfour)
-        // }
-
-        // if(response.ok){
-        //     console.log(json)
-        // }
     }
 
     const handleCheck5 = async (e) => {
         setTaskFive(!taskfive)
-
-        // let task5 = !record.task5
-        // const task = { task5 }
-
-        // const response = await fetch('/api/progress/week1/' + 9845780894, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify(task),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const json = await response.json()
-
-        // if(!response.ok){
-        //     setTaskFive(!taskfive)
-        // }
-
-        // if(response.ok){
-        //     console.log(json)
-        // }
     }
 
     return (
@@ -197,13 +111,13 @@ export default function Week2() {
                 <div>
                     {record && (
                         <div>
-                            {record.name}---{record.task1 ? 'done' : 'notdone'}---{record.task2 ? 'done' : 'notdone'}---{record.task3 ? 'done' : 'notdone'}---{record.task4 ? 'done' : 'notdone'}---{record.task5 ? 'done' : 'notdone'}
+                            {record.name}---{record.task1 ? 'done' : 'notdone'}---{record.task2 ? 'done' : 'notdone'}---{record.task3 ? 'done' : 'notdone'}---{record.task4 ? 'done' : 'notdone'}---{record.task5 ? 'done' : 'notdone'}---{record.link1}---{record.link2}
                             <form onSubmit={handleSubmit}>
-                                <input type="checkbox" checked={taskone} onChange={handleCheck1}/>task1
-                                <input type="checkbox" checked={tasktwo} onChange={handleCheck2}/>task2
-                                <input type="checkbox" checked={taskthree} onChange={handleCheck3}/>task3
-                                <input type="checkbox" checked={taskfour} onChange={handleCheck4}/>task4
-                                <input type="checkbox" checked={taskfive} onChange={handleCheck5}/>task5
+                                <input type="checkbox" checked={taskone} onChange={handleCheck1} />task1
+                                <input type="checkbox" checked={tasktwo} onChange={handleCheck2} />task2
+                                <input type="checkbox" checked={taskthree} onChange={handleCheck3} />task3
+                                <input type="checkbox" checked={taskfour} onChange={handleCheck4} />task4
+                                <input type="checkbox" checked={taskfive} onChange={handleCheck5} />task5
                                 <button>SUBMIT</button>
                             </form>
                         </div>
@@ -216,11 +130,12 @@ export default function Week2() {
             <div>
                 {week && week.map((x) => (
                     <p key={x._id}>
-                        {x._id}---{x.name}---{x.task1 ? 'done' : 'notdone'}---{x.task2 ? 'done' : 'notdone'}---{x.task3 ? 'done' : 'notdone'}---{x.task4 ? 'done' : 'notdone'}---{x.task5 ? 'done' : 'notdone'}
+                        {x._id}---{x.name}---{x.task1 ? 'done' : 'notdone'}---{x.task2 ? 'done' : 'notdone'}---{x.task3 ? 'done' : 'notdone'}---{x.task4 ? 'done' : 'notdone'}---{x.task5 ? 'done' : 'notdone'}---{x.link1}---{x.link2}
 
                     </p>
                 ))}
             </div>
+            <button onClick={handleGoHome}>GO BACK TO HOME</button>
         </div>
     )
 }

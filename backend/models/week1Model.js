@@ -35,6 +35,14 @@ const week1 = new Schema({
     task6: {
         type: Boolean,
         required: false
+    },
+    link1: {
+        type: String,
+        required: false
+    },
+    link2: {
+        type: String,
+        required: false 
     }
 }, {timestamps: true})
 
