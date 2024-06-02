@@ -1,42 +1,37 @@
-// src/checkPages/Login.js
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// src/components/Login.js
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-const Login = ({ setUser }) => {
+const Login = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
-    phone_number: "",
-    password: "",
-  });
-  const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+    phone_number: '',
+    password: '',
+  })
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        'http://localhost:3000/api/auth/login',
         formData
-      );
-      const user = response.data; // Assuming the server returns the user object
-      setUser(user);
-      // console.log(user)
+      )
 
-      navigate("/");
+      toast.success('Login successful')
+      navigate('/')
     } catch (error) {
-      setMessage("An unexpected error occurred");
+      toast.error(error.response.data.error)
     }
-  };
-
-  const handleGoSignUp = async(e) => {
-    navigate("/signup")
   }
 
   return (
@@ -59,10 +54,8 @@ const Login = ({ setUser }) => {
         />
         <button type="submit">Login</button>
       </form>
-      {message && <p>{message}</p>}
-      <div>Not SignedUp? DO IT!<button onClick={handleGoSignUp}>SignUp</button></div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
