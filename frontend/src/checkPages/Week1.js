@@ -78,7 +78,7 @@ export default function Week1({ user }) {
     const json = await response.json()
 
     if (response.ok) {
-      console.log(json)
+      // console.log(json)
     }
 
     fetchRecord()

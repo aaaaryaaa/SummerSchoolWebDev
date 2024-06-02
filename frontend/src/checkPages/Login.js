@@ -1,6 +1,6 @@
 // src/checkPages/Login.js
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ setUser }) => {
@@ -27,11 +27,17 @@ const Login = ({ setUser }) => {
       );
       const user = response.data; // Assuming the server returns the user object
       setUser(user);
+      // console.log(user)
+
       navigate("/");
     } catch (error) {
       setMessage("An unexpected error occurred");
     }
   };
+
+  const handleGoSignUp = async(e) => {
+    navigate("/signup")
+  }
 
   return (
     <div>
@@ -54,6 +60,7 @@ const Login = ({ setUser }) => {
         <button type="submit">Login</button>
       </form>
       {message && <p>{message}</p>}
+      <div>Not SignedUp? DO IT!<button onClick={handleGoSignUp}>SignUp</button></div>
     </div>
   );
 };

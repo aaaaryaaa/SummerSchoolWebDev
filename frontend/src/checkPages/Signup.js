@@ -1,8 +1,11 @@
 // src/components/Signup.js
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ user }) => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     phone_number: "",
     password: "",
@@ -25,10 +28,107 @@ const Signup = () => {
         formData
       );
       setMessage(response.data.message);
+
+      //initialing all weeks db
+
+      const res1 = await fetch(
+        'http://localhost:3000/api/progress/week1',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            link1: null,
+            link2: null
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      const json1 = await res1.json()
+
+      const res2 = await fetch(
+        'http://localhost:3000/api/progress/week2',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            link1: null,
+            link2: null
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      const json2 = await res2.json()
+
+      const res3 = await fetch(
+        'http://localhost:3000/api/progress/week3',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            link1: null,
+            link2: null
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      const json3 = await res3.json()
+
+      const res4 = await fetch(
+        'http://localhost:3000/api/progress/week4',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            link1: null,
+            link2: null
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      const json4 = await res4.json()
+
+      navigate("/");
     } catch (error) {
       setMessage(error.response.data.error);
     }
   };
+
+  const handleGoLogin = () => {
+    navigate("/login")
+  }
 
   return (
     <div>
@@ -58,6 +158,7 @@ const Signup = () => {
         <button type="submit">Signup</button>
       </form>
       {message && <p>{message}</p>}
+      <div>Already have login? GO LOGIN THEN<button onClick={handleGoLogin}>Login</button></div>
     </div>
   );
 };
