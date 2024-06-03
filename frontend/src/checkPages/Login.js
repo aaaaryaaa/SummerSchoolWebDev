@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-const Login = () => {
+const Login = ({setUser}) => {
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
@@ -26,6 +26,8 @@ const Login = () => {
         'http://localhost:3000/api/auth/login',
         formData
       )
+      const user = response.data; // Assuming the server returns the user object
+      setUser(user);
 
       toast.success('Login successful')
       navigate('/')
@@ -54,6 +56,7 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <button onClick={()=>{navigate("/")}}>GO BACK HOME</button>
     </div>
   )
 }

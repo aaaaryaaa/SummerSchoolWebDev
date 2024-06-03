@@ -153,6 +153,7 @@ const Signup = ({ user }) => {
         Already have login? GO LOGIN THEN
         <button onClick={handleGoLogin}>Login</button>
       </div>
+      <button onClick={()=>{navigate("/")}}>GO BACK HOME</button>
       <ToastContainer />
     </div>
   )

@@ -130,6 +130,8 @@ export default function Week1({ user }) {
                                 <input type="checkbox" checked={taskfour} onChange={handleCheck4}/>task4
                                 <input type="checkbox" checked={taskfive} onChange={handleCheck5}/>task5
                                 <input type="checkbox" checked={tasksix} onChange={handleCheck6}/>task6
+                                <input type="text" value={linkone} placeholder="Enter Link 1" onChange={(e) => { setLinkOne(e.target.value) }} />
+                                <input type="text" value={linktwo} placeholder="Enter Link 2" onChange={(e) => { setLinkTwo(e.target.value) }} />
                                 <button>SUBMIT</button>
                             </form>
                         </div>
