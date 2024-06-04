@@ -25,7 +25,7 @@ export default function Week1({ user }) {
   }
 
   const fetchRecord = async () => {
-    console.log(user.user.phone_number)
+    // console.log(user.user.phone_number)
     const response = await fetch(
       'http://localhost:3000/api/progress/week1/' + user.user.phone_number
     )
