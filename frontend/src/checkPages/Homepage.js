@@ -8,7 +8,7 @@ const Homepage = ({ user, setUser }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser(null);
-    navigate("/login");
+    navigate("/");
   };
 
   const handleWeek1 = () => {
@@ -31,13 +31,9 @@ const Homepage = ({ user, setUser }) => {
     <div>
       <h1>Homepage</h1>
       {user ? (
-        <div>
+        <div className="">
           <h2>Welcome, {user.user.name}</h2>
-          <button onClick={handleWeek1}>Week 1</button>
-          <button onClick={handleWeek2}>Week 2</button>
-          <button onClick={handleWeek3}>Week 3</button>
-          <button onClick={handleWeek4}>Week 4</button>
-          <button onClick={handleLogout}>Logout</button>
+          <h1>BIGG TREEE OR SOMETHING</h1>
         </div>
       ) : (
         <div>

@@ -44,8 +44,8 @@ const Signup = ({ user }) => {
           task4: false,
           task5: false,
           task6: false,
-          link1: null,
-          link2: null,
+          link1: "",
+          link2: "",
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -64,8 +64,8 @@ const Signup = ({ user }) => {
           task3: false,
           task4: false,
           task5: false,
-          link1: null,
-          link2: null,
+          link1: "",
+          link2: "",
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -83,8 +83,8 @@ const Signup = ({ user }) => {
           task2: false,
           task3: false,
           task4: false,
-          link1: null,
-          link2: null,
+          link1: "",
+          link2: "",
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -100,8 +100,8 @@ const Signup = ({ user }) => {
           name: formData.name,
           task1: false,
           task2: false,
-          link1: null,
-          link2: null,
+          link1: "",
+          link2: "",
         }),
         headers: {
           'Content-Type': 'application/json',
