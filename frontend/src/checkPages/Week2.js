@@ -1,289 +1,143 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-export default function Week1() {
-  const [week, setWeek] = useState()
-  const [record, setRecord] = useState()
-  const [taskone, setTaskOne] = useState()
-  const [tasktwo, setTaskTwo] = useState()
-  const [taskthree, setTaskThree] = useState()
-  const [taskfour, setTaskFour] = useState()
-  const [taskfive, setTaskFive] = useState()
-  const [tasksix, setTaskSix] = useState()
+export default function Week2({ user }) {
+    const navigate = useNavigate()
 
-  useEffect(() => {
+    const [week, setWeek] = useState()
+    const [record, setRecord] = useState()
+    const [taskone, setTaskOne] = useState()
+    const [tasktwo, setTaskTwo] = useState()
+    const [taskthree, setTaskThree] = useState()
+    const [taskfour, setTaskFour] = useState()
+    const [taskfive, setTaskFive] = useState()
+    const [linkone, setLinkOne] = useState()
+    const [linktwo, setLinkTwo] = useState()
+
     const fetchWeek = async () => {
-      const response = await fetch('http://localhost:4000/api/progress/week2')
-      const json = await response.json()
+        const response = await fetch('http://localhost:3000/api/progress/week2')
+        const json = await response.json()
 
-      if (response.ok) {
-        setWeek(json)
-      }
+        if (response.ok) {
+            setWeek(json)
+        }
     }
 
     const fetchRecord = async () => {
-      const response = await fetch(
-        'http://localhost:4000/api/progress/week2/' + 9845780894
-      )
-      const json = await response.json()
+        const response = await fetch('http://localhost:3000/api/progress/week2/' + user.user.phone_number)
+        const json = await response.json()
 
-      if (response.ok) {
-        setRecord(json)
-        setTaskOne(json.task1)
-        setTaskTwo(json.task2)
-        setTaskThree(json.task3)
-        setTaskFour(json.task4)
-        setTaskFive(json.task5)
-        setTaskSix(json.task6)
-      }
+        if (response.ok) {
+            setRecord(json)
+            setTaskOne(json.task1)
+            setTaskTwo(json.task2)
+            setTaskThree(json.task3)
+            setTaskFour(json.task4)
+            setTaskFive(json.task5)
+            setLinkOne(json.link1)
+            setLinkTwo(json.link2)
+        }
     }
 
-    fetchRecord()
-    fetchWeek()
-  }, [])
+    useEffect(() => {
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    let task1 = taskone
-    let task2 = tasktwo
-    let task3 = taskthree
-    let task4 = taskfour
-    let task5 = taskfive
-    let task6 = tasksix
+        fetchRecord()
+        fetchWeek()
 
-    const task = { task1, task2, task3, task4, task5, tasksix }
+    }, [])
 
-    const response = await fetch(
-      'http://localhost:4000/api/progress/week2/' + 9845780894,
-      {
-        method: 'PATCH',
-        body: JSON.stringify(task),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
 
-    const json = await response.json()
+    // make handlesubmit for each task checkbox and make them as patch req
+    const handleSubmit = async (e) => {
+        e.preventDefault()
 
-    if (response.ok) {
-      console.log(json)
+        let task1 = taskone
+        let task2 = tasktwo
+        let task3 = taskthree
+        let task4 = taskfour
+        let task5 = taskfive
+        let link1 = linkone
+        let link2 = linktwo
+
+        const task = { task1, task2, task3, task4, task5, link1, link2 }
+
+        const response = await fetch('http://localhost:3000/api/progress/week2/' + user.user.phone_number, {
+            method: 'PATCH',
+            body: JSON.stringify(task),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const json = await response.json()
+
+        if (response.ok) {
+            // console.log(json)
+        }
+
+        fetchRecord()
+        fetchWeek()
     }
-  }
 
-  const handleCheck1 = () => {
-    setTaskOne(!taskone)
-  }
+    const handleGoHome = () => {
+        navigate("/");
+      }
 
-  const handleCheck2 = () => {
-    setTaskTwo(!tasktwo)
-  }
+    const handleCheck1 = async (e) => {
+        setTaskOne(!taskone)
+    }
 
-  const handleCheck3 = () => {
-    setTaskThree(!taskthree)
-  }
+    const handleCheck2 = async (e) => {
+        setTaskTwo(!tasktwo)
+    }
 
-  const handleCheck4 = () => {
-    setTaskFour(!taskfour)
-  }
+    const handleCheck3 = async (e) => {
+        setTaskThree(!taskthree)
+    }
 
-  const handleCheck5 = () => {
-    setTaskFive(!taskfive)
-  }
+    const handleCheck4 = async (e) => {
+        setTaskFour(!taskfour)
+    }
 
-  const handleCheck6 = () => {
-    setTaskSix(!tasksix)
-  }
+    const handleCheck5 = async (e) => {
+        setTaskFive(!taskfive)
+    }
 
-  return (
-    <div className="flex justify-center items-center h-full">
-      <div className="w-4/5">
-        <div className="text-8xl text-center">WEEK 1</div>
-        <div className=" bg-gray-500 p-10">
-          <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-xl font-medium">Project 1</div>
-            <div className="collapse-content">
-              <p>hello</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={taskone}
-                  onChange={handleCheck1}
-                />
-                Task 1
-              </label>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium">Project 2</div>
-            <div className="collapse-content">
-              <p>hello</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={tasktwo}
-                  onChange={handleCheck2}
-                />
-                Task 2
-              </label>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium">Project 3</div>
-            <div className="collapse-content">
-              <p>hello</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={taskthree}
-                  onChange={handleCheck3}
-                />
-                Task 3
-              </label>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium">Project 4</div>
-            <div className="collapse-content">
-              <p>hello</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={taskfour}
-                  onChange={handleCheck4}
-                />
-                Task 4
-              </label>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium">Project 5</div>
-            <div className="collapse-content">
-              <p>hello</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={taskfive}
-                  onChange={handleCheck5}
-                />
-                Task 5
-              </label>
-            </div>
-          </div>
-          {record && (
-            <div className="bg-white p-4 rounded-lg shadow-lg m-4">
-              <h3 className="text-lg font-semibold mb-2">{record.name}</h3>
-              <div className="flex justify-between mb-2">
-                <span>{record.task1 ? 'done' : 'notdone'}</span>
-                <span>{record.task2 ? 'done' : 'notdone'}</span>
-                <span>{record.task3 ? 'done' : 'notdone'}</span>
-                <span>{record.task4 ? 'done' : 'notdone'}</span>
-                <span>{record.task5 ? 'done' : 'notdone'}</span>
-                <span>{record.task6 ? 'done' : 'notdone'}</span>
-              </div>
-              {/* <form onSubmit={handleSubmit}>
-                <div className="flex justify-between mb-2">
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={taskone}
-                      onChange={handleCheck1}
-                    />
-                    Task 1
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={tasktwo}
-                      onChange={handleCheck2}
-                    />
-                    Task 2
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={taskthree}
-                      onChange={handleCheck3}
-                    />
-                    Task 3
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={taskfour}
-                      onChange={handleCheck4}
-                    />
-                    Task 4
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={taskfive}
-                      onChange={handleCheck5}
-                    />
-                    Task 5
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={tasksix}
-                      onChange={handleCheck6}
-                    />
-                    Task 6
-                  </label>
+    return (
+        <div>
+            <div>
+                <h1>WEEK 2</h1>
+                <h3>DID U FINISH?</h3>
+                <div>
+                    {record && (
+                        <div>
+                            {record.name}---{record.task1 ? 'done' : 'notdone'}---{record.task2 ? 'done' : 'notdone'}---{record.task3 ? 'done' : 'notdone'}---{record.task4 ? 'done' : 'notdone'}---{record.task5 ? 'done' : 'notdone'}---{record.link1}---{record.link2}
+                            <form onSubmit={handleSubmit}>
+                                <input type="checkbox" checked={taskone} onChange={handleCheck1} />task1
+                                <input type="checkbox" checked={tasktwo} onChange={handleCheck2} />task2
+                                <input type="checkbox" checked={taskthree} onChange={handleCheck3} />task3
+                                <input type="checkbox" checked={taskfour} onChange={handleCheck4} />task4
+                                <input type="checkbox" checked={taskfive} onChange={handleCheck5} />task5
+                                <input type="text" value={linkone} placeholder="Enter Link 1" onChange={(e) => { setLinkOne(e.target.value) }} />
+                                <input type="text" value={linktwo} placeholder="Enter Link 2" onChange={(e) => { setLinkTwo(e.target.value) }} />
+                                <button>SUBMIT</button>
+                            </form>
+                        </div>
+                    )}
                 </div>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded">
-                  SUBMIT
-                </button>
-              </form> */}
             </div>
-          )}
-          <h3 className="mt-4 mb-2 text-xl">EVERYONE'S PROGRESS</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {week &&
-              week.map((x) => (
-                <div
-                  key={x._id}
-                  className="bg-white p-4 rounded-lg shadow grid grid-cols-2 gap-4"
-                >
-                  <p>
-                    <strong>Name:</strong> {x.name}
-                  </p>
-                  <p>
-                    <strong>ID:</strong> {x._id}
-                  </p>
+            <div>
+                <h3>EVERYONE'S PROGRESS</h3>
+            </div>
+            <div>
+                {week && week.map((x) => (
+                    <p key={x._id}>
+                        {x._id}---{x.name}---{x.task1 ? 'done' : 'notdone'}---{x.task2 ? 'done' : 'notdone'}---{x.task3 ? 'done' : 'notdone'}---{x.task4 ? 'done' : 'notdone'}---{x.task5 ? 'done' : 'notdone'}---{x.link1}---{x.link2}
 
-                  <p>
-                    <strong>Task 1:</strong> {x.task1 ? 'done' : 'notdone'}
-                  </p>
-                  <p>
-                    <strong>Task 2:</strong> {x.task2 ? 'done' : 'notdone'}
-                  </p>
-                  <p>
-                    <strong>Task 3:</strong> {x.task3 ? 'done' : 'notdone'}
-                  </p>
-                  <p>
-                    <strong>Task 4:</strong> {x.task4 ? 'done' : 'notdone'}
-                  </p>
-                  <p>
-                    <strong>Task 5:</strong> {x.task5 ? 'done' : 'notdone'}
-                  </p>
-                  <p>
-                    <strong>Task 6:</strong> {x.task6 ? 'done' : 'notdone'}
-                  </p>
-                </div>
-              ))}
-          </div>
+                    </p>
+                ))}
+            </div>
+            <button onClick={handleGoHome}>GO BACK TO HOME</button>
         </div>
-        <button className="bg-blue-500 text-white py-2 px-4 rounded">
-          <Link to="/">Go to Homepage</Link>
-        </button>
-      </div>
-    </div>
-  )
+    )
 }
