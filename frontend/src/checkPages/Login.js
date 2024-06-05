@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import bgImage from '../assets/background.svg'
-import background from '../assets/background1.jpg'
 
 const Login = ({ setUser }) => {
   const navigate = useNavigate()
@@ -34,11 +33,11 @@ const Login = ({ setUser }) => {
       )
       const user = response.data // Assuming the server returns the user object
       setUser(user)
-      setMessage(response.data.message)
+      // setMessage(response.data.message)
       toast.success('Login successful')
       navigate('/')
     } catch (error) {
-      setMessage(error.response.data.error)
+      // setMessage(error.response.data.error)
       toast.error(error.response.data.error)
     }
   }

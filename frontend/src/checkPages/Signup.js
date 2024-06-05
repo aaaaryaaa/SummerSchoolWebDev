@@ -33,7 +33,7 @@ const Signup = ({ setUser }) => {
       toast.success(response.data.message)
 
       // Initializing all weeks db
-      const res1 = await fetch('http://localhost:3000/api/progress/week1', {
+      const res1 = await fetch('http://localhost:4000/api/progress/week1', {
         method: 'POST',
         body: JSON.stringify({
           _id: formData.phone_number,
@@ -54,7 +54,7 @@ const Signup = ({ setUser }) => {
 
       const json1 = await res1.json()
 
-      const res2 = await fetch('http://localhost:3000/api/progress/week2', {
+      const res2 = await fetch('http://localhost:4000/api/progress/week2', {
         method: 'POST',
         body: JSON.stringify({
           _id: formData.phone_number,
@@ -74,7 +74,7 @@ const Signup = ({ setUser }) => {
 
       const json2 = await res2.json()
 
-      const res3 = await fetch('http://localhost:3000/api/progress/week3', {
+      const res3 = await fetch('http://localhost:4000/api/progress/week3', {
         method: 'POST',
         body: JSON.stringify({
           _id: formData.phone_number,
@@ -93,7 +93,7 @@ const Signup = ({ setUser }) => {
 
       const json3 = await res3.json()
 
-      const res4 = await fetch('http://localhost:3000/api/progress/week4', {
+      const res4 = await fetch('http://localhost:4000/api/progress/week4', {
         method: 'POST',
         body: JSON.stringify({
           _id: formData.phone_number,

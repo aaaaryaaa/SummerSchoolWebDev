@@ -16,7 +16,7 @@ export default function Week1({ user }) {
   const [linktwo, setLinkTwo] = useState()
 
   const fetchWeek = async () => {
-    const response = await fetch('http://localhost:3000/api/progress/week1')
+    const response = await fetch('http://localhost:4000/api/progress/week1')
     const json = await response.json()
 
     if (response.ok) {
@@ -27,7 +27,7 @@ export default function Week1({ user }) {
   const fetchRecord = async () => {
     // console.log(user.user.phone_number)
     const response = await fetch(
-      'http://localhost:3000/api/progress/week1/' + user.user.phone_number
+      'http://localhost:4000/api/progress/week1/' + user.user.phone_number
     )
     const json = await response.json()
 
@@ -66,7 +66,7 @@ export default function Week1({ user }) {
     const task = { task1, task2, task3, task4, task5, task6, link1, link2 }
 
     const response = await fetch(
-      'http://localhost:3000/api/progress/week1/' + user.user.phone_number,
+      'http://localhost:4000/api/progress/week1/' + user.user.phone_number,
       {
         method: 'PATCH',
         body: JSON.stringify(task),
