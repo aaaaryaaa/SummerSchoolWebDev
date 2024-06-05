@@ -31,6 +31,85 @@ const Signup = ({ setUser }) => {
       )
       setMessage(response.data.message)
       toast.success(response.data.message)
+
+      // Initializing all weeks db
+      const res1 = await fetch('http://localhost:3000/api/progress/week1', {
+        method: 'POST',
+        body: JSON.stringify({
+          _id: formData.phone_number,
+          name: formData.name,
+          task1: false,
+          task2: false,
+          task3: false,
+          task4: false,
+          task5: false,
+          task6: false,
+          link1: "",
+          link2: "",
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const json1 = await res1.json()
+
+      const res2 = await fetch('http://localhost:3000/api/progress/week2', {
+        method: 'POST',
+        body: JSON.stringify({
+          _id: formData.phone_number,
+          name: formData.name,
+          task1: false,
+          task2: false,
+          task3: false,
+          task4: false,
+          task5: false,
+          link1: "",
+          link2: "",
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const json2 = await res2.json()
+
+      const res3 = await fetch('http://localhost:3000/api/progress/week3', {
+        method: 'POST',
+        body: JSON.stringify({
+          _id: formData.phone_number,
+          name: formData.name,
+          task1: false,
+          task2: false,
+          task3: false,
+          task4: false,
+          link1: "",
+          link2: "",
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const json3 = await res3.json()
+
+      const res4 = await fetch('http://localhost:3000/api/progress/week4', {
+        method: 'POST',
+        body: JSON.stringify({
+          _id: formData.phone_number,
+          name: formData.name,
+          task1: false,
+          task2: false,
+          link1: "",
+          link2: "",
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const json4 = await res4.json()
+
       navigate('/')
 
       // You can set the user state here if needed
