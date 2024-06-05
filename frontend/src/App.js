@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LandingPage from "./LandingPage";
 import Navbar from "./Navbar";
 import ErrorPage from "./checkPages/ErrorPage";
-import Homepage from "./checkPages/Homepage";
 import Login from "./checkPages/Login";
 import Signup from "./checkPages/Signup";
-import LandingPage from "./LandingPage";
 import Week1 from "./checkPages/Week1";
 import Week2 from "./checkPages/Week2";
 import Week3 from "./checkPages/Week3";
@@ -33,11 +32,7 @@ function App() {
       <Router>
         <Navbar user={user} setUser={setUser} />
         <Routes>
-          <Route path="/l" element={<LandingPage />} />
-          <Route
-            path="/home"
-            element={<Homepage user={user} setUser={setUser} />}
-          />
+          <Route path="/home" element={<LandingPage user={user} />} />
           <Route
             path="/login"
             element={<Login user={user} setUser={setUser} />}

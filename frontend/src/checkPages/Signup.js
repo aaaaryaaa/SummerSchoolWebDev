@@ -110,7 +110,7 @@ const Signup = ({ setUser }) => {
 
       const json4 = await res4.json()
 
-      navigate('/')
+      navigate('/home')
 
       // You can set the user state here if needed
       // setUser(response.data.user);

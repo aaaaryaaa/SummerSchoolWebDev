@@ -105,7 +105,7 @@ export default function Week2({ user }) {
 
     return (
         <div>
-            <div>
+            <div className='mt-20'>
                 <h1>WEEK 2</h1>
                 <h3>DID U FINISH?</h3>
                 <div>

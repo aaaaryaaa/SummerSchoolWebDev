@@ -35,7 +35,7 @@ const Login = ({ setUser }) => {
       setUser(user)
       // setMessage(response.data.message)
       toast.success('Login successful')
-      navigate('/')
+      navigate('/home')
     } catch (error) {
       // setMessage(error.response.data.error)
       toast.error(error.response.data.error)

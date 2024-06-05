@@ -2,30 +2,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Homepage = ({ user, setUser }) => {
+const Homepage = ({ user }) => {
   const navigate = useNavigate();
-  //console.log(user.user.name);
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
-    navigate("/");
-  };
-
-  const handleWeek1 = () => {
-    navigate("/week1")
-  }
-
-  const handleWeek2 = () => {
-    navigate("/week2")
-  }
-
-  const handleWeek3 = () => {
-    navigate("/week3")
-  }
-
-  const handleWeek4 = () => {
-    navigate("/week4")
-  }
+  console.log(user.user.name);
 
   return (
     <div>
