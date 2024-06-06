@@ -53,13 +53,13 @@ const Signup = ({ setUser }) => {
           backgroundImage: `url(${background})`,
         }}
       ></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 rounded-md p-8 w-2/5 h-2/3">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 rounded-md p-8 w-full h-auto md:w-4/5 md:h-3/4 lg:w-2/3 lg:h-3/4 xl:w-1/2 xl:h-3/4 2xl:p-8 2xl:w-2/5 2xl:h-2/3">
         <h2 className="text-2xl font-bold text-center mb-6 text-white text-[43.89px] font-['Archivo'] leading-[65.83px]">
           Signup
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4  flex flex-row items-center">
-            <div className="text-white w-52 text-[30.89px] font-normal font-['Ruda'] leading-[65.83px] px-6 ml-8">
+          <div className="mb-4  flex flex-col sm:flex-row items-center">
+            <div className="text-white sm:w-52 text-[1.5rem] sm:text-[2rem] lg:text-[2rem] font-normal font-['Ruda'] leading-[2rem] sm:leading-[4rem] md:px-6 md:ml-4 lg:ml-10 2xl:px-6 ">
               Phone No :
             </div>
             <input
@@ -71,8 +71,8 @@ const Signup = ({ setUser }) => {
               className="input input-ghost w-full max-w-xs border-solid border-b-2 border-b-gray-300 px-6"
             />
           </div>
-          <div className="mb-4 flex flex-row items-center">
-            <div className="text-white w-52 text-[30.89px] font-normal font-['Ruda'] leading-[65.83px] px-6 ml-8">
+          <div className="mb-4 flex flex-col sm:flex-row items-center">
+            <div className="text-white sm:w-52 text-[1.5rem] sm:text-[2rem] lg:text-[2rem] font-normal font-['Ruda'] leading-[2rem] sm:leading-[4rem] md:px-6 md:ml-4 lg:ml-10 2xl:px-6">
               Password :
             </div>
             <input
@@ -84,9 +84,9 @@ const Signup = ({ setUser }) => {
               className="input input-ghost w-full max-w-xs border-solid border-b-2 border-b-gray-300 px-6"
             />
           </div>
-          <div className="mb-4 flex flex-row items-center">
-            <div className="text-white w-52 text-[30.89px] font-normal font-['Ruda'] leading-[65.83px] px-6 ml-8">
-              Name :
+          <div className="mb-4 flex flex-col sm:flex-row items-center">
+            <div className="text-white sm:w-52 text-[1.5rem] sm:text-[2rem] lg:text-[2rem] font-normal font-['Ruda'] leading-[2rem] sm:leading-[4rem] md:px-6 md:ml-4 lg:ml-10 2xl:px-6">
+              Full Name :
             </div>
             <input
               type="text"
@@ -97,7 +97,7 @@ const Signup = ({ setUser }) => {
               className="input input-ghost w-full max-w-xs border-solid border-b-2 border-b-gray-300 px-6"
             />
           </div>
-          <button className="w-[150px] h-[44px] bg-amber-300 rounded-[35px] shadow border border-rose-50 ml-56 mt-6 text-black text-[25.89px] font-bold font-['Archivo']">
+          <button className="w-full sm:w-[150px] h-[44px] bg-amber-300 rounded-[35px] shadow border border-rose-50 mt-6 text-black text-[1.5rem] font-bold font-['Archivo'] lg:ml-60 lg:mt-5 xl:ml-64 md:ml-52">
             Signup
           </button>
         </form>
