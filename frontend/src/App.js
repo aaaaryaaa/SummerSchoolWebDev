@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -8,15 +7,22 @@ import Navbar from "./Navbar";
 import ErrorPage from "./checkPages/ErrorPage";
 import Login from "./checkPages/Login";
 import Signup from "./checkPages/Signup";
-import Week1 from "./checkPages/Week1";
-import Week2 from "./checkPages/Week2";
-import Week3 from "./checkPages/Week3";
-import Week4 from "./checkPages/Week4";
+import Homepage from "./checkPages/Homepage";
+import Dsa from "./checkPages/Dsa";
+import AIML from "./checkPages/AIML";
+import WebDev from "./checkPages/WebDev";
+import Appdev from "./checkPages/Appdev";
+import Design from "./checkPages/Design";
+import Unselected from "./checkPages/Unselected";
 
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
+  });
+  const [selectedDomains, setSelectedDomains] = useState(() => {
+    const savedDomains = localStorage.getItem("selectedDomains");
+    return savedDomains ? JSON.parse(savedDomains) : [];
   });
 
   useEffect(() => {
@@ -27,21 +33,83 @@ function App() {
     }
   }, [user]);
 
+  useEffect(() => {
+    if (selectedDomains.length > 0) {
+      localStorage.setItem("selectedDomains", JSON.stringify(selectedDomains));
+    } else {
+      localStorage.removeItem("selectedDomains");
+    }
+  }, [selectedDomains]);
+  const checkDomainAccess = (domain) => {
+    if (!Array.isArray(selectedDomains) || selectedDomains === undefined) {
+      return false; // or handle this case as needed
+    }
+    return selectedDomains.includes(domain);
+  };
+
   return (
     <div>
       <Router>
-        <Navbar user={user} setUser={setUser} />
+        <Navbar
+          user={user}
+          setUser={setUser}
+          selectedDomains={selectedDomains}
+        />
         <Routes>
           <Route path="/home" element={<LandingPage user={user} />} />
           <Route
             path="/login"
-            element={<Login user={user} setUser={setUser} />}
+            element={
+              <Login
+                setUser={setUser}
+                setSelectedDomains={setSelectedDomains}
+              />
+            }
           />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route path="/week1" element={<Week1 user={user} />} />
-          <Route path="/week2" element={<Week2 user={user} />} />
-          <Route path="/week3" element={<Week3 user={user} />} />
-          <Route path="/week4" element={<Week4 user={user} />} />
+          <Route path="/home" element={<Homepage user={user} />} />
+          <Route
+            path="/dsa"
+            element={
+              checkDomainAccess("DSA") ? <Dsa user={user} /> : <Unselected />
+            }
+          />
+          <Route
+            path="/aiml"
+            element={
+              checkDomainAccess("AI-ML") ? <AIML user={user} /> : <Unselected />
+            }
+          />
+          <Route
+            path="/webdev"
+            element={
+              checkDomainAccess("Web Development") ? (
+                <WebDev user={user} />
+              ) : (
+                <Unselected />
+              )
+            }
+          />
+          <Route
+            path="/appdev"
+            element={
+              checkDomainAccess("App Development") ? (
+                <Appdev user={user} />
+              ) : (
+                <Unselected />
+              )
+            }
+          />
+          <Route
+            path="/design"
+            element={
+              checkDomainAccess("Design") ? (
+                <Design user={user} />
+              ) : (
+                <Unselected />
+              )
+            }
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
