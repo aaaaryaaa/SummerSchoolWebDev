@@ -7,48 +7,46 @@ const Enrollment = require("../models/Enrollment");
 
 // Signup route
 router.post("/signup", async (req, res) => {
-  const { phone_number, password, name } = req.body;
+  const { phone_number, password, name, domains } = req.body;
 
-  // Validate request body
-  if (!phone_number || !password || !name) {
+  if (!phone_number || !password || !name || !domains) {
+    return res.status(400).json({ error: "Please enter all fields" });
+  }
+
+  if (domains.length > 3) {
     return res
       .status(400)
-      .json({ error: "phone_number and password are required" });
+      .json({ error: "You can select up to 3 domains only" });
   }
 
   try {
-    // Check if the phone_number already exists
-    const existingUser = await User.findOne({ phone_number });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ error: "User with this phone_number already exists" });
+    const user = await User.findOne({ phone_number });
+
+    if (user) {
+      return res.status(400).json({ error: "User already exists" });
     }
 
-    
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Hash the password before storing it in the database
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user record
     const newUser = new User({
       phone_number,
       password: hashedPassword,
-      name
-   
+      name,
+      domains, // Added this line
     });
 
-    // Save the user record to the database
     await newUser.save();
 
-    // User successfully signed up
-    res.status(201).json({ message: "User signed up successfully" });
+    res
+      .status(201)
+      .json({ message: "User registered successfully", user: newUser });
   } catch (error) {
-    // Handle any errors
-    console.error("Error during sign up:", error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 });
+
 
 
 // Login route
