@@ -1,46 +1,46 @@
 // src/components/Login.js
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import bgImage from '../assets/background.svg'
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import bgImage from "../assets/background.svg";
 
-const Login = ({ setUser }) => {
-  const navigate = useNavigate()
+const Login = ({ setUser, setSelectedDomains }) => {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    phone_number: '',
-    password: '',
-  })
-  const [message, setMessage] = useState('')
+    phone_number: "",
+    password: "",
+  });
+
   const handleGoSignup = () => {
-    navigate('/signup')
-  }
+    navigate("/signup");
+  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/auth/login',
+        "http://localhost:4000/api/auth/login",
         formData
-      )
-      const user = response.data // Assuming the server returns the user object
-      setUser(user)
-      // setMessage(response.data.message)
-      toast.success('Login successful')
-      navigate('/home')
+      );
+      const user = response.data.user; // Assuming the server returns the user object with domains
+      setUser(user);
+      setSelectedDomains(user.domains); // Assuming the user object contains selected domains
+      toast.success("Login successful");
+      navigate("/home");
     } catch (error) {
-      // setMessage(error.response.data.error)
-      toast.error(error.response.data.error)
+      toast.error(error.response.data.error);
     }
-  }
+  };
 
   return (
     <div className="relative h-screen">
@@ -81,23 +81,14 @@ const Login = ({ setUser }) => {
               className="input input-ghost w-full max-w-xs border-solid border-b-2 border-b-gray-300 pl-6 pr-6"
             />
           </div>
-          {/* <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Login
-          </button> */}
           <button className="w-full sm:w-[150px] h-[44px] bg-amber-300 rounded-[35px] shadow border border-rose-50 mt-6 text-black text-[1.5rem] font-bold font-['Archivo'] lg:ml-52 lg:mt-5 xl:ml-64 md:ml-36">
             Login
           </button>
         </form>
-        {/* {message && (
-          <p className="mt-4 underline text-white ml-[245px]">{message}</p>
-        )} */}
         <div className="mt-6 text-center text-white">
-          Don't have an account?{' |   '}
+          Don't have an account?{" |   "}
           <button
-            type="submit"
+            type="button"
             onClick={handleGoSignup}
             className="text-blue-400 hover:underline"
           >
@@ -106,9 +97,7 @@ const Login = ({ setUser }) => {
         </div>
       </div>
     </div>
-    // </div>
-    // </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
