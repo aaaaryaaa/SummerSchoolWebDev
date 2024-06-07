@@ -16,129 +16,56 @@ const Signup = ({ setUser }) => {
   });
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === "checkbox") {
-      let updatedDomains = [...formData.domains];
-      if (checked) {
-        if (updatedDomains.length < 3) {
-          updatedDomains.push(value);
-        } else {
-          toast.error("You can select up to 3 domains only");
-        }
-      } else {
-        updatedDomains = updatedDomains.filter((domain) => domain !== value);
-      }
-      setFormData({
-        ...formData,
-        domains: updatedDomains,
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    }
-  };
+ const handleChange = (e) => {
+   const { name, value, type, checked } = e.target;
+   if (type === "checkbox") {
+     let updatedDomains = [...formData.domains];
+     if (checked) {
+       if (updatedDomains.length < 3) {
+         updatedDomains.push(value);
+       } else {
+         toast.error("You can select up to 3 domains only");
+       }
+     } else {
+       updatedDomains = updatedDomains.filter((domain) => domain !== value);
+     }
+     setFormData({
+       ...formData,
+       domains: updatedDomains,
+     });
+   } else {
+     setFormData({
+       ...formData,
+       [name]: value,
+     });
+   }
+ };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/signup",
-        formData
-      );
-      console.log(formData);
-      setMessage(response.data.message);
-      toast.success(response.data.message);
 
-      // Initializing all weeks db
-      const res1 = await fetch("http://localhost:4000/api/progress/week1", {
-        method: "POST",
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-          task6: false,
-          link1: "",
-          link2: "",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-      const json1 = await res1.json();
+   if (formData.domains.length < 1 || formData.domains.length > 3) {
+     toast.error("Please select between 1 and 3 domains");
+     return;
+   }
 
-      const res2 = await fetch("http://localhost:4000/api/progress/week2", {
-        method: "POST",
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-          link1: "",
-          link2: "",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+   try {
+     const response = await axios.post(
+       "http://localhost:4000/api/auth/signup",
+       formData
+     );
+     console.log(formData);
+     setMessage(response.data.message);
+     toast.success(response.data.message);
 
-      const json2 = await res2.json();
+     navigate("/home");
+   } catch (error) {
+     setMessage(error.response.data.error);
+     toast.error(error.response.data.error);
+   }
+ };
 
-      const res3 = await fetch("http://localhost:4000/api/progress/week3", {
-        method: "POST",
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          link1: "",
-          link2: "",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const json3 = await res3.json();
-
-      const res4 = await fetch("http://localhost:4000/api/progress/week4", {
-        method: "POST",
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          link1: "",
-          link2: "",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const json4 = await res4.json();
-
-      navigate("/home");
-
-      // You can set the user state here if needed
-      // setUser(response.data.user);
-    } catch (error) {
-      setMessage(error.response.data.error);
-      toast.error(error.response.data.error);
-    }
-  };
 
   const handleGoLogin = () => {
     navigate("/login");
