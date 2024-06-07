@@ -1,50 +1,86 @@
 // src/components/LandingPage.js
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import backgroundImage from "./images/Navigation+hero part1.svg";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import backgroundImage from './images/Navigation+hero part1.svg'
 
 const LandingPage = ({ user }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSignup = () => {
-    navigate("/signup");
-  };
+    navigate('/signup')
+  }
 
   const handleLogin = () => {
-    navigate("/login");
-  };
+    navigate('/login')
+  }
 
+  const handleWeekNavigation = (domain) => {
+    navigate(`/${domain}`)
+  }
   return (
     <div className="">
       {/* section1 */}
       <div className="flex justify-center items-center h-screen relative">
         <img
           src={backgroundImage}
-          style={{ width: "100%", height: "110%", objectFit: "cover" }}
+          style={{ width: '100%', height: '110%', objectFit: 'cover' }}
           alt="background"
         />
         <h1 className="absolute text-7xl font-bold text-white pb-32">
-          TRACK YOUR PROGRESS NOW{" "}
+          TRACK YOUR PROGRESS NOW{' '}
         </h1>
         <div className="absolute inset-0 flex justify-center items-center">
           {user ? (
             <div></div>
           ) : (
             <div className="flex flex-row justify-center items-center space-x-4 mt-60">
+              <button
+                onClick={handleSignup}
+                className="px-6 py-3 bg-yellow-500 text-white rounded shadow-2xl hover:bg-green-700 transition duration-300 "
+              >
+                Signup
+              </button>
+              <button
+                onClick={handleLogin}
+                className="px-6 py-3 bg-yellow-500 text-white rounded hover:bg-blue-600 transition duration-300"
+              >
+                Login
+              </button>
+            </div>
+          )}
+          <div className="flex flex-col space-y-4 mt-20">
             <button
-              onClick={handleSignup}
-              className="px-6 py-3 bg-yellow-500 text-white rounded shadow-2xl hover:bg-green-700 transition duration-300 "
+              onClick={() => handleWeekNavigation('webdev')}
+              style={{ position: 'relative', zIndex: 10 }}
+              className="mt-20"
             >
-              Signup
+              Web Dev
             </button>
             <button
-              onClick={handleLogin}
-              className="px-6 py-3 bg-yellow-500 text-white rounded hover:bg-blue-600 transition duration-300"
+              onClick={() => handleWeekNavigation('appdev')}
+              style={{ position: 'relative', zIndex: 10 }}
             >
-              Login
+              App Dev
+            </button>
+            <button
+              onClick={() => handleWeekNavigation('aiml')}
+              style={{ position: 'relative', zIndex: 10 }}
+            >
+              AIML
+            </button>
+            <button
+              onClick={() => handleWeekNavigation('dsa')}
+              style={{ position: 'relative', zIndex: 10 }}
+            >
+              DSA
+            </button>
+            <button
+              onClick={() => handleWeekNavigation('design')}
+              style={{ position: 'relative', zIndex: 10 }}
+            >
+              Design
             </button>
           </div>
-          )}
         </div>
       </div>
       {/* Separator */}
@@ -66,7 +102,7 @@ const LandingPage = ({ user }) => {
         </div>
       </div> */}
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage

@@ -12,110 +12,55 @@ const Signup = ({ setUser }) => {
     phone_number: '',
     password: '',
     name: '',
+    domains: [],
   })
-  const [message, setMessage] = useState('')
+  // const [message, setMessage] = useState('')
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    const { name, value, type, checked } = e.target
+    if (type === 'checkbox') {
+      let updatedDomains = [...formData.domains]
+      if (checked) {
+        if (updatedDomains.length < 3) {
+          updatedDomains.push(value)
+        } else {
+          toast.error('You can select up to 3 domains only')
+        }
+      } else {
+        updatedDomains = updatedDomains.filter((domain) => domain !== value)
+      }
+      setFormData({
+        ...formData,
+        domains: updatedDomains,
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      })
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (formData.domains.length < 1 || formData.domains.length > 3) {
+      toast.error('Please select between 1 and 3 domains')
+      return
+    }
+
     try {
       const response = await axios.post(
         'http://localhost:4000/api/auth/signup',
         formData
       )
-      setMessage(response.data.message)
+      console.log(formData)
+      // setMessage(response.data.message)
       toast.success(response.data.message)
 
-      // Initializing all weeks db
-      const res1 = await fetch('http://localhost:4000/api/progress/week1', {
-        method: 'POST',
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-          task6: false,
-          link1: '',
-          link2: '',
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      const json1 = await res1.json()
-
-      const res2 = await fetch('http://localhost:4000/api/progress/week2', {
-        method: 'POST',
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-          link1: '',
-          link2: '',
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      const json2 = await res2.json()
-
-      const res3 = await fetch('http://localhost:4000/api/progress/week3', {
-        method: 'POST',
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          link1: '',
-          link2: '',
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      const json3 = await res3.json()
-
-      const res4 = await fetch('http://localhost:4000/api/progress/week4', {
-        method: 'POST',
-        body: JSON.stringify({
-          _id: formData.phone_number,
-          name: formData.name,
-          task1: false,
-          task2: false,
-          link1: '',
-          link2: '',
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      const json4 = await res4.json()
-
       navigate('/home')
-
-      // You can set the user state here if needed
-      // setUser(response.data.user);
     } catch (error) {
-      setMessage(error.response.data.error)
+      // setMessage(error.response.data.error)
       toast.error(error.response.data.error)
     }
   }
@@ -176,15 +121,67 @@ const Signup = ({ setUser }) => {
               className="input input-ghost w-full max-w-xs border-solid border-b-2 border-b-gray-300 px-6"
             />
           </div>
+          <div className="mb-4 flex flex-col text-white text-[30.89px] font-normal font-['Ruda'] leading-[65.83px] px-6">
+            Domains:
+            <div className="ml-4">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  name="domains"
+                  value="DSA"
+                  checked={formData.domains.includes('DSA')}
+                  onChange={handleChange}
+                />
+                <span>DSA</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  name="domains"
+                  value="AI-ML"
+                  checked={formData.domains.includes('AI-ML')}
+                  onChange={handleChange}
+                />
+                <span>AI-ML</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  name="domains"
+                  value="Web Development"
+                  checked={formData.domains.includes('Web Development')}
+                  onChange={handleChange}
+                />
+                <span>Web Development</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  name="domains"
+                  value="App Development"
+                  checked={formData.domains.includes('App Development')}
+                  onChange={handleChange}
+                />
+                <span>App Development</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  name="domains"
+                  value="Design"
+                  checked={formData.domains.includes('Design')}
+                  onChange={handleChange}
+                />
+                <span>Design</span>
+              </label>
+            </div>
+          </div>
           <button className="w-full sm:w-[150px] h-[44px] bg-amber-300 rounded-[35px] shadow border border-rose-50 mt-6 text-black text-[1.5rem] font-bold font-['Archivo'] lg:ml-60 lg:mt-5 xl:ml-64 md:ml-52">
             Signup
           </button>
         </form>
-        {/* {message && (
-          <p className="mt-4 underline text-white text-center">{message}</p>
-        )} */}
         <div className="mt-6 text-center text-white">
-          Already have an account?{'   |     '}
+          Already have an account?{' '}
           <button
             onClick={handleGoLogin}
             className="text-blue-400 hover:underline"
