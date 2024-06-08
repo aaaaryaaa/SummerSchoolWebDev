@@ -47,8 +47,6 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-
-
 // Login route
 router.post("/login", async (req, res) => {
   const { phone_number, password } = req.body;
@@ -69,15 +67,17 @@ router.post("/login", async (req, res) => {
     }
 
     // If login is successful, send user information in the response
-    res
-      .status(200)
-      .json({ user: { name: user.name, phone_number: user.phone_number } });
-    
+    res.status(200).json({
+      user: {
+        name: user.name,
+        phone_number: user.phone_number,
+        domains: user.domains, // Include domains field in the response
+      },
+    });
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
 
 module.exports = router;
