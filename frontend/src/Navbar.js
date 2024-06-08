@@ -10,31 +10,35 @@ export default function Navbar({ user, setUser }) {
     const handleLogout = () => {
         localStorage.removeItem("token");
         setUser(null);
-        navigate("/home");
+        navigate("/");
     };
 
     const handleNavOpen = () => {
         setNavOpen(!navOpen)
     }
 
-    const handleWeek1 = () => {
-        navigate("/week1")
+    const handleWebDev = () => {
+        navigate("/webdev")
     }
 
-    const handleWeek2 = () => {
-        navigate("/week2")
+    const handleAppDev = () => {
+        navigate("/appdev")
     }
 
-    const handleWeek3 = () => {
-        navigate("/week3")
+    const handleAIML = () => {
+        navigate("/aiml")
     }
 
-    const handleWeek4 = () => {
-        navigate("/week4")
+    const handleDSA = () => {
+        navigate("/dsa")
+    }
+
+    const handleDesign = () => {
+        navigate("/design")
     }
 
     const handleGoHome = () => {
-        navigate("/home");
+        navigate("/");
     }
 
     return (
@@ -43,9 +47,9 @@ export default function Navbar({ user, setUser }) {
         <div className=''>
 
             {user ? (
-                <nav class=" border-gray-200 dark:bg-transaprent absolute inset-0 z-10">
+                <nav class=" border-gray-200 dark:bg-transaprent fixed z-10 inset-0 h-24"> {/*absolute inset-0 z-10*/}
                     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                        <a href="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                             <img src={istemask} class="h-8" alt="Flowbite Logo" />
                             <span class="self-center lg:text-2xl text-lg font-semibold whitespace-nowrap dark:text-white">ISTE TrackSpace</span>
                         </a>
@@ -64,16 +68,19 @@ export default function Navbar({ user, setUser }) {
                                     <button onClick={handleGoHome} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</button>
                                 </li>
                                 <li>
-                                    <button onClick={handleWeek1} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 1</button>
+                                    <button onClick={handleWebDev} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Web Dev</button>
                                 </li>
                                 <li>
-                                    <button onClick={handleWeek2} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 2</button>
+                                    <button onClick={handleAppDev} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">App Dev</button>
                                 </li>
                                 <li>
-                                    <button onClick={handleWeek3} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 3</button>
+                                    <button onClick={handleAIML} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">AIML</button>
                                 </li>
                                 <li>
-                                    <button onClick={handleWeek4} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 4</button>
+                                    <button onClick={handleDSA} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">DSA</button>
+                                </li>
+                                <li>
+                                    <button onClick={handleDesign} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Design</button>
                                 </li>
                             </ul>
                         </div>
@@ -85,16 +92,19 @@ export default function Navbar({ user, setUser }) {
                                             <button onClick={handleGoHome} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</button>
                                         </li>
                                         <li>
-                                            <button onClick={handleWeek1} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 1</button>
+                                            <button onClick={handleWebDev} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Web Dev</button>
                                         </li>
                                         <li>
-                                            <button onClick={handleWeek2} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 2</button>
+                                            <button onClick={handleAppDev} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">App Dev</button>
                                         </li>
                                         <li>
-                                            <button onClick={handleWeek3} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 3</button>
+                                            <button onClick={handleAIML} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">AIML</button>
                                         </li>
                                         <li>
-                                            <button onClick={handleWeek4} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Week 4</button>
+                                            <button onClick={handleDSA} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">DSA</button>
+                                        </li>
+                                        <li>
+                                            <button onClick={handleDesign} class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Design</button>
                                         </li>
                                     </ul>
                                 </div>

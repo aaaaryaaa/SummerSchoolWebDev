@@ -4,38 +4,37 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LandingPage from "./LandingPage";
 import Navbar from "./Navbar";
+import AIML from "./checkPages/AIML";
+import Appdev from "./checkPages/Appdev";
+import Design from "./checkPages/Design";
+import Dsa from "./checkPages/Dsa";
 import ErrorPage from "./checkPages/ErrorPage";
 import Login from "./checkPages/Login";
 import Signup from "./checkPages/Signup";
-import Homepage from "./checkPages/Homepage";
-import Dsa from "./checkPages/Dsa";
-import AIML from "./checkPages/AIML";
-import WebDev from "./checkPages/WebDev";
-import Appdev from "./checkPages/Appdev";
-import Design from "./checkPages/Design";
 import Unselected from "./checkPages/Unselected";
+import WebDev from "./checkPages/WebDev";
+import AIMLWeek1 from "./checkPages/domain/AIMLWeek1";
+import AIMLWeek2 from "./checkPages/domain/AIMLWeek2";
+import AIMLWeek3 from "./checkPages/domain/AIMLWeek3";
+import AIMLWeek4 from "./checkPages/domain/AIMLWeek4";
+import AppWeek1 from "./checkPages/domain/AppWeek1";
+import AppWeek2 from "./checkPages/domain/AppWeek2";
+import AppWeek3 from "./checkPages/domain/AppWeek3";
+import AppWeek4 from "./checkPages/domain/AppWeek4";
+import DesignWeek1 from "./checkPages/domain/DesignWeek1";
+import DesignWeek2 from "./checkPages/domain/DesignWeek2";
+import DesignWeek3 from "./checkPages/domain/DesignWeek3";
+import DesignWeek4 from "./checkPages/domain/DesignWeek4";
 import DsaWeek1 from "./checkPages/domain/DsaWeek1";
 import DsaWeek2 from "./checkPages/domain/DsaWeek2";
 import DsaWeek3 from "./checkPages/domain/DsaWeek3";
 import DsaWeek4 from "./checkPages/domain/DsaWeek4";
 import DsaWeek5 from "./checkPages/domain/DsaWeek5";
 import DsaWeek6 from "./checkPages/domain/DsaWeek6";
-import AIMLWeek1 from "./checkPages/domain/AIMLWeek1";
-import AIMLWeek2 from "./checkPages/domain/AIMLWeek2";
-import AIMLWeek3 from "./checkPages/domain/AIMLWeek3";
-import AIMLWeek4 from "./checkPages/domain/AIMLWeek4";
-import DesignWeek1 from "./checkPages/domain/DesignWeek1";
-import DesignWeek2 from "./checkPages/domain/DesignWeek2";
-import DesignWeek3 from "./checkPages/domain/DesignWeek3";
-import DesignWeek4 from "./checkPages/domain/DesignWeek4";
 import WebWeek1 from "./checkPages/domain/WebWeek1";
 import WebWeek2 from "./checkPages/domain/WebWeek2";
 import WebWeek3 from "./checkPages/domain/WebWeek3";
 import WebWeek4 from "./checkPages/domain/WebWeek4";
-import AppWeek1 from "./checkPages/domain/AppWeek1";
-import AppWeek2 from "./checkPages/domain/AppWeek2";
-import AppWeek3 from "./checkPages/domain/AppWeek3";
-import AppWeek4 from "./checkPages/domain/AppWeek4";
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -78,7 +77,7 @@ function App() {
           selectedDomains={selectedDomains}
         />
         <Routes>
-          <Route path="/home" element={<LandingPage user={user} />} />
+          <Route path="/" element={<LandingPage user={user} />} />
           <Route
             path="/login"
             element={
@@ -89,7 +88,7 @@ function App() {
             }
           />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route path="/home" element={<Homepage user={user} />} />
+          {/* <Route path="/home" element={<Homepage user={user} />} /> */}
           <Route
             path="/dsa"
             element={
