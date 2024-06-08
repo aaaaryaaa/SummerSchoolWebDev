@@ -13,14 +13,11 @@ const Login = ({ setUser, setSelectedDomains }) => {
     password: "",
   });
 
-  const handleGoSignup = () => {
-    navigate("/signup");
-  };
-
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -32,14 +29,32 @@ const Login = ({ setUser, setSelectedDomains }) => {
         "http://localhost:4000/api/auth/login",
         formData
       );
-      const user = response.data.user; // Assuming the server returns the user object with domains
+
+      console.log(response.data); // Log the entire response for debugging
+
+      const user = response.data.user; // Assuming the server returns the user object
+      if (!user) {
+        throw new Error("User data is not present in the response");
+      }
+
       setUser(user);
+
+      if (!user.domains) {
+        throw new Error("Domains are not present in the user data");
+      }
+
       setSelectedDomains(user.domains); // Assuming the user object contains selected domains
+
       toast.success("Login successful");
       navigate("/home");
     } catch (error) {
-      toast.error(error.response.data.error);
+      console.error(error); // Log the error for debugging
+      toast.error(error.response?.data?.error || "An error occurred");
     }
+  };
+
+  const handleGoSignup = () => {
+    navigate("/signup");
   };
 
   return (

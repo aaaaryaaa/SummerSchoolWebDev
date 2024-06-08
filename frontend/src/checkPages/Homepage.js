@@ -1,26 +1,34 @@
-// src/checkPages/Homepage.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Homepage = ({ user }) => {
   const navigate = useNavigate();
-  console.log(user.user.name);
+
+  // If user is not defined, navigate to login page
+  if (!user) {
+    navigate("/login");
+    return null; // Render nothing while redirecting
+  }
+
+  const userDomains = user.domains || []; // Ensure domains is an array
 
   return (
     <div>
-      <h1>Homepage</h1>
-      {user ? (
-        <div className="">
-          <h2>Welcome, {user.user.name}</h2>
-          <h1>BIGG TREEE OR SOMETHING</h1>
-        </div>
-      ) : (
-        <div>
-          <h2>Please Login or Signup</h2>
-          <button onClick={() => navigate("/login")}>Login</button>
-          <button onClick={() => navigate("/signup")}>Signup</button>
-        </div>
-      )}
+      <h1>Welcome, {user.name}</h1>
+      <div>
+        {Object.keys(userDomains).map((domain) => (
+          <button
+            key={domain}
+            onClick={() =>
+              navigate(
+                userDomains[domain] ? `/${domain.toLowerCase()}` : "/unselected"
+              )
+            }
+          >
+            {domain}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
