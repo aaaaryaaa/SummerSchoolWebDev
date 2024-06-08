@@ -29,6 +29,8 @@ const DSA1 = require("../models/dsaweek1Model")
 const DSA2 = require("../models/dsaweek2Model")
 const DSA3 = require("../models/dsaweek3Model")
 const DSA4 = require("../models/dsaweek4Model")
+const DSA5 = require("../models/dsaweek5Model")
+const DSA6 = require("../models/dsaweek6Model")
 //Registration
 const Registration = require("../models/registration");
 const mongoose = require("mongoose");
@@ -429,6 +431,38 @@ router.get('/dsaweek4/:id', async (req,res)=> {
   res.status(200).json(record)
 })
 
+router.get('/dsaweek5/:id', async (req,res)=> {
+  const {id} = req.params
+
+  if(!containsOnlyDigits(id)){
+      return res.status(404).json({ error: 'Not valid number' })
+  }
+
+  const record = await DSA5.findById(id)
+
+  if (!record) {
+      return res.status(404).json({ error: 'No such record in dsaweek5' })
+  }
+
+  res.status(200).json(record)
+})
+
+router.get('/dsaweek6/:id', async (req,res)=> {
+  const {id} = req.params
+
+  if(!containsOnlyDigits(id)){
+      return res.status(404).json({ error: 'Not valid number' })
+  }
+
+  const record = await DSA6.findById(id)
+
+  if (!record) {
+      return res.status(404).json({ error: 'No such record in dsaweek6' })
+  }
+
+  res.status(200).json(record)
+})
+
 //all get requests
 //dummies
 router.get("/week1", async (req, res) => {
@@ -571,6 +605,18 @@ router.get("/dsaweek3", async (req, res) => {
 
 router.get("/dsaweek4", async (req, res) => {
   const alltasks = await DSA4.find({}).sort({ createdAt: -1 });
+
+  res.status(200).json(alltasks);
+});
+
+router.get("/dsaweek5", async (req, res) => {
+  const alltasks = await DSA5.find({}).sort({ createdAt: -1 });
+
+  res.status(200).json(alltasks);
+});
+
+router.get("/dsaweek6", async (req, res) => {
+  const alltasks = await DSA6.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(alltasks);
 });
@@ -860,6 +906,28 @@ router.post("/dsaweek4", async (req, res) => {
   try {
     const week4 = await DSA4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
     res.status(200).json(week4);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+router.post("/dsaweek5", async (req, res) => {
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+
+  try {
+    const week5 = await DSA5.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    res.status(200).json(week5);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+router.post("/dsaweek6", async (req, res) => {
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+
+  try {
+    const week6 = await DSA6.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    res.status(200).json(week6);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -1366,6 +1434,48 @@ router.patch("/dsaweek4/:id", async (req, res) => {
 
   if (!record) {
     return res.status(404).json({ error: "No such record for dsaweek4" });
+  }
+
+  res.status(200).json(record);
+});
+
+router.patch("/dsaweek5/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!containsOnlyDigits(id)) {
+    return res.status(404).json({ error: "Not valid number" });
+  }
+
+  const record = await DSA5.findByIdAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
+
+  if (!record) {
+    return res.status(404).json({ error: "No such record for dsaweek5" });
+  }
+
+  res.status(200).json(record);
+});
+
+router.patch("/dsaweek6/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!containsOnlyDigits(id)) {
+    return res.status(404).json({ error: "Not valid number" });
+  }
+
+  const record = await DSA6.findByIdAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
+
+  if (!record) {
+    return res.status(404).json({ error: "No such record for dsaweek6" });
   }
 
   res.status(200).json(record);

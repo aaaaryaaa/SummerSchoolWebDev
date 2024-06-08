@@ -19,7 +19,7 @@ const ErrorPage = () => {
           ></img>
           Meanwhile, you can go back home.
         </p>
-        <Link to="/home" className="btn btn-primary mt-6">
+        <Link to="/" className="btn btn-primary mt-6">
           Go Back Home
         </Link>
       </div>

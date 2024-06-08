@@ -23,7 +23,7 @@ const LandingPage = ({ user }) => {
       <div className="flex justify-center items-center h-screen relative">
         <img
           src={backgroundImage}
-          style={{ width: '100%', height: '110%', objectFit: 'cover' }}
+          style={{ width: '130%', height: '100%', objectFit: 'cover' }}
           alt="background"
         />
         <h1 className="absolute text-7xl font-bold text-white pb-32">
@@ -48,7 +48,8 @@ const LandingPage = ({ user }) => {
               </button>
             </div>
           )}
-          <div className="flex flex-col space-y-4 mt-20">
+          {/* THIS IS DOMAIN BUTTONS NOT REQUIRED ALREADY IN NAVBAR */}
+          {/* <div className="flex flex-col space-y-4 mt-20">
             <button
               onClick={() => handleWeekNavigation('webdev')}
               style={{ position: 'relative', zIndex: 10 }}
@@ -80,7 +81,7 @@ const LandingPage = ({ user }) => {
             >
               Design
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Separator */}

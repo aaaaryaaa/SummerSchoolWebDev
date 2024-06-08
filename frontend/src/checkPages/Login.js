@@ -46,7 +46,7 @@ const Login = ({ setUser, setSelectedDomains }) => {
       setSelectedDomains(user.domains); // Assuming the user object contains selected domains
 
       toast.success("Login successful");
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error(error); // Log the error for debugging
       toast.error(error.response?.data?.error || "An error occurred");
