@@ -1,75 +1,73 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import background from "../assets/background1.jpg";
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import background from '../assets/background1.jpg'
 
 const Signup = ({ setUser }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    phone_number: "",
-    password: "",
-    name: "",
+    phone_number: '',
+    password: '',
+    name: '',
     domains: [],
-  });
-  const [message, setMessage] = useState("");
+  })
+  // const [message, setMessage] = useState('')
 
- const handleChange = (e) => {
-   const { name, value, type, checked } = e.target;
-   if (type === "checkbox") {
-     let updatedDomains = [...formData.domains];
-     if (checked) {
-       if (updatedDomains.length < 3) {
-         updatedDomains.push(value);
-       } else {
-         toast.error("You can select up to 3 domains only");
-       }
-     } else {
-       updatedDomains = updatedDomains.filter((domain) => domain !== value);
-     }
-     setFormData({
-       ...formData,
-       domains: updatedDomains,
-     });
-   } else {
-     setFormData({
-       ...formData,
-       [name]: value,
-     });
-   }
- };
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target
+    if (type === 'checkbox') {
+      let updatedDomains = [...formData.domains]
+      if (checked) {
+        if (updatedDomains.length < 3) {
+          updatedDomains.push(value)
+        } else {
+          toast.error('You can select up to 3 domains only')
+        }
+      } else {
+        updatedDomains = updatedDomains.filter((domain) => domain !== value)
+      }
+      setFormData({
+        ...formData,
+        domains: updatedDomains,
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      })
+    }
+  }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+    if (formData.domains.length < 1 || formData.domains.length > 3) {
+      toast.error('Please select between 1 and 3 domains')
+      return
+    }
 
-   if (formData.domains.length < 1 || formData.domains.length > 3) {
-     toast.error("Please select between 1 and 3 domains");
-     return;
-   }
+    try {
+      const response = await axios.post(
+        'http://localhost:4000/api/auth/signup',
+        formData
+      )
+      console.log(formData)
+      // setMessage(response.data.message)
+      toast.success(response.data.message)
 
-   try {
-     const response = await axios.post(
-       "http://localhost:4000/api/auth/signup",
-       formData
-     );
-     console.log(formData);
-     setMessage(response.data.message);
-     toast.success(response.data.message);
-
-     navigate("/home");
-   } catch (error) {
-     setMessage(error.response.data.error);
-     toast.error(error.response.data.error);
-   }
- };
-
+      navigate('/home')
+    } catch (error) {
+      // setMessage(error.response.data.error)
+      toast.error(error.response.data.error)
+    }
+  }
 
   const handleGoLogin = () => {
-    navigate("/login");
-  };
+    navigate('/login')
+  }
 
   return (
     <div className="relative h-screen">
@@ -131,7 +129,7 @@ const Signup = ({ setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="DSA"
-                  checked={formData.domains.includes("DSA")}
+                  checked={formData.domains.includes('DSA')}
                   onChange={handleChange}
                 />
                 <span>DSA</span>
@@ -141,7 +139,7 @@ const Signup = ({ setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="AI-ML"
-                  checked={formData.domains.includes("AI-ML")}
+                  checked={formData.domains.includes('AI-ML')}
                   onChange={handleChange}
                 />
                 <span>AI-ML</span>
@@ -151,7 +149,7 @@ const Signup = ({ setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="Web Development"
-                  checked={formData.domains.includes("Web Development")}
+                  checked={formData.domains.includes('Web Development')}
                   onChange={handleChange}
                 />
                 <span>Web Development</span>
@@ -161,7 +159,7 @@ const Signup = ({ setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="App Development"
-                  checked={formData.domains.includes("App Development")}
+                  checked={formData.domains.includes('App Development')}
                   onChange={handleChange}
                 />
                 <span>App Development</span>
@@ -171,7 +169,7 @@ const Signup = ({ setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="Design"
-                  checked={formData.domains.includes("Design")}
+                  checked={formData.domains.includes('Design')}
                   onChange={handleChange}
                 />
                 <span>Design</span>
@@ -183,7 +181,7 @@ const Signup = ({ setUser }) => {
           </button>
         </form>
         <div className="mt-6 text-center text-white">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <button
             onClick={handleGoLogin}
             className="text-blue-400 hover:underline"
@@ -194,7 +192,7 @@ const Signup = ({ setUser }) => {
       </div>
       <ToastContainer />
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
