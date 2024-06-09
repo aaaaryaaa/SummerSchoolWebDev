@@ -261,9 +261,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={taskone} onChange={handleCheck1} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide1" href="#hide1" class="hide">Open Task 1</a>
-                        <a id="show1" href="#show1" class="show">Close Task 1</a>
-                        <div class="details">
+                        <a id="hide1" href="#hide1" className="hide">Open Task 1</a>
+                        <a id="show1" href="#show1" className="show">Close Task 1</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                       </div>
@@ -273,9 +273,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={tasktwo} onChange={handleCheck2} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide2" href="#hide2" class="hide">Open Task 2</a>
-                        <a id="show2" href="#show2" class="show">Close Task 2</a>
-                        <div class="details">
+                        <a id="hide2" href="#hide2" className="hide">Open Task 2</a>
+                        <a id="show2" href="#show2" className="show">Close Task 2</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                       </div>
@@ -285,9 +285,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={taskthree} onChange={handleCheck3} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide3" href="#hide3" class="hide">Open Task 3</a>
-                        <a id="show3" href="#show3" class="show">Close Task 3</a>
-                        <div class="details">
+                        <a id="hide3" href="#hide3" className="hide">Open Task 3</a>
+                        <a id="show3" href="#show3" className="show">Close Task 3</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                       </div>
@@ -297,9 +297,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={taskfour} onChange={handleCheck4} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide4" href="#hide4" class="hide">Open Task 4</a>
-                        <a id="show4" href="#show4" class="show">Close Task 4</a>
-                        <div class="details">
+                        <a id="hide4" href="#hide4" className="hide">Open Task 4</a>
+                        <a id="show4" href="#show4" className="show">Close Task 4</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                       </div>
@@ -309,9 +309,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={taskfive} onChange={handleCheck5} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide5" href="#hide5" class="hide">Open Task 5</a>
-                        <a id="show5" href="#show5" class="show">Close Task 5</a>
-                        <div class="details">
+                        <a id="hide5" href="#hide5" className="hide">Open Task 5</a>
+                        <a id="show5" href="#show5" className="show">Close Task 5</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                       </div>
@@ -321,9 +321,9 @@ export default function WebWeek1({ user }) {
                         <input type="checkbox" checked={tasksix} onChange={handleCheck6} className="checkbox checkbox-accent" />
                       </label>
                       <div className='bgfiltercard ml-10 w-full max-w-[30rem]'>
-                        <a id="hide6" href="#hide6" class="hide">Open Task 6</a>
-                        <a id="show6" href="#show6" class="show">Close Task 6</a>
-                        <div class="details">
+                        <a id="hide6" href="#hide6" className="hide">Open Task 6</a>
+                        <a id="show6" href="#show6" className="show">Close Task 6</a>
+                        <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ducimus labore facilis quia nihil explicabo asperiores?
                         </div>
                         <div className='mt-2 grid gap-2'>
