@@ -149,91 +149,146 @@ export default function WebWeek1({ user }) {
         <div>
           {record && (
             <div>
-              {record.name}---{record.task1 ? 'done' : 'notdone'}---{record.task2 ? 'done' : 'notdone'}---{record.task3 ? 'done' : 'notdone'}---{record.task4 ? 'done' : 'notdone'}---{record.task5 ? 'done' : 'notdone'}---{record.task6 ? 'done' : 'notdone'}---{record.link1}---{record.link2}
-
-              <div class="cardContainer">
-                <div class="card flex flex-row justify-center space-x-16">
-                  <div className='flex flex-col space-y-4'>
-                    <p class="city">Name: {record.name}</p>
-                    <p class="city">Phone No: {record._id}</p>
-                  </div>
-                  <div className="radial-progress bg-primary text-primary-content border-4 border-primary" style={{ "--value": calcProgress(record, 6), "--size": "10rem" }} role="progressbar">{calcProgress(record, 6)}</div>
-                  <div class="checkbox-wrapper flex flex-col">
-                    <input style={{ display: 'none' }} checked={taskone} onChange={handleCheck1} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={tasktwo} onChange={handleCheck2} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={taskthree} onChange={handleCheck3} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={taskfour} onChange={handleCheck4} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={taskfive} onChange={handleCheck5} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={tasksix} onChange={handleCheck6} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
               <form onSubmit={handleSubmit}>
-                <input type="checkbox" checked={taskone} onChange={handleCheck1} />task1
-                <input type="checkbox" checked={tasktwo} onChange={handleCheck2} />task2
-                <input type="checkbox" checked={taskthree} onChange={handleCheck3} />task3
-                <input type="checkbox" checked={taskfour} onChange={handleCheck4} />task4
-                <input type="checkbox" checked={taskfive} onChange={handleCheck5} />task5
-                <input type="checkbox" checked={tasksix} onChange={handleCheck6} />task6
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={taskone} onChange={handleCheck1}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={tasktwo} onChange={handleCheck2}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={taskthree} onChange={handleCheck3}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={taskfour} onChange={handleCheck4}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={taskfive} onChange={handleCheck5}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+                <div className='flex w-fit'>
+                  <label className="container">
+                    <input type="checkbox" checked={tasksix} onChange={handleCheck6}  />
+                    <div className="checkmark"></div>
+                  </label>Task1
+                </div>
+
 
 
                 <input type="text" value={linkone} placeholder="Enter Link 1" onChange={(e) => { setLinkOne(e.target.value) }} />
                 <input type="text" value={linktwo} placeholder="Enter Link 2" onChange={(e) => { setLinkTwo(e.target.value) }} />
                 <button>SUBMIT</button>
               </form>
+
+              {/* card design */}
+              <div className="cardContainer">
+                <div className="card flex flex-row justify-center space-x-16">
+                  <div className='flex flex-col space-y-4'>
+                    <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[40rem] font-mono">
+                      <div className="flex justify-between items-center">
+                        <div className="flex space-x-2 text-red-500">
+                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <p className="text-sm">bash</p>
+                      </div>
+                      <div className='flex '>
+                        <div className="mt-4">
+                          <p className="text-[cyan]">$ npm install details</p>
+                          <p className="">Name: {record.name}</p>
+                          <p className="">Phone No: {record._id}</p>
+                          <p className="text-[cyan]">$ npm install links</p>
+                          {record.link1 !== "" ? (<a href={record.link1}><p className="text-white">{record.link1}</p></a>) : (<p>Nothing yet.</p>)}
+                          {record.link2 !== "" ? (<a href={record.link2}><p className="text-white">{record.link2}</p></a>) : (<p>Nothing yet.</p>)}
+                          <p className="text-[cyan]">$</p>
+                        </div>
+                        <div className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]" style={{ "--value": calcProgress(record, 6), "--size": "16rem", "--thickness": "0.75rem" }} role="progressbar">
+                          {/* {calcProgress(record, 6)} */}
+                          <div className="checkbox-wrapper flex flex-col text-[#b9b8c3]">
+                            <input style={{ display: 'none' }} checked={taskone} onChange={handleCheck1} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 1</span>
+                            </label>
+
+                            <input style={{ display: 'none' }} checked={tasktwo} onChange={handleCheck2} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 2</span>
+                            </label>
+
+                            <input style={{ display: 'none' }} checked={taskthree} onChange={handleCheck3} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 3</span>
+                            </label>
+
+                            <input style={{ display: 'none' }} checked={taskfour} onChange={handleCheck4} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 4</span>
+                            </label>
+
+                            <input style={{ display: 'none' }} checked={taskfive} onChange={handleCheck5} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 5</span>
+                            </label>
+
+                            <input style={{ display: 'none' }} checked={tasksix} onChange={handleCheck6} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className='text-lg'>Task 6</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </aside>
+                  </div>
+
+                </div>
+              </div>
+              {/* card design end */}
+
             </div>
           )}
         </div>
@@ -241,12 +296,95 @@ export default function WebWeek1({ user }) {
       <div>
         <h3>EVERYONE'S PROGRESS</h3>
       </div>
-      <div>
+      <div className='grid grid-cols-2 gap-10'>
         {week && week.map((x) => (
-          <p key={x._id}>
-            {x._id}---{x.name}---{x.task1 ? 'done' : 'notdone'}---{x.task2 ? 'done' : 'notdone'}---{x.task3 ? 'done' : 'notdone'}---{x.task4 ? 'done' : 'notdone'}---{x.task5 ? 'done' : 'notdone'}---{x.task6 ? 'done' : 'notdone'}---{x.link1}---{x.link2}
+          <div key={x._id} className='flex flex-col space-y-4'>
+            <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[40rem] font-mono">
+              <div className="flex justify-between items-center">
+                <div className="flex space-x-2 text-red-500">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <p className="text-sm">bash</p>
+              </div>
+              <div className='flex '>
+                <div className="mt-4">
+                  <p className="text-[cyan]">$ npm install details</p>
+                  <p className="">Name: {x.name}</p>
+                  <p className="">Phone No: {x._id}</p>
+                  <p className="text-[cyan]">$ npm install links</p>
+                  {x.link1 !== "" ? (<a href={x.link1}><p className="text-white">{x.link1}</p></a>) : (<p>Nothing yet.</p>)}
+                  {x.link2 !== "" ? (<a href={x.link2}><p className="text-white">{x.link2}</p></a>) : (<p>Nothing yet.</p>)}
+                  <p className="text-[cyan]">$</p>
+                </div>
+                <div className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]" style={{ "--value": calcProgress(x, 6), "--size": "16rem", "--thickness": "0.75rem" }} role="progressbar">
+                  {/* {calcProgress(record, 6)} */}
+                  <div className="checkbox-wrapper flex flex-col text-[#b9b8c3]">
+                    <input style={{ display: 'none' }} checked={x.task1} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 1</span>
+                    </label>
 
-          </p>
+                    <input style={{ display: 'none' }} checked={x.task2} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 2</span>
+                    </label>
+
+                    <input style={{ display: 'none' }} checked={x.task3} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 3</span>
+                    </label>
+
+                    <input style={{ display: 'none' }} checked={x.task4} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 4</span>
+                    </label>
+
+                    <input style={{ display: 'none' }} checked={x.task5} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 5</span>
+                    </label>
+
+                    <input style={{ display: 'none' }} checked={x.task6} disabled={true} type="checkbox" id="cbx" className="inp-cbx" />
+                    <label htmlFor="cbx" className="cbx">
+                      <span>
+                        <svg viewBox="0 0 12 9" height="9px" width="12px">
+                          <polyline points="1 5 4 8 11 1"></polyline>
+                        </svg>
+                      </span>
+                      <span className='text-lg'>Task 6</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         ))}
       </div>
       <button onClick={handleGoHome}>GO BACK TO HOME</button>
