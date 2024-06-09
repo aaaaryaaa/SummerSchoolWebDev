@@ -64,6 +64,7 @@ function App() {
   }, [selectedDomains]);
   const checkDomainAccess = (domain) => {
     if(!user) return false;
+    if(!user.domains) return false;
     const checkArray = Object.keys(user.domains).filter(
       (domain) => user.domains[domain]
     );
