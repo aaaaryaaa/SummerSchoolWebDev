@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import background from "../assets/background1.jpg";
 
-const Signup = ({ setUser }) => {
+const Signup = ({ user, setUser }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -57,24 +57,46 @@ const Signup = ({ setUser }) => {
       domains: selectedDomains,
     };
 
+    let arr = dataToSubmit.domains
+
+    const checkDomainAccess = (domain) => {
+      if (arr === undefined) {
+        return false; // or handle this case as needed
+      }
+      return arr.includes(domain);
+    };
+
+    setFormData({
+      ...formData,
+      domains: {
+        "DSA": checkDomainAccess("DSA"),
+        "AI-ML": checkDomainAccess("AI-ML"),
+        "Web Development": checkDomainAccess("Web Development"),
+        "App Development": checkDomainAccess("App Development"),
+        "Design": checkDomainAccess("Design"),
+      },
+    })
+
     try {
       console.log(dataToSubmit)
 
       const response = await axios.post(
         "http://localhost:4000/api/auth/signup",
-        dataToSubmit
+        formData
       );
 
+      let dsa = false;
+      let aiml = false;
+      let web = false;
+      let app = false;
+      let des = false;
+
       //THIS CODE FOR INITIALISING REQUIRED DBS ONLY
-      const checkDomainAccess = (domain) => {
-        if (dataToSubmit.domains === undefined) {
-          return false; // or handle this case as needed
-        }
-        return dataToSubmit.domains.includes(domain);
-      };
+
 
       if (checkDomainAccess("DSA")) {
         console.log(checkDomainAccess("DSA") + " dsa")
+        dsa = true;
         // Initializing all weeks db
         const res1 = await fetch('http://localhost:4000/api/progress/dsaweek1', {
           method: 'POST',
@@ -217,6 +239,7 @@ const Signup = ({ setUser }) => {
 
       if (checkDomainAccess("AI-ML")) {
         console.log(checkDomainAccess("AI-ML") + " aiml")
+        aiml = true;
 
         const res1 = await fetch('http://localhost:4000/api/progress/aimlweek1', {
           method: 'POST',
@@ -313,6 +336,7 @@ const Signup = ({ setUser }) => {
 
       if (checkDomainAccess("Web Development")) {
         console.log(checkDomainAccess("Web Development") + " web")
+        web = true;
 
         const res1 = await fetch('http://localhost:4000/api/progress/webweek1', {
           method: 'POST',
@@ -407,8 +431,9 @@ const Signup = ({ setUser }) => {
         const json4 = await res4.json()
       }
 
-      if(checkDomainAccess("App Development")){
+      if (checkDomainAccess("App Development")) {
         console.log(checkDomainAccess("App Development") + " app")
+        app = true;
 
         const res1 = await fetch('http://localhost:4000/api/progress/appweek1', {
           method: 'POST',
@@ -503,9 +528,10 @@ const Signup = ({ setUser }) => {
         const json4 = await res4.json()
       }
 
-      if(checkDomainAccess("Design")){
-        console.log(checkDomainAccess("Design ") + " Design")
-        
+      if (checkDomainAccess("Design")) {
+        console.log(checkDomainAccess("Design") + " Design")
+        des = true;
+
         const res1 = await fetch('http://localhost:4000/api/progress/designweek1', {
           method: 'POST',
           body: JSON.stringify({
@@ -598,6 +624,20 @@ const Signup = ({ setUser }) => {
 
         const json4 = await res4.json()
       }
+
+      // setUser({
+      //   user: {
+      //     domains: {
+      //       "DSA": dsa,
+      //       "AI-ML": aiml,
+      //       "Web Development": web,
+      //       "App Development": app,
+      //       "Design": des,
+      //     },
+      //     name: formData.name,
+      //     phone_number: formData.phone_number
+      //   }
+      // })
 
       toast.success(response.data.message);
       navigate("/");
