@@ -14,9 +14,9 @@ const LandingPage = ({ user }) => {
     navigate('/login')
   }
 
-  const handleWeekNavigation = (domain) => {
-    navigate(`/${domain}`)
-  }
+  // const handleWeekNavigation = (domain) => {
+  //   navigate(`/${domain}`)
+  // }
   return (
     <div className="">
       {/* section1 */}
