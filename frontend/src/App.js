@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import './App.css';
 import LandingPage from "./LandingPage";
 import Navbar from "./Navbar";
 import AIML from "./checkPages/AIML";
@@ -62,10 +63,14 @@ function App() {
     }
   }, [selectedDomains]);
   const checkDomainAccess = (domain) => {
-    if (!Array.isArray(selectedDomains) || selectedDomains === undefined) {
+    if(!user) return false;
+    const checkArray = Object.keys(user.domains).filter(
+      (domain) => user.domains[domain]
+    );
+    if (!Array.isArray(checkArray) || checkArray === undefined) {
       return false; // or handle this case as needed
     }
-    return selectedDomains.includes(domain);
+    return checkArray.includes(domain);
   };
 
   return (
