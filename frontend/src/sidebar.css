@@ -8,6 +8,16 @@
     z-index: 9; /* Ensures it stays on top */
   }
   
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    top: 15%; /* Adjust as needed */
+    bottom: 5%; /* Adjust as needed */
+    right: 0;
+    width: 1px; /* Adjust the thickness of the border */
+    background-color: grey;
+  }
+
   .sidebar ul {
     margin: 0;
     padding: 0;
@@ -36,7 +46,7 @@
     right: 0;
     width: 0%;
     height: 100%;
-    background: #ffffff;
+    background: rgb(166, 166, 166);
     z-index: -1;
     transition: width 300ms ease-in-out;
   }
