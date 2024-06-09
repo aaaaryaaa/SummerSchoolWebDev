@@ -44,7 +44,7 @@ export default function Navbar({ user, setUser }) {
   return (
     <div className="fixed z-10 w-full">
       {user ? (
-        <nav className=" border-gray-200 dark:bg-transaprent fixed z-10 inset-0 h-24">
+        <nav className=" border-gray-200 dark:bg-transaprent h-20">
           {' '}
           {/*absolute inset-0 z-10*/}
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -52,7 +52,7 @@ export default function Navbar({ user, setUser }) {
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src={istemask} className="h-8" alt="Flowbite Logo" />
+              <img src={istemask} className="h-8" alt="ISTE LOGO" />
               <span className="self-center lg:text-2xl text-lg font-semibold whitespace-nowrap dark:text-white">
                 ISTE TrackSpace
               </span>

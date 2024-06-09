@@ -1,11 +1,11 @@
 .sidebar {
     width: 12%;
     height: 100%;
-    background-color: #262626;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensures it stays on top */
+    z-index: 9; /* Ensures it stays on top */
   }
   
   .sidebar ul {
@@ -24,9 +24,9 @@
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    color: #fff;
+    color: #ffffff;
     position: relative;
-    padding: 25px 0 25px 38px;
+    padding: 20px 0 20px 30px;
   }
   
   .sidebar ul li a:before {
@@ -36,8 +36,7 @@
     right: 0;
     width: 0%;
     height: 100%;
-    background: #e3e9f7;
-    border-radius: 40px 0 0 40px;
+    background: #ffffff;
     z-index: -1;
     transition: width 300ms ease-in-out;
   }

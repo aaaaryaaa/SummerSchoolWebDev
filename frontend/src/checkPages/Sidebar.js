@@ -1,15 +1,14 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import '../sidebar.css' // Make sure to create a Sidebar.css file for the CSS
-import istemask from '../images/istemask.svg'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import '../sidebar.css'; // Make sure to create a Sidebar.css file for the CSS
 const Sidebar = ({ domain }) => {
   const location = useLocation()
 
   return (
     <nav className="sidebar">
       <ul>
-        <li className="logo">
-          <img alt="Logo" src={`${istemask}`} />
+        <li className='h-40'>
+
         </li>
         <li>
           <Link
