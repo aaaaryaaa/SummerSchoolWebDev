@@ -10,7 +10,7 @@ const WebDev = () => {
 
   return (
     <div>
-      <h1>Welcome to the DSA Page</h1>
+      <h1>Welcome to the Web-Dev Page</h1>
       <div className="flex flex-col space-y-4">
         <button
           onClick={() => handleWeekNavigation(1)}
