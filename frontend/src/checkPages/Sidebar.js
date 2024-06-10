@@ -42,6 +42,20 @@ const Sidebar = ({ domain }) => {
             Week 4
           </Link>
         </li>
+        {domain === 'webdev' && (
+          <>
+            <li>
+              <Link
+                to={`/${domain}/week5`}
+                className={
+                  location.pathname === `/${domain}/week5` ? 'active' : ''
+                }
+              >
+                Week 5
+              </Link>
+            </li>
+          </>
+        )}
         {domain === 'dsa' && (
           <>
             <li>

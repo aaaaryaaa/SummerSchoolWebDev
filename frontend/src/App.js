@@ -37,6 +37,7 @@ import WebWeek1 from "./checkPages/domain/WebWeek1";
 import WebWeek2 from "./checkPages/domain/WebWeek2";
 import WebWeek3 from "./checkPages/domain/WebWeek3";
 import WebWeek4 from "./checkPages/domain/WebWeek4";
+import WebWeek5 from "./checkPages/domain/WebWeek5";
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('user')
@@ -253,6 +254,16 @@ function App() {
             element={
               checkDomainAccess('Web Development') ? (
                 <WebWeek4 user={user} />
+              ) : (
+                <Unselected />
+              )
+            }
+          />
+          <Route
+            path="/webdev/week5"
+            element={
+              checkDomainAccess('Web Development') ? (
+                <WebWeek5 user={user} />
               ) : (
                 <Unselected />
               )

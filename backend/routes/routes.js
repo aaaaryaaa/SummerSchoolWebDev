@@ -9,6 +9,7 @@ const Web1 = require("../models/webweek1Model")
 const Web2 = require("../models/webweek2Model")
 const Web3 = require("../models/webweek3Model")
 const Web4 = require("../models/webWeek4Model")
+const Web5 = require("../models/webWeek5Model")
 //APPDEV
 const App1 = require("../models/appweek1Model")
 const App2 = require("../models/appweek2model")
@@ -174,6 +175,23 @@ router.get('/webweek4/:id', async (req,res)=> {
 
   res.status(200).json(record)
 })
+
+router.get('/webweek5/:id', async (req,res)=> {
+  const {id} = req.params
+
+  if(!containsOnlyDigits(id)){
+      return res.status(404).json({ error: 'Not valid number' })
+  }
+
+  const record = await Web5.findById(id)
+
+  if (!record) {
+      return res.status(404).json({ error: 'No such record in webweek5' })
+  }
+
+  res.status(200).json(record)
+})
+
 ///APP///////////////////////////////////////////////////////////////////////////////////////
 router.get('/appweek1/:id', async (req,res)=> {
   const {id} = req.params
@@ -490,133 +508,139 @@ router.get("/week4", async (req, res) => {
 });
 //WEB////////////////////////////////////////////////////////////////////////////////////////
 router.get("/webweek1", async (req, res) => {
-  const alltasks = await Web1.find({}).sort({ createdAt: -1 });
+  const alltasks = await Web1.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/webweek2", async (req, res) => {
-  const alltasks = await Web2.find({}).sort({ createdAt: -1 });
+  const alltasks = await Web2.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/webweek3", async (req, res) => {
-  const alltasks = await Web3.find({}).sort({ createdAt: -1 });
+  const alltasks = await Web3.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/webweek4", async (req, res) => {
-  const alltasks = await Web4.find({}).sort({ createdAt: -1 });
+  const alltasks = await Web4.find({}).sort({ createdAt: 1 });
+
+  res.status(200).json(alltasks);
+});
+
+router.get("/webweek5", async (req, res) => {
+  const alltasks = await Web5.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 //APP////////////////////////////////////////////////////////////////////////////////////////
 router.get("/appweek1", async (req, res) => {
-  const alltasks = await App1.find({}).sort({ createdAt: -1 });
+  const alltasks = await App1.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/appweek2", async (req, res) => {
-  const alltasks = await App2.find({}).sort({ createdAt: -1 });
+  const alltasks = await App2.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/appweek3", async (req, res) => {
-  const alltasks = await App3.find({}).sort({ createdAt: -1 });
+  const alltasks = await App3.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/appweek4", async (req, res) => {
-  const alltasks = await App4.find({}).sort({ createdAt: -1 });
+  const alltasks = await App4.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 //DESIGN////////////////////////////////////////////////////////////////////////////////////////
 router.get("/designweek1", async (req, res) => {
-  const alltasks = await Design1.find({}).sort({ createdAt: -1 });
+  const alltasks = await Design1.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/designweek2", async (req, res) => {
-  const alltasks = await Design2.find({}).sort({ createdAt: -1 });
+  const alltasks = await Design2.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/designweek3", async (req, res) => {
-  const alltasks = await Design3.find({}).sort({ createdAt: -1 });
+  const alltasks = await Design3.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/designweek4", async (req, res) => {
-  const alltasks = await Design4.find({}).sort({ createdAt: -1 });
+  const alltasks = await Design4.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 //AIML////////////////////////////////////////////////////////////////////////////////////////
 router.get("/aimlweek1", async (req, res) => {
-  const alltasks = await AIML1.find({}).sort({ createdAt: -1 });
+  const alltasks = await AIML1.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/aimlweek2", async (req, res) => {
-  const alltasks = await AIML2.find({}).sort({ createdAt: -1 });
+  const alltasks = await AIML2.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/aimlweek3", async (req, res) => {
-  const alltasks = await AIML3.find({}).sort({ createdAt: -1 });
+  const alltasks = await AIML3.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/aimlweek4", async (req, res) => {
-  const alltasks = await AIML4.find({}).sort({ createdAt: -1 });
+  const alltasks = await AIML4.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 //DSA////////////////////////////////////////////////////////////////////////////////////////
 router.get("/dsaweek1", async (req, res) => {
-  const alltasks = await DSA1.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA1.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/dsaweek2", async (req, res) => {
-  const alltasks = await DSA2.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA2.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/dsaweek3", async (req, res) => {
-  const alltasks = await DSA3.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA3.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/dsaweek4", async (req, res) => {
-  const alltasks = await DSA4.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA4.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/dsaweek5", async (req, res) => {
-  const alltasks = await DSA5.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA5.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
 
 router.get("/dsaweek6", async (req, res) => {
-  const alltasks = await DSA6.find({}).sort({ createdAt: -1 });
+  const alltasks = await DSA6.find({}).sort({ createdAt: 1 });
 
   res.status(200).json(alltasks);
 });
@@ -682,11 +706,11 @@ router.post("/week4", async (req, res) => {
 });
 //web//////////////////////////////////////////////////////////////////////////////////
 router.post("/webweek1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
     const week1 = await Web1.create({
-      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2
+      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2, link3, link4, link5
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -695,10 +719,10 @@ router.post("/webweek1", async (req, res) => {
 });
 
 router.post("/webweek2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week2 = await Web2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2});
+    const week2 = await Web2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2, link3, link4, link5});
     res.status(200).json(week2);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -706,10 +730,10 @@ router.post("/webweek2", async (req, res) => {
 });
 
 router.post("/webweek3", async (req, res) => {
-  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week3 = await Web3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week3 = await Web3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -717,22 +741,34 @@ router.post("/webweek3", async (req, res) => {
 });
 
 router.post("/webweek4", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week4 = await Web4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week4 = await Web4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 });
+
+router.post("/webweek5", async (req, res) => {
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
+
+  try {
+    const week5 = await Web5.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
+    res.status(200).json(week5);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 //APP//////////////////////////////////////////////////////////////////////////////////
 router.post("/appweek1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
     const week1 = await App1.create({
-      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2
+      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2, link3, link4, link5
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -741,10 +777,10 @@ router.post("/appweek1", async (req, res) => {
 });
 
 router.post("/appweek2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week2 = await App2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2});
+    const week2 = await App2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2, link3, link4, link5});
     res.status(200).json(week2);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -752,10 +788,10 @@ router.post("/appweek2", async (req, res) => {
 });
 
 router.post("/appweek3", async (req, res) => {
-  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week3 = await App3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week3 = await App3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -763,10 +799,10 @@ router.post("/appweek3", async (req, res) => {
 });
 
 router.post("/appweek4", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week4 = await App4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week4 = await App4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -774,11 +810,11 @@ router.post("/appweek4", async (req, res) => {
 });
 //DESIGN//////////////////////////////////////////////////////////////////////////////////
 router.post("/designweek1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
     const week1 = await Design1.create({
-      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2
+      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2, link3, link4, link5
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -787,10 +823,10 @@ router.post("/designweek1", async (req, res) => {
 });
 
 router.post("/designweek2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week2 = await Design2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2});
+    const week2 = await Design2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2, link3, link4, link5});
     res.status(200).json(week2);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -798,10 +834,10 @@ router.post("/designweek2", async (req, res) => {
 });
 
 router.post("/designweek3", async (req, res) => {
-  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week3 = await Design3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week3 = await Design3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -809,10 +845,10 @@ router.post("/designweek3", async (req, res) => {
 });
 
 router.post("/designweek4", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week4 = await Design4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week4 = await Design4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -820,11 +856,11 @@ router.post("/designweek4", async (req, res) => {
 });
 //AIML//////////////////////////////////////////////////////////////////////////////////
 router.post("/aimlweek1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
     const week1 = await AIML1.create({
-      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2
+      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2, link3, link4, link5
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -833,10 +869,10 @@ router.post("/aimlweek1", async (req, res) => {
 });
 
 router.post("/aimlweek2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week2 = await AIML2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2});
+    const week2 = await AIML2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2, link3, link4, link5});
     res.status(200).json(week2);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -844,10 +880,10 @@ router.post("/aimlweek2", async (req, res) => {
 });
 
 router.post("/aimlweek3", async (req, res) => {
-  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week3 = await AIML3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week3 = await AIML3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -855,10 +891,10 @@ router.post("/aimlweek3", async (req, res) => {
 });
 
 router.post("/aimlweek4", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week4 = await AIML4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week4 = await AIML4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -866,11 +902,11 @@ router.post("/aimlweek4", async (req, res) => {
 });
 //DSA//////////////////////////////////////////////////////////////////////////////////
 router.post("/dsaweek1", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
     const week1 = await DSA1.create({
-      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2
+      _id,name,task1,task2,task3,task4,task5,task6,task7,task8,link1,link2, link3, link4, link5
     });
     res.status(200).json(week1);
   } catch (error) {
@@ -879,10 +915,10 @@ router.post("/dsaweek1", async (req, res) => {
 });
 
 router.post("/dsaweek2", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week2 = await DSA2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2});
+    const week2 = await DSA2.create({_id,name,task1, task2, task3, task4, task5, task6, task7, task8,link1,link2, link3, link4, link5});
     res.status(200).json(week2);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -890,10 +926,10 @@ router.post("/dsaweek2", async (req, res) => {
 });
 
 router.post("/dsaweek3", async (req, res) => {
-  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name,task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week3 = await DSA3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week3 = await DSA3.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week3);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -901,10 +937,10 @@ router.post("/dsaweek3", async (req, res) => {
 });
 
 router.post("/dsaweek4", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week4 = await DSA4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week4 = await DSA4.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week4);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -912,10 +948,10 @@ router.post("/dsaweek4", async (req, res) => {
 });
 
 router.post("/dsaweek5", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week5 = await DSA5.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week5 = await DSA5.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week5);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -923,10 +959,10 @@ router.post("/dsaweek5", async (req, res) => {
 });
 
 router.post("/dsaweek6", async (req, res) => {
-  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 } = req.body;
+  const { _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 } = req.body;
 
   try {
-    const week6 = await DSA6.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 });
+    const week6 = await DSA6.create({ _id, name, task1, task2, task3, task4, task5, task6, task7, task8, link1, link2, link3, link4, link5 });
     res.status(200).json(week6);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -1102,6 +1138,28 @@ router.patch("/webweek4/:id", async (req, res) => {
 
   res.status(200).json(record);
 });
+
+router.patch("/webweek5/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!containsOnlyDigits(id)) {
+    return res.status(404).json({ error: "Not valid number" });
+  }
+
+  const record = await Web5.findByIdAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
+
+  if (!record) {
+    return res.status(404).json({ error: "No such record for webweek5" });
+  }
+
+  res.status(200).json(record);
+});
+
 //APP//////////////////////////////////////////////////////////////////////////////////////////
 router.patch("/appweek1/:id", async (req, res) => {
   const { id } = req.params;

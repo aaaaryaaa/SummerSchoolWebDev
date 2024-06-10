@@ -47,8 +47,15 @@ const Signup = ({ user, setUser }) => {
       (domain) => formData.domains[domain]
     );
 
-    if (selectedDomains.length < 1 || selectedDomains.length > 3) {
-      toast.error("Please select between 1 and 3 domains");
+    console.log(selectedDomains)
+
+    if(selectedDomains.length < 1){
+      toast.error("Select a minimum of 1 domain");
+      return;
+    }
+
+    if (selectedDomains.length < 1 || selectedDomains.length == 4 && !selectedDomains.includes("DSA") || selectedDomains.length > 4) {
+      toast.error("Only a maximum of 3 allowed, 4 allowed if DSA is ticked");
       return;
     }
 
@@ -113,6 +120,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -136,6 +146,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -159,6 +172,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -182,6 +198,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -205,6 +224,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -228,6 +250,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -256,6 +281,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -279,6 +307,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -302,6 +333,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -325,6 +359,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -353,6 +390,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -376,6 +416,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -399,6 +442,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -422,6 +468,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -429,6 +478,32 @@ const Signup = ({ user, setUser }) => {
         })
 
         const json4 = await res4.json()
+
+        const res5 = await fetch('http://localhost:4000/api/progress/webweek5', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: "",
+            link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+
+        const json5 = await res5.json()
       }
 
       if (checkDomainAccess("App Development")) {
@@ -450,6 +525,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -473,6 +551,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -496,6 +577,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -519,6 +603,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -547,6 +634,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -570,6 +660,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -593,6 +686,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -616,6 +712,9 @@ const Signup = ({ user, setUser }) => {
             task8: false,
             link1: "",
             link2: "",
+            link3: "",
+            link4: "",
+            link5: ""
           }),
           headers: {
             'Content-Type': 'application/json',

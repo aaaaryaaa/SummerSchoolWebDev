@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import everyoneprog from '../../assets/everyoneprogress.svg'
 import Sidebar from '../Sidebar'
 
-export default function WebWeek4({ user }) {
+export default function WebWeek5({ user }) {
   const navigate = useNavigate()
 
   const [week, setWeek] = useState()
@@ -34,7 +34,7 @@ export default function WebWeek4({ user }) {
   }
 
   const fetchWeek = async () => {
-    const response = await fetch('http://localhost:4000/api/progress/webweek4')
+    const response = await fetch('http://localhost:4000/api/progress/webweek5')
     const json = await response.json()
 
     if (response.ok) {
@@ -45,7 +45,7 @@ export default function WebWeek4({ user }) {
   const fetchRecord = async () => {
     // console.log(user.user.phone_number)
     const response = await fetch(
-      'http://localhost:4000/api/progress/webweek4/' + user.phone_number
+      'http://localhost:4000/api/progress/webweek5/' + user.phone_number
     )
     const json = await response.json()
 
@@ -106,7 +106,7 @@ export default function WebWeek4({ user }) {
     }
 
     const response = await fetch(
-      'http://localhost:4000/api/progress/webweek4/' + user.phone_number,
+      'http://localhost:4000/api/progress/webweek5/' + user.phone_number,
       {
         method: 'PATCH',
         body: JSON.stringify(task),
@@ -167,7 +167,7 @@ export default function WebWeek4({ user }) {
       <div className='col-span-1'><Sidebar domain="webdev" /></div>
       <div className="col-span-9">
         <div className="mt-24 w-full">
-          <h1 className=" text-center text-6xl py-10">WEB WEEK 4</h1>
+          <h1 className=" text-center text-6xl py-10">WEB WEEK 5</h1>
           <div className='w-full'>
             {record && (
               <div className="progressdash w-full flex flex-row">

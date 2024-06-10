@@ -18,6 +18,9 @@ export default function WebWeek1({ user }) {
   const [taskeight, setTaskEight] = useState()
   const [linkone, setLinkOne] = useState()
   const [linktwo, setLinkTwo] = useState()
+  const [linkthree, setLinkThree] = useState()
+  const [linkfour, setLinkFour] = useState()
+  const [linkfive, setLinkFive] = useState()
 
   function calcProgress(obj, num) {
     let n = 0
@@ -58,6 +61,9 @@ export default function WebWeek1({ user }) {
       setTaskEight(json.task8)
       setLinkOne(json.link1)
       setLinkTwo(json.link2)
+      setLinkThree(json.link3)
+      setLinkFour(json.link4)
+      setLinkFive(json.link5)
     }
   }
 
@@ -79,6 +85,9 @@ export default function WebWeek1({ user }) {
     let task8 = taskeight
     let link1 = linkone
     let link2 = linktwo
+    let link3 = linkthree
+    let link4 = linkfour
+    let link5 = linkfive
 
     const task = {
       task1,
@@ -91,6 +100,9 @@ export default function WebWeek1({ user }) {
       task8,
       link1,
       link2,
+      link3,
+      link4,
+      link5
     }
 
     const response = await fetch(
@@ -179,7 +191,7 @@ export default function WebWeek1({ user }) {
                             <p className="">Phone No: {record._id}</p>
                             <p className="text-[#00CDB7]">$ npm install links</p>
                             {record.link1 !== '' ? (
-                              <a href={record.link1}>
+                              <a href={record.link1} target='_blank'>
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link1}
                                 </p>
@@ -188,9 +200,36 @@ export default function WebWeek1({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link2 !== '' ? (
-                              <a href={record.link2}>
+                              <a href={record.link2} target='_blank'>
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link2}
+                                </p>
+                              </a>
+                            ) : (
+                              <p>Nothing yet.</p>
+                            )}
+                            {record.link3 !== '' ? (
+                              <a href={record.link3} target='_blank'>
+                                <p className="text-white underline underline-offset-1 truncate">
+                                  {record.link3}
+                                </p>
+                              </a>
+                            ) : (
+                              <p>Nothing yet.</p>
+                            )}
+                            {record.link4 !== '' ? (
+                              <a href={record.link4} target='_blank'>
+                                <p className="text-white underline underline-offset-1 truncate">
+                                  {record.link4}
+                                </p>
+                              </a>
+                            ) : (
+                              <p>Nothing yet.</p>
+                            )}
+                            {record.link5 !== '' ? (
+                              <a href={record.link5} target='_blank'>
+                                <p className="text-white underline underline-offset-1 truncate">
+                                  {record.link5}
                                 </p>
                               </a>
                             ) : (
@@ -506,6 +545,33 @@ export default function WebWeek1({ user }) {
                               }}
                               className="input input-bordered input-accent w-full max-w-xs"
                             />
+                            <input
+                              type="text"
+                              value={linkthree}
+                              placeholder="Enter Link 3"
+                              onChange={(e) => {
+                                setLinkThree(e.target.value)
+                              }}
+                              className="input input-bordered input-accent w-full max-w-xs"
+                            />
+                            <input
+                              type="text"
+                              value={linkfour}
+                              placeholder="Enter Link 4"
+                              onChange={(e) => {
+                                setLinkFour(e.target.value)
+                              }}
+                              className="input input-bordered input-accent w-full max-w-xs"
+                            />
+                            <input
+                              type="text"
+                              value={linkfive}
+                              placeholder="Enter Link 5"
+                              onChange={(e) => {
+                                setLinkFive(e.target.value)
+                              }}
+                              className="input input-bordered input-accent w-full max-w-xs"
+                            />
                           </div>
                         </div>
                       </div>
@@ -545,7 +611,7 @@ export default function WebWeek1({ user }) {
                         <p className="">Phone No: {x._id}</p>
                         <p className="text-[#00CDB7]">$ npm install links</p>
                         {x.link1 !== '' ? (
-                          <a href={x.link1}>
+                          <a href={x.link1} target='_blank'>
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link1}
                             </p>
@@ -554,9 +620,36 @@ export default function WebWeek1({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link2 !== '' ? (
-                          <a href={x.link2}>
+                          <a href={x.link2} target='_blank'>
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link2}
+                            </p>
+                          </a>
+                        ) : (
+                          <p>Nothing yet.</p>
+                        )}
+                        {x.link3 !== '' ? (
+                          <a href={x.link3} target='_blank'>
+                            <p className="text-white underline underline-offset-1 truncate">
+                              {x.link3}
+                            </p>
+                          </a>
+                        ) : (
+                          <p>Nothing yet.</p>
+                        )}
+                        {x.link4 !== '' ? (
+                          <a href={x.link4} target='_blank'>
+                            <p className="text-white underline underline-offset-1 truncate">
+                              {x.link4}
+                            </p>
+                          </a>
+                        ) : (
+                          <p>Nothing yet.</p>
+                        )}
+                        {x.link5 !== '' ? (
+                          <a href={x.link5} target='_blank'>
+                            <p className="text-white underline underline-offset-1 truncate">
+                              {x.link5}
                             </p>
                           </a>
                         ) : (

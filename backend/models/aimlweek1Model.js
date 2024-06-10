@@ -51,6 +51,18 @@ const aimlweek1 = new Schema({
     link2: {
         type: String,
         required: false 
+    },
+    link3: {
+        type: String,
+        required: false 
+    },
+    link4: {
+        type: String,
+        required: false 
+    },
+    link5: {
+        type: String,
+        required: false 
     }
 }, {timestamps: true})
 
