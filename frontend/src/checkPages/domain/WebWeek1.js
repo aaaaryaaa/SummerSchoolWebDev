@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import everyoneprog from '../../assets/everyoneprogress.svg'
 import Sidebar from '../Sidebar'
 
 export default function WebWeek1({ user }) {
@@ -150,32 +151,33 @@ export default function WebWeek1({ user }) {
   }
 
   return (
-    <div className="flex flex-col">
-      <Sidebar domain="webdev" />
-      <div className="centereddiv ml-80">
-        <div className="mt-24">
-          <h1 className=" text-center text-6xl">WEB WEEK 1</h1>
-          <div>
+    <div className="grid grid-cols-10 w-full">
+      <div className='col-span-1'><Sidebar domain="webdev" /></div>
+      <div className="col-span-9">
+        <div className="mt-24 w-full">
+          <h1 className=" text-center text-6xl py-10">WEB WEEK 1</h1>
+          <div className='w-full'>
             {record && (
-              <div className="centereddiv">
+              <div className="progressdash w-full flex flex-row">
                 {/* card design */}
-                <div className="cardContainer">
+                <div className="cardContainer pl-5">
                   <div className="card flex flex-row justify-center space-x-16">
                     <div className="flex flex-col space-y-4">
-                      <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[40rem] font-mono">
-                        <div className="flex justify-between items-center">
+                      <aside className="bg-black text-white p-10 rounded-lg w-fit max-w-[40rem] font-mono">
+                        <div className="flex justify-between items-center pb-4">
                           <div className="flex space-x-2 text-red-500">
                             <div className="w-3 h-3 rounded-full bg-red-500"></div>
                             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div className="w-3 h-3 rounded-full bg-green-500"></div>
                           </div>
+                          <div>Progress Card</div>
                         </div>
-                        <div className="flex ">
+                        <div className="flex">
                           <div className="mt-14">
-                            <p className="text-[cyan]">$ npm install details</p>
+                            <p className="text-[#00CDB7]">$ npm install details</p>
                             <p className="truncate">Name: {record.name}</p>
                             <p className="">Phone No: {record._id}</p>
-                            <p className="text-[cyan]">$ npm install links</p>
+                            <p className="text-[#00CDB7]">$ npm install links</p>
                             {record.link1 !== '' ? (
                               <a href={record.link1}>
                                 <p className="text-white underline underline-offset-1 truncate">
@@ -194,10 +196,10 @@ export default function WebWeek1({ user }) {
                             ) : (
                               <p>Nothing yet.</p>
                             )}
-                            <p className="text-[cyan]">$</p>
+                            <p className="text-[#00CDB7]">$</p>
                           </div>
                           <div
-                            className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]"
+                            className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                             style={{
                               '--value': calcProgress(record, 6),
                               '--size': '16rem',
@@ -348,9 +350,9 @@ export default function WebWeek1({ user }) {
                 {/* card design end */}
 
                 {/* start of form */}
-                <form onSubmit={handleSubmit} className="">
-                  <div className="ml-20 grid gap-2 w-[30rem]">
-                    <div className="form-control flex flex-row">
+                <form onSubmit={handleSubmit} className="w-full p-20">
+                  <div className="grid gap-4 w-full">
+                    <div className="form-control flex flex-row w-full">
                       <label className="cursor-pointer label">
                         <input
                           type="checkbox"
@@ -359,7 +361,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
                           Open Task 1
                         </a>
@@ -382,7 +384,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
                           Open Task 2
                         </a>
@@ -405,7 +407,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
                           Open Task 3
                         </a>
@@ -428,7 +430,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
                           Open Task 4
                         </a>
@@ -451,7 +453,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide5" href="#hide5" className="hide">
                           Open Task 5
                         </a>
@@ -474,7 +476,7 @@ export default function WebWeek1({ user }) {
                           className="checkbox checkbox-accent"
                         />
                       </label>
-                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                      <div className="bgfiltercard ml-6 w-full">
                         <a id="hide6" href="#hide6" className="hide">
                           Open Task 6
                         </a>
@@ -485,197 +487,204 @@ export default function WebWeek1({ user }) {
                           Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit. Laborum ducimus labore facilis quia nihil
                           explicabo asperiores?
-                        </div>
-                        <div className="mt-2 grid gap-2">
-                          <input
-                            type="text"
-                            value={linkone}
-                            placeholder="Enter Link 1"
-                            onChange={(e) => {
-                              setLinkOne(e.target.value)
-                            }}
-                            className="input input-bordered input-accent w-full max-w-xs"
-                          />
-                          <input
-                            type="text"
-                            value={linktwo}
-                            placeholder="Enter Link 2"
-                            onChange={(e) => {
-                              setLinkTwo(e.target.value)
-                            }}
-                            className="input input-bordered input-accent w-full max-w-xs"
-                          />
+                          <div className="mt-2 grid gap-2">
+                            <input
+                              type="text"
+                              value={linkone}
+                              placeholder="Enter Link 1"
+                              onChange={(e) => {
+                                setLinkOne(e.target.value)
+                              }}
+                              className="input input-bordered input-accent w-full max-w-xs"
+                            />
+                            <input
+                              type="text"
+                              value={linktwo}
+                              placeholder="Enter Link 2"
+                              onChange={(e) => {
+                                setLinkTwo(e.target.value)
+                              }}
+                              className="input input-bordered input-accent w-full max-w-xs"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div className='centereddiv'>
+                      <button className="btn-31">
+                        <span className="text-container">
+                          <span className="text">Update Progress</span>
+                        </span>
+                      </button>
+                    </div>
                   </div>
-
-                  <button>SUBMIT</button>
                 </form>
                 {/* end of form */}
               </div>
             )}
           </div>
         </div>
-        <div></div>
-        <div className="scrollcontainer gap-5 h-[50rem] overflow-auto p-5 m-5">
-          {week &&
-            week.map((x) => (
-              <div key={x._id} className="flex flex-col m-5">
-                <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[30rem] font-mono">
-                  <div className="flex justify-between items-center">
-                    <div className="flex space-x-2 text-red-500">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                  </div>
-                  <div className="flex ">
-                    <div className="mt-4">
-                      <p className="text-[cyan]">$ npm install details</p>
-                      <p className="truncate">Name: {x.name}</p>
-                      <p className="">Phone No: {x._id}</p>
-                      <p className="text-[cyan]">$ npm install links</p>
-                      {x.link1 !== '' ? (
-                        <a href={x.link1}>
-                          <p className="text-white underline underline-offset-1 truncate">
-                            {x.link1}
-                          </p>
-                        </a>
-                      ) : (
-                        <p>Nothing yet.</p>
-                      )}
-                      {x.link2 !== '' ? (
-                        <a href={x.link2}>
-                          <p className="text-white underline underline-offset-1 truncate">
-                            {x.link2}
-                          </p>
-                        </a>
-                      ) : (
-                        <p>Nothing yet.</p>
-                      )}
-                      <p className="text-[cyan]">$</p>
-                    </div>
-                    <div
-                      className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]"
-                      style={{
-                        '--value': calcProgress(x, 6),
-                        '--size': '10rem',
-                        '--thickness': '0.75rem',
-                      }}
-                      role="progressbar"
-                    >
-                      {/* {calcProgress(record, 6)} */}
-                      <div className="checkbox-wrapper grid grid-cols-3 text-[#b9b8c3]">
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task1}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
-
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task2}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
-
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task3}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
-
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task4}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
-
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task5}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
-
-                        <input
-                          style={{ display: 'none' }}
-                          checked={x.task6}
-                          disabled={true}
-                          type="checkbox"
-                          id="cbx"
-                          className="inp-cbx"
-                        />
-                        <label htmlFor="cbx" className="cbx">
-                          <span>
-                            <svg viewBox="0 0 12 9" height="9px" width="12px">
-                              <polyline points="1 5 4 8 11 1"></polyline>
-                            </svg>
-                          </span>
-                          <span className="text-lg"></span>
-                        </label>
+        <div className='centereddiv flex flex-row'>
+          <img src={everyoneprog} alt="everyone's progress" />
+          <div className="centereddiv bgfiltercard scrollcontainer h-[50rem] overflow-auto m-10 gap-5">
+            {week &&
+              week.map((x) => (
+                <div key={x._id} className="flex flex-col my-1">
+                  <aside className="bg-black text-white rounded-lg w-full max-w-[25rem] font-mono p-4">
+                    <div className="flex justify-between items-center">
+                      <div className="flex space-x-2 text-red-500">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
                       </div>
                     </div>
-                  </div>
-                </aside>
-              </div>
-            ))}
+                    <div className="flex ">
+                      <div className="mt-4">
+                        <p className="text-[#00CDB7]">$ npm install details</p>
+                        <p className="truncate">Name: {x.name}</p>
+                        <p className="">Phone No: {x._id}</p>
+                        <p className="text-[#00CDB7]">$ npm install links</p>
+                        {x.link1 !== '' ? (
+                          <a href={x.link1}>
+                            <p className="text-white underline underline-offset-1 truncate">
+                              {x.link1}
+                            </p>
+                          </a>
+                        ) : (
+                          <p>Nothing yet.</p>
+                        )}
+                        {x.link2 !== '' ? (
+                          <a href={x.link2}>
+                            <p className="text-white underline underline-offset-1 truncate">
+                              {x.link2}
+                            </p>
+                          </a>
+                        ) : (
+                          <p>Nothing yet.</p>
+                        )}
+                        <p className="text-[#00CDB7]">$</p>
+                      </div>
+                      <div
+                        className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
+                        style={{
+                          '--value': calcProgress(x, 6),
+                          '--size': '10rem',
+                          '--thickness': '0.75rem',
+                        }}
+                        role="progressbar"
+                      >
+                        {/* {calcProgress(record, 6)} */}
+                        <div className="checkbox-wrapper grid grid-cols-3 text-[#b9b8c3]">
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task1}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task2}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task3}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task4}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task5}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task6}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+              ))}
+          </div>
         </div>
-        <button onClick={handleGoHome}>GO BACK TO HOME</button>
+        {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
       </div>
     </div>
   )

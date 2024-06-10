@@ -75,7 +75,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='w-full'>
       <Router>
         <Navbar
           user={user}
