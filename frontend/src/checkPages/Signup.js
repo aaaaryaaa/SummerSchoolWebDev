@@ -625,21 +625,8 @@ const Signup = ({ user, setUser }) => {
         const json4 = await res4.json()
       }
 
-      // setUser({
-      //   user: {
-      //     domains: {
-      //       "DSA": dsa,
-      //       "AI-ML": aiml,
-      //       "Web Development": web,
-      //       "App Development": app,
-      //       "Design": des,
-      //     },
-      //     name: formData.name,
-      //     phone_number: formData.phone_number
-      //   }
-      // })
-
       toast.success(response.data.message);
+      toast.success("Please login to continue");
       navigate("/");
     } catch (error) {
       toast.error(error.response.data.error);

@@ -43,7 +43,9 @@ const Design = () => {
         </div>
       </div>
     </div>
-  )
+ 
+);
+
 }
 
 export default Design
