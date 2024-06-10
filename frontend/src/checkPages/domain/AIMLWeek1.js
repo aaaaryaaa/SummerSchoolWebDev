@@ -402,15 +402,12 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
-                          Open Task 1
+                          Open Task 1 : THE TASK NAME OR WTV
                         </a>
                         <a id="show1" href="#show1" className="show">
-                          Close Task 1
+                          Close Task 1 : THE TASK NAME OR WTV
                         </a>
-                        <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                        <div className="details"> THE CONTENT HERE REPLACE LOREM IPSUM
                         </div>
                       </div>
                     </div>
