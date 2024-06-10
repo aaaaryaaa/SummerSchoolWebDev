@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import './App.css';
+import "./App.css";
 import LandingPage from "./LandingPage";
 import Navbar from "./Navbar";
 import AIML from "./checkPages/AIML";
@@ -36,7 +36,7 @@ import WebWeek1 from "./checkPages/domain/WebWeek1";
 import WebWeek2 from "./checkPages/domain/WebWeek2";
 import WebWeek3 from "./checkPages/domain/WebWeek3";
 import WebWeek4 from "./checkPages/domain/WebWeek4";
-
+import Footer from "./checkPages/Footer";
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
@@ -63,7 +63,7 @@ function App() {
     }
   }, [selectedDomains]);
   const checkDomainAccess = (domain) => {
-    if(!user) return false;
+    if (!user) return false;
     const checkArray = Object.keys(user.domains).filter(
       (domain) => user.domains[domain]
     );
@@ -83,6 +83,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<LandingPage user={user} />} />
+          <Route path="/footer" element={<Footer />} />
           <Route
             path="/login"
             element={

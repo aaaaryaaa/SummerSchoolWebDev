@@ -8,38 +8,23 @@ const Design = () => {
     navigate(`/design/week${week}`)
   }
 
-  return (
-    <div>
-      <h1>Welcome to the Design Page</h1>
-      <div className="flex flex-col space-y-4">
+return (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <h1 className="text-4xl font-bold mb-8">Welcome to the Design Page</h1>
+    <div className="flex flex-col space-y-4">
+      {[1, 2, 3, 4].map((week) => (
         <button
-          onClick={() => handleWeekNavigation(1)}
-          style={{ position: 'relative', zIndex: 10 }}
-          className="mt-20"
+          key={week}
+          onClick={() => handleWeekNavigation(week)}
+          className="relative z-10 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
         >
-          Week 1
+          Week {week}
         </button>
-        <button
-          onClick={() => handleWeekNavigation(2)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 2
-        </button>
-        <button
-          onClick={() => handleWeekNavigation(3)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 3
-        </button>
-        <button
-          onClick={() => handleWeekNavigation(4)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 4
-        </button>
-      </div>
+      ))}
     </div>
-  )
+  </div>
+);
+
 }
 
 export default Design
