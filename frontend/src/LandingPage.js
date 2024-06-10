@@ -111,37 +111,41 @@ const LandingPage = ({ user }) => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <Card
-            imgSrc={dsa}
-            title="Data Structures & Algorithms"
-            description="Master problem-solving with data structures and algorithms."
-            link="/dsa"
-          />
-          <Card
-            imgSrc={design}
-            title="Design"
-            description="Craft visually appealing and user-friendly interfaces with design principles."
-            link="/design"
-          />
-          <Card
-            imgSrc={webdev}
-            title="Web Development"
-            description="Build dynamic and responsive websites for impactful online experiences."
-            link="/webdev"
-          />
-          <Card
-            imgSrc={appdev}
-            title="App Development"
-            description="Create engaging mobile apps for iOS and Android platforms."
-            link="/appdev"
-          />
-          <Card
-            imgSrc={aiml}
-            title="AI & ML"
-            description="Explore the frontier of AI and ML for intelligent systems."
-            link="/aiml"
-          />
+        <div className="flex flex-col items-center justify-center space-y-10">
+          <div className="flex flex-wrap justify-center space-x-10">
+            <Card
+              imgSrc={dsa}
+              title="DSA"
+              description="Master problem-solving with data structures and algorithms."
+              link="/dsa"
+            />
+            <Card
+              imgSrc={design}
+              title="Design"
+              description="Craft visually appealing and user-friendly interfaces with design principles."
+              link="/design"
+            />
+            <Card
+              imgSrc={webdev}
+              title="Web Development"
+              description="Build dynamic and responsive websites for impactful online experiences."
+              link="/webdev"
+            />
+          </div>
+          <div className="flex flex-wrap justify-center space-x-10">
+            <Card
+              imgSrc={appdev}
+              title="App Development"
+              description="Create engaging mobile apps for iOS and Android platforms."
+              link="/appdev"
+            />
+            <Card
+              imgSrc={aiml}
+              title="AI & ML"
+              description="Explore the frontier of AI and ML for intelligent systems."
+              link="/aiml"
+            />
+          </div>
         </div>
       )}
     </div>
