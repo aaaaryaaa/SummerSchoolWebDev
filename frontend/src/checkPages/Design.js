@@ -1,51 +1,140 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Sidebar from './Sidebar'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const Design = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleWeekNavigation = (week) => {
-    navigate(`/design/week${week}`)
-  }
+    navigate(`/design/week${week}`);
+  };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex  bg-black">
       <Sidebar domain="design" />
-      <div className="flex-1 ml-64 p-4 mt-20">
-        <h1 className="text-xl font-bold">Welcome to Design</h1>
-        <div className="flex flex-col space-y-4">
-          <button
-            onClick={() => handleWeekNavigation(1)}
-            style={{ position: 'relative', zIndex: 10 }}
-            className="mt-20"
-          >
-            Week 1
-          </button>
-          <button
-            onClick={() => handleWeekNavigation(2)}
-            style={{ position: 'relative', zIndex: 10 }}
-          >
-            Week 2
-          </button>
-          <button
-            onClick={() => handleWeekNavigation(3)}
-            style={{ position: 'relative', zIndex: 10 }}
-          >
-            Week 3
-          </button>
-          <button
-            onClick={() => handleWeekNavigation(4)}
-            style={{ position: 'relative', zIndex: 10 }}
-          >
-            Week 4
-          </button>
-        </div>
-      </div>
+
+      {/* DaisyUI Timeline Component */}
+      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical flex-1 ml-64 p-4 mt-32">
+        <li>
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">Week 1</time>
+            <div className="text-lg font-black">Introduction to Design</div>
+            Understand the basics of design principles and elements.
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-end mb-10">
+            <time className="font-mono italic">Week 2</time>
+            <div className="text-lg font-black">
+              Color Theory and Typography
+            </div>
+            Learn about color theory and typography basics.
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">Week 3</time>
+            <div className="text-lg font-black">
+              Layout Design and Grid Systems
+            </div>
+            Explore layout design and grid systems.
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-end mb-10">
+            <time className="font-mono italic">Week 4</time>
+            <div className="text-lg font-black">UI/UX Design Principles</div>
+            Dive into UI/UX design principles and wireframing.
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">Project Implementation</time>
+            <div className="text-lg font-black">Project Implementation</div>
+            Implement design projects and gather user feedback.
+          </div>
+        </li>
+      </ul>
     </div>
- 
-);
+  );
+};
 
-}
-
-export default Design
+export default Design;
