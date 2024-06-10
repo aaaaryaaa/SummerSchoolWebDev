@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Sidebar from '../Sidebar'
 
 export default function WebWeek1({ user }) {
   const navigate = useNavigate()
@@ -18,14 +19,14 @@ export default function WebWeek1({ user }) {
   const [linktwo, setLinkTwo] = useState()
 
   function calcProgress(obj, num) {
-    let n = 0;
-    if (obj.task1) n += 1;
-    if (obj.task2) n += 1;
-    if (obj.task3) n += 1;
-    if (obj.task4) n += 1;
-    if (obj.task5) n += 1;
-    if (obj.task6) n += 1;
-    return ((n * 100) / num).toFixed(2);
+    let n = 0
+    if (obj.task1) n += 1
+    if (obj.task2) n += 1
+    if (obj.task3) n += 1
+    if (obj.task4) n += 1
+    if (obj.task5) n += 1
+    if (obj.task6) n += 1
+    return ((n * 100) / num).toFixed(2)
   }
 
   const fetchWeek = async () => {
@@ -60,8 +61,6 @@ export default function WebWeek1({ user }) {
   }
 
   useEffect(() => {
-
-
     fetchRecord()
     fetchWeek()
   }, [])
@@ -80,9 +79,18 @@ export default function WebWeek1({ user }) {
     let link1 = linkone
     let link2 = linktwo
 
-
-
-    const task = { task1, task2, task3, task4, task5, task6, task7, task8, link1, link2 }
+    const task = {
+      task1,
+      task2,
+      task3,
+      task4,
+      task5,
+      task6,
+      task7,
+      task8,
+      link1,
+      link2,
+    }
 
     const response = await fetch(
       'http://localhost:4000/api/progress/webweek1/' + user.phone_number,
@@ -138,118 +146,537 @@ export default function WebWeek1({ user }) {
   }
 
   const handleGoHome = () => {
-    navigate("/");
+    navigate('/')
   }
 
   return (
-    <div className='centereddiv'>
-      <div className='mt-20'>
-        <h1>WEB WEEK 1</h1>
-        <h3>DID U FINISH?</h3>
-        <div>
-          {record && (
-            <div>
-              {record.name}---{record.task1 ? 'done' : 'notdone'}---{record.task2 ? 'done' : 'notdone'}---{record.task3 ? 'done' : 'notdone'}---{record.task4 ? 'done' : 'notdone'}---{record.task5 ? 'done' : 'notdone'}---{record.task6 ? 'done' : 'notdone'}---{record.link1}---{record.link2}
+    <div className="flex flex-col">
+      <Sidebar domain="webdev" />
+      <div className="centereddiv ml-80">
+        <div className="mt-24">
+          <h1 className=" text-center text-6xl">WEB WEEK 1</h1>
+          <div>
+            {record && (
+              <div className="centereddiv">
+                {/* card design */}
+                <div className="cardContainer">
+                  <div className="card flex flex-row justify-center space-x-16">
+                    <div className="flex flex-col space-y-4">
+                      <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[40rem] font-mono">
+                        <div className="flex justify-between items-center">
+                          <div className="flex space-x-2 text-red-500">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                          </div>
+                        </div>
+                        <div className="flex ">
+                          <div className="mt-14">
+                            <p className="text-[cyan]">$ npm install details</p>
+                            <p className="truncate">Name: {record.name}</p>
+                            <p className="">Phone No: {record._id}</p>
+                            <p className="text-[cyan]">$ npm install links</p>
+                            {record.link1 !== '' ? (
+                              <a href={record.link1}>
+                                <p className="text-white underline underline-offset-1 truncate">
+                                  {record.link1}
+                                </p>
+                              </a>
+                            ) : (
+                              <p>Nothing yet.</p>
+                            )}
+                            {record.link2 !== '' ? (
+                              <a href={record.link2}>
+                                <p className="text-white underline underline-offset-1 truncate">
+                                  {record.link2}
+                                </p>
+                              </a>
+                            ) : (
+                              <p>Nothing yet.</p>
+                            )}
+                            <p className="text-[cyan]">$</p>
+                          </div>
+                          <div
+                            className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]"
+                            style={{
+                              '--value': calcProgress(record, 6),
+                              '--size': '16rem',
+                              '--thickness': '0.75rem',
+                            }}
+                            role="progressbar"
+                          >
+                            {/* {calcProgress(record, 6)} */}
+                            <div className="checkbox-wrapper flex flex-col text-[#b9b8c3]">
+                              <input
+                                style={{ display: 'none' }}
+                                checked={taskone}
+                                onChange={handleCheck1}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 1</span>
+                              </label>
 
-              <div class="cardContainer">
-                <div class="card flex flex-row justify-center space-x-16">
-                  <div className='flex flex-col space-y-4'>
-                    <p class="city">Name: {record.name}</p>
-                    <p class="city">Phone No: {record._id}</p>
-                  </div>
-                  <div className="radial-progress bg-primary text-primary-content border-4 border-primary" style={{ "--value": calcProgress(record, 6), "--size": "10rem" }} role="progressbar">{calcProgress(record, 6)}</div>
-                  <div class="checkbox-wrapper flex flex-col">
-                    <input style={{ display: 'none' }} checked={taskone} onChange={handleCheck1} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={tasktwo}
+                                onChange={handleCheck2}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 2</span>
+                              </label>
 
-                    <input style={{ display: 'none' }} checked={tasktwo} onChange={handleCheck2} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={taskthree}
+                                onChange={handleCheck3}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 3</span>
+                              </label>
 
-                    <input style={{ display: 'none' }} checked={taskthree} onChange={handleCheck3} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={taskfour}
+                                onChange={handleCheck4}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 4</span>
+                              </label>
 
-                    <input style={{ display: 'none' }} checked={taskfour} onChange={handleCheck4} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={taskfive}
+                                onChange={handleCheck5}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 5</span>
+                              </label>
 
-                    <input style={{ display: 'none' }} checked={taskfive} onChange={handleCheck5} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
-
-                    <input style={{ display: 'none' }} checked={tasksix} onChange={handleCheck6} disabled={true} type="checkbox" id="cbx" class="inp-cbx" />
-                    <label for="cbx" class="cbx">
-                      <span>
-                        <svg viewBox="0 0 12 9" height="9px" width="12px">
-                          <polyline points="1 5 4 8 11 1"></polyline>
-                        </svg>
-                      </span>
-                      <span className='text-lg'>To-do</span>
-                    </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={tasksix}
+                                onChange={handleCheck6}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 6</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </aside>
+                    </div>
                   </div>
                 </div>
+                {/* card design end */}
+
+                {/* start of form */}
+                <form onSubmit={handleSubmit} className="">
+                  <div className="ml-20 grid gap-2 w-[30rem]">
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskone}
+                          onChange={handleCheck1}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide1" href="#hide1" className="hide">
+                          Open Task 1
+                        </a>
+                        <a id="show1" href="#show1" className="show">
+                          Close Task 1
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={tasktwo}
+                          onChange={handleCheck2}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide2" href="#hide2" className="hide">
+                          Open Task 2
+                        </a>
+                        <a id="show2" href="#show2" className="show">
+                          Close Task 2
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskthree}
+                          onChange={handleCheck3}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide3" href="#hide3" className="hide">
+                          Open Task 3
+                        </a>
+                        <a id="show3" href="#show3" className="show">
+                          Close Task 3
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskfour}
+                          onChange={handleCheck4}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide4" href="#hide4" className="hide">
+                          Open Task 4
+                        </a>
+                        <a id="show4" href="#show4" className="show">
+                          Close Task 4
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskfive}
+                          onChange={handleCheck5}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide5" href="#hide5" className="hide">
+                          Open Task 5
+                        </a>
+                        <a id="show5" href="#show5" className="show">
+                          Close Task 5
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={tasksix}
+                          onChange={handleCheck6}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-10 w-full max-w-[30rem]">
+                        <a id="hide6" href="#hide6" className="hide">
+                          Open Task 6
+                        </a>
+                        <a id="show6" href="#show6" className="show">
+                          Close Task 6
+                        </a>
+                        <div className="details">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Laborum ducimus labore facilis quia nihil
+                          explicabo asperiores?
+                        </div>
+                        <div className="mt-2 grid gap-2">
+                          <input
+                            type="text"
+                            value={linkone}
+                            placeholder="Enter Link 1"
+                            onChange={(e) => {
+                              setLinkOne(e.target.value)
+                            }}
+                            className="input input-bordered input-accent w-full max-w-xs"
+                          />
+                          <input
+                            type="text"
+                            value={linktwo}
+                            placeholder="Enter Link 2"
+                            onChange={(e) => {
+                              setLinkTwo(e.target.value)
+                            }}
+                            className="input input-bordered input-accent w-full max-w-xs"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button>SUBMIT</button>
+                </form>
+                {/* end of form */}
               </div>
-              <form onSubmit={handleSubmit}>
-                <input type="checkbox" checked={taskone} onChange={handleCheck1} />task1
-                <input type="checkbox" checked={tasktwo} onChange={handleCheck2} />task2
-                <input type="checkbox" checked={taskthree} onChange={handleCheck3} />task3
-                <input type="checkbox" checked={taskfour} onChange={handleCheck4} />task4
-                <input type="checkbox" checked={taskfive} onChange={handleCheck5} />task5
-                <input type="checkbox" checked={tasksix} onChange={handleCheck6} />task6
-
-
-                <input type="text" value={linkone} placeholder="Enter Link 1" onChange={(e) => { setLinkOne(e.target.value) }} />
-                <input type="text" value={linktwo} placeholder="Enter Link 2" onChange={(e) => { setLinkTwo(e.target.value) }} />
-                <button>SUBMIT</button>
-              </form>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>EVERYONE'S PROGRESS</h3>
-      </div>
-      <div>
-        {week && week.map((x) => (
-          <p key={x._id}>
-            {x._id}---{x.name}---{x.task1 ? 'done' : 'notdone'}---{x.task2 ? 'done' : 'notdone'}---{x.task3 ? 'done' : 'notdone'}---{x.task4 ? 'done' : 'notdone'}---{x.task5 ? 'done' : 'notdone'}---{x.task6 ? 'done' : 'notdone'}---{x.link1}---{x.link2}
+        <div></div>
+        <div className="scrollcontainer gap-5 h-[50rem] overflow-auto p-5 m-5">
+          {week &&
+            week.map((x) => (
+              <div key={x._id} className="flex flex-col m-5">
+                <aside className="bg-black text-white p-10 rounded-lg w-full max-w-[30rem] font-mono">
+                  <div className="flex justify-between items-center">
+                    <div className="flex space-x-2 text-red-500">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                  </div>
+                  <div className="flex ">
+                    <div className="mt-4">
+                      <p className="text-[cyan]">$ npm install details</p>
+                      <p className="truncate">Name: {x.name}</p>
+                      <p className="">Phone No: {x._id}</p>
+                      <p className="text-[cyan]">$ npm install links</p>
+                      {x.link1 !== '' ? (
+                        <a href={x.link1}>
+                          <p className="text-white underline underline-offset-1 truncate">
+                            {x.link1}
+                          </p>
+                        </a>
+                      ) : (
+                        <p>Nothing yet.</p>
+                      )}
+                      {x.link2 !== '' ? (
+                        <a href={x.link2}>
+                          <p className="text-white underline underline-offset-1 truncate">
+                            {x.link2}
+                          </p>
+                        </a>
+                      ) : (
+                        <p>Nothing yet.</p>
+                      )}
+                      <p className="text-[cyan]">$</p>
+                    </div>
+                    <div
+                      className="radial-progress bg-[black] text-[#33aeae] border-4 border-[black]"
+                      style={{
+                        '--value': calcProgress(x, 6),
+                        '--size': '10rem',
+                        '--thickness': '0.75rem',
+                      }}
+                      role="progressbar"
+                    >
+                      {/* {calcProgress(record, 6)} */}
+                      <div className="checkbox-wrapper grid grid-cols-3 text-[#b9b8c3]">
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task1}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
 
-          </p>
-        ))}
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task2}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
+
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task3}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
+
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task4}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
+
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task5}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
+
+                        <input
+                          style={{ display: 'none' }}
+                          checked={x.task6}
+                          disabled={true}
+                          type="checkbox"
+                          id="cbx"
+                          className="inp-cbx"
+                        />
+                        <label htmlFor="cbx" className="cbx">
+                          <span>
+                            <svg viewBox="0 0 12 9" height="9px" width="12px">
+                              <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                          </span>
+                          <span className="text-lg"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            ))}
+        </div>
+        <button onClick={handleGoHome}>GO BACK TO HOME</button>
       </div>
-      <button onClick={handleGoHome}>GO BACK TO HOME</button>
     </div>
   )
 }

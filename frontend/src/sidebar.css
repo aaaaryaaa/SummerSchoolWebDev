@@ -1,0 +1,141 @@
+.sidebar {
+    width: 12%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9; /* Ensures it stays on top */
+  }
+  
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    top: 15%; /* Adjust as needed */
+    bottom: 5%; /* Adjust as needed */
+    right: 0;
+    width: 1px; /* Adjust the thickness of the border */
+    background-color: grey;
+  }
+
+  .sidebar ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    list-style: none;
+  }
+  
+  .sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #ffffff;
+    position: relative;
+    padding: 20px 0 20px 30px;
+  }
+  
+  .sidebar ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: rgb(166, 166, 166);
+    z-index: -1;
+    transition: width 300ms ease-in-out;
+  }
+  
+  .sidebar ul li a.active {
+    color: #2b2626;
+  }
+  
+  .sidebar ul li a.active:before {
+    width: 95%;
+  }
+  
+  .sidebar .logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px auto;
+  }
+  
+  .sidebar .logo img {
+    width: 100%;
+  }
+  
+
+
+
+/* .sidebar {
+    width: 12%;
+    height: 100%;
+    background-color: #262626;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+  }
+  
+  .sidebar ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    list-style: none;
+  }
+  
+  .sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    padding: 25px 0 25px 38px;
+    transition: color 300ms ease-in-out;
+  }
+  
+  .sidebar ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: #e3e9f7;
+    border-radius: 40px 0 0 40px;
+    z-index: -1;
+    transition: width 300ms ease-in-out;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    color: #2b2626;
+  }
+  
+  .sidebar ul li a:hover:before, .sidebar ul li a.active:before {
+    width: 95%;
+  }
+  
+  .sidebar .logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px auto;
+  }
+  
+  .sidebar .logo img {
+    width: 100%;
+  }
+   */

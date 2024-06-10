@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Sidebar from './Sidebar'
+import sampleimg from '../images/sample.jpg'
 
 const WebDev = () => {
   const navigate = useNavigate()
@@ -9,34 +11,13 @@ const WebDev = () => {
   }
 
   return (
-    <div>
-      <h1>Welcome to the Web-Dev Page</h1>
-      <div className="flex flex-col space-y-4">
-        <button
-          onClick={() => handleWeekNavigation(1)}
-          style={{ position: 'relative', zIndex: 10 }}
-          className="mt-20"
-        >
-          Week 1
-        </button>
-        <button
-          onClick={() => handleWeekNavigation(2)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 2
-        </button>
-        <button
-          onClick={() => handleWeekNavigation(3)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 3
-        </button>
-        <button
-          onClick={() => handleWeekNavigation(4)}
-          style={{ position: 'relative', zIndex: 10 }}
-        >
-          Week 4
-        </button>
+    <div className="flex h-screen bg-black">
+      <Sidebar domain="webdev" />
+      <div className="flex-1 ml-52 p-4 mt-24">
+        <h1 className="text-6xl font-bold text-center">Welcome to Web Dev</h1>
+        <div className="flex justify-center mt-12">
+          <img src={sampleimg} alt="sample" className="w-2/3" />
+        </div>
       </div>
     </div>
   )
