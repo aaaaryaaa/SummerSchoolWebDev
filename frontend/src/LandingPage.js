@@ -2,11 +2,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "./images/Navigation+hero part1.svg";
-import dsa from "./images/dsa.jpg";
-import design from "./images/design.jpg";
-import webdev from "./images/webdev.jpg";
-import appdev from "./images/appdev.jpg";
 import aiml from "./images/aiml.jpg";
+import appdev from "./images/appdev.jpg";
+import design from "./images/design.jpg";
+import dsa from "./images/dsa.jpg";
+import webdev from "./images/webdev.jpg";
 const Card = ({ imgSrc, title, description, link }) => (
   <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5">
     <div className="h-96 w-72">
@@ -39,7 +39,7 @@ const LandingPage = ({ user }) => {
   };
 
   return (
-    <div className="bg-black w-full h-full">
+    <div className="bg-black">
       {/* section1 */}
       <div className="flex justify-center items-center h-screen relative">
         <img
@@ -48,7 +48,7 @@ const LandingPage = ({ user }) => {
           alt="background"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
-        <h1 className="absolute text-7xl font-bold text-white pb-32">
+        <h1 className="absolute text-7xl font-bold text-white">
           TRACK YOUR PROGRESS NOW{" "}
         </h1>
         <div className="absolute inset-0 flex justify-center items-center">
@@ -74,11 +74,11 @@ const LandingPage = ({ user }) => {
       </div>
 
       {user ? (
-        <div className="flex flex-col items-center justify-center space-y-10 my-64">
+        <div className="flex flex-col items-center justify-center space-y-10">
           <div className="flex flex-wrap justify-center space-x-10">
             <Card
               imgSrc={dsa}
-              title="Data Structures & Algorithms"
+              title="DSA"
               description="Master problem-solving with data structures and algorithms."
               link="/dsa"
             />

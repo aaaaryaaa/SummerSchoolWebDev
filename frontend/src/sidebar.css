@@ -15,7 +15,7 @@
     bottom: 5%; /* Adjust as needed */
     right: 0;
     width: 1px; /* Adjust the thickness of the border */
-    background-color: grey;
+    background-color: white;
   }
 
   .sidebar ul {
@@ -46,7 +46,7 @@
     right: 0;
     width: 0%;
     height: 100%;
-    background: rgb(166, 166, 166);
+    background: white;
     z-index: -1;
     transition: width 300ms ease-in-out;
   }
