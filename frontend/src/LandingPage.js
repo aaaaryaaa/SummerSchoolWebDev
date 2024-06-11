@@ -1,12 +1,12 @@
 // src/components/LandingPage.js
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import backgroundImage from "./images/Navigation+hero part1.svg";
-import aiml from "./images/aiml.jpg";
-import appdev from "./images/appdev.jpg";
-import design from "./images/design.jpg";
-import dsa from "./images/dsa.jpg";
-import webdev from "./images/webdev.jpg";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import backgroundImage from './images/Navigation+hero part1.svg'
+import aiml from './images/aiml.jpg'
+import appdev from './images/appdev.jpg'
+import design from './images/design.jpg'
+import dsa from './images/dsa.jpg'
+import webdev from './images/webdev.jpg'
 const Card = ({ imgSrc, title, description, link }) => (
   <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5">
     <div className="h-96 w-72">
@@ -26,17 +26,29 @@ const Card = ({ imgSrc, title, description, link }) => (
       </p>
     </div>
   </div>
-);
+)
 const LandingPage = ({ user }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSignup = () => {
-    navigate("/signup");
-  };
+    navigate('/signup')
+  }
 
   const handleLogin = () => {
-    navigate("/login");
-  };
+    navigate('/login')
+  }
+
+  const checkDomainAccess = (domain) => {
+    if (!user) return false
+    if (!user.domains) return false
+    const checkArray = Object.keys(user.domains).filter(
+      (domain) => user.domains[domain]
+    )
+    if (!Array.isArray(checkArray) || checkArray === undefined) {
+      return false // or handle this case as needed
+    }
+    return checkArray.includes(domain)
+  }
 
   return (
     <div className="bg-black">
@@ -44,12 +56,12 @@ const LandingPage = ({ user }) => {
       <div className="flex justify-center items-center h-screen relative">
         <img
           src={backgroundImage}
-          style={{ width: "130%", height: "100%", objectFit: "cover" }}
+          style={{ width: '130%', height: '100%', objectFit: 'cover' }}
           alt="background"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
         <h1 className="absolute text-7xl font-bold text-white">
-          TRACK YOUR PROGRESS NOW{" "}
+          TRACK YOUR PROGRESS NOW{' '}
         </h1>
         <div className="absolute inset-0 flex justify-center items-center">
           {user ? (
@@ -81,18 +93,21 @@ const LandingPage = ({ user }) => {
               title="DSA"
               description="Master problem-solving with data structures and algorithms."
               link="/dsa"
+              onClick={() => navigate('/dsa')}
             />
             <Card
               imgSrc={design}
               title="Design"
               description="Craft visually appealing and user-friendly interfaces with design principles."
               link="/design"
+              onClick={() => navigate('/design')}
             />
             <Card
               imgSrc={webdev}
               title="Web Development"
               description="Build dynamic and responsive websites for impactful online experiences."
               link="/webdev"
+              onClick={() => navigate('/webdev')}
             />
           </div>
           <div className="flex flex-wrap justify-center space-x-10">
@@ -149,6 +164,6 @@ const LandingPage = ({ user }) => {
         </div>
       )}
     </div>
-  );
-};
-export default LandingPage;
+  )
+}
+export default LandingPage
