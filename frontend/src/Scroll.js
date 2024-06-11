@@ -51,7 +51,7 @@ const Scroll = () => {
           Developer
         </h1>
       </div>
-      <div className="h-screen flex bg-gray-950 justify-center place-items-center">
+      <div className="h-screen flex bg-black justify-center place-items-center">
         <h1 id="welcome" className="text-9xl font-bold font-spaceGrotesk">
           Welcome.
         </h1>

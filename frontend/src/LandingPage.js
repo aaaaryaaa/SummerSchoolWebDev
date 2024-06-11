@@ -12,7 +12,7 @@ import Scroll from "./Scroll";
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = ({ imgSrc, title, description, link }) => (
-  <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5 card">
+  <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5">
     <div className="h-96 w-72">
       <img
         className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
