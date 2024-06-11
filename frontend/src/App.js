@@ -1,43 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
-import LandingPage from "./LandingPage";
-import Navbar from "./Navbar";
-import AIML from "./checkPages/AIML";
-import Appdev from "./checkPages/Appdev";
-import Design from "./checkPages/Design";
-import Dsa from "./checkPages/Dsa";
-import ErrorPage from "./checkPages/ErrorPage";
-import Footer from "./checkPages/Footer";
-import Login from "./checkPages/Login";
-import Signup from "./checkPages/Signup";
-import Unselected from "./checkPages/Unselected";
-import WebDev from "./checkPages/WebDev";
-import AIMLWeek1 from "./checkPages/domain/AIMLWeek1";
-import AIMLWeek2 from "./checkPages/domain/AIMLWeek2";
-import AIMLWeek3 from "./checkPages/domain/AIMLWeek3";
-import AIMLWeek4 from "./checkPages/domain/AIMLWeek4";
-import AppWeek1 from "./checkPages/domain/AppWeek1";
-import AppWeek2 from "./checkPages/domain/AppWeek2";
-import AppWeek3 from "./checkPages/domain/AppWeek3";
-import AppWeek4 from "./checkPages/domain/AppWeek4";
-import DesignWeek1 from "./checkPages/domain/DesignWeek1";
-import DesignWeek2 from "./checkPages/domain/DesignWeek2";
-import DesignWeek3 from "./checkPages/domain/DesignWeek3";
-import DesignWeek4 from "./checkPages/domain/DesignWeek4";
-import DsaWeek1 from "./checkPages/domain/DsaWeek1";
-import DsaWeek2 from "./checkPages/domain/DsaWeek2";
-import DsaWeek3 from "./checkPages/domain/DsaWeek3";
-import DsaWeek4 from "./checkPages/domain/DsaWeek4";
-import DsaWeek5 from "./checkPages/domain/DsaWeek5";
-import DsaWeek6 from "./checkPages/domain/DsaWeek6";
-import WebWeek1 from "./checkPages/domain/WebWeek1";
-import WebWeek2 from "./checkPages/domain/WebWeek2";
-import WebWeek3 from "./checkPages/domain/WebWeek3";
-import WebWeek4 from "./checkPages/domain/WebWeek4";
-import WebWeek5 from "./checkPages/domain/WebWeek5";
+import React, { useEffect, useState } from 'react'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import './App.css'
+import LandingPage from './LandingPage'
+import Navbar from './Navbar'
+import AIML from './checkPages/AIML'
+import Appdev from './checkPages/Appdev'
+import Design from './checkPages/Design'
+import Dsa from './checkPages/Dsa'
+import ErrorPage from './checkPages/ErrorPage'
+import Footer from './checkPages/Footer'
+import Login from './checkPages/Login'
+import Signup from './checkPages/Signup'
+import Unselected from './checkPages/Unselected'
+import WebDev from './checkPages/WebDev'
+import AIMLWeek1 from './checkPages/domain/AIMLWeek1'
+import AIMLWeek2 from './checkPages/domain/AIMLWeek2'
+import AIMLWeek3 from './checkPages/domain/AIMLWeek3'
+import AIMLWeek4 from './checkPages/domain/AIMLWeek4'
+import AppWeek1 from './checkPages/domain/AppWeek1'
+import AppWeek2 from './checkPages/domain/AppWeek2'
+import AppWeek3 from './checkPages/domain/AppWeek3'
+import AppWeek4 from './checkPages/domain/AppWeek4'
+import DesignWeek1 from './checkPages/domain/DesignWeek1'
+import DesignWeek2 from './checkPages/domain/DesignWeek2'
+import DesignWeek3 from './checkPages/domain/DesignWeek3'
+import DesignWeek4 from './checkPages/domain/DesignWeek4'
+import DsaWeek1 from './checkPages/domain/DsaWeek1'
+import DsaWeek2 from './checkPages/domain/DsaWeek2'
+import DsaWeek3 from './checkPages/domain/DsaWeek3'
+import DsaWeek4 from './checkPages/domain/DsaWeek4'
+import DsaWeek5 from './checkPages/domain/DsaWeek5'
+import DsaWeek6 from './checkPages/domain/DsaWeek6'
+import WebWeek1 from './checkPages/domain/WebWeek1'
+import WebWeek2 from './checkPages/domain/WebWeek2'
+import WebWeek3 from './checkPages/domain/WebWeek3'
+import WebWeek4 from './checkPages/domain/WebWeek4'
+import WebWeek5 from './checkPages/domain/WebWeek5'
+import BaseUrl from './BaseUrl'
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('user')
@@ -76,7 +77,7 @@ function App() {
   }
 
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Router>
         <Navbar
           user={user}

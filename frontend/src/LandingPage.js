@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import aiml from "./images/aiml-Photoroom.jpg";
-import appdev from "./images/appdev-Photoroom.jpg";
-import design from "./images/design-Photoroom.jpg";
-import dsa from "./images/dsa-Photoroom.jpg";
-import webdev from "./images/webdev-Photoroom.jpg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Scroll from "./Scroll";
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import aiml from './images/aiml-Photoroom.jpg'
+import appdev from './images/appdev-Photoroom.jpg'
+import design from './images/design-Photoroom.jpg'
+import dsa from './images/dsa-Photoroom.jpg'
+import webdev from './images/webdev-Photoroom.jpg'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Scroll from './Scroll'
+import baseUrl from './BaseUrl'
+gsap.registerPlugin(ScrollTrigger)
 
 const Card = ({ imgSrc, title, description, link, onClick }) => (
   <div
@@ -33,92 +33,87 @@ const Card = ({ imgSrc, title, description, link, onClick }) => (
       </p>
     </div>
   </div>
-);
+)
 
 const LandingPage = ({ user }) => {
-  const navigate = useNavigate();
-  const main = useRef();
-  const welcomeRef = useRef();
+  const navigate = useNavigate()
+  const main = useRef()
+  const welcomeRef = useRef()
+  const animationTimeline = useRef(null)
 
   const handleSignup = () => {
-    navigate("/signup");
-  };
+    navigate('/signup')
+  }
 
   const handleLogin = () => {
-    navigate("/login");
-  };
-
-  const checkDomainAccess = (domain) => {
-    if (!user) return false;
-    if (!user.domains) return false;
-    const checkArray = Object.keys(user.domains).filter(
-      (domain) => user.domains[domain]
-    );
-    if (!Array.isArray(checkArray) || checkArray === undefined) {
-      return false; // or handle this case as needed
-    }
-    return checkArray.includes(domain);
-  };
+    navigate('/login')
+  }
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      const t1 = gsap.timeline();
-      t1.from("#intro-slider", {
-        xPercent: "-100",
+      const t1 = gsap.timeline()
+      t1.from('#intro-slider', {
+        xPercent: '-100',
         duration: 1.3,
         delay: 0.3,
       })
-        .from(["#title-1", "#title-2", "#title-3"], {
+        .from(['#title-1', '#title-2', '#title-3'], {
           opacity: 0,
-          y: "+=30",
+          y: '+=30',
           stagger: 0.5,
         })
-        .to(["#title-1", "#title-2", "#title-3"], {
+        .to(['#title-1', '#title-2', '#title-3'], {
           opacity: 0,
-          y: "-=30",
+          y: '-=30',
           delay: 0.3,
           stagger: 0.5,
         })
-        .to("#intro-slider", {
-          xPercent: "-100",
+        .to('#intro-slider', {
+          xPercent: '-100',
           duration: 1.3,
         })
-        .from("#welcome", {
+        .from('#welcome', {
           opacity: 0,
           duration: 0.5,
-        });
+        })
+
+      animationTimeline.current = t1
 
       gsap.to(welcomeRef.current, {
         yPercent: -50,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
           trigger: welcomeRef.current,
-          start: "top top",
-          end: "bottom top",
+          start: 'top top',
+          end: 'bottom top',
           scrub: true,
         },
-      });
+      })
+    }, main)
 
-      gsap.to(main.current, {
-        yPercent: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: welcomeRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }, main);
+    const stopAnimation = () => {
+      console.log('Screen clicked, stopping animation.')
+      if (animationTimeline.current) {
+        console.log('Killing animation timeline.')
+        animationTimeline.current.kill()
+      }
+      // Clear ScrollTriggers
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
 
-    return () => ctx.revert();
-  }, []);
+    document.addEventListener('click', stopAnimation)
+
+    return () => {
+      ctx.revert()
+      document.removeEventListener('click', stopAnimation)
+    }
+  }, [])
 
   return (
     <div className="bg-black">
       <Scroll />
 
-      <div className="h-screen flex bg-black justify-center place-items-center">
+      <div className="h-screen flex flex-col bg-black justify-center place-items-center">
         <h1
           id="welcome"
           ref={welcomeRef}
@@ -126,6 +121,13 @@ const LandingPage = ({ user }) => {
         >
           Welcome.
         </h1>
+        {user ? (
+          <h2 className="text-4xl font-bold font-spaceGrotes text-gray-400 bg-clip-text mt-5">
+            {user.name}
+          </h2>
+        ) : (
+          <div></div>
+        )}
       </div>
       {!user ? (
         <div className="flex flex-row justify-center items-center space-x-4 -mt-32">
@@ -156,7 +158,7 @@ const LandingPage = ({ user }) => {
               title="DSA"
               description="Master problem-solving with data structures and algorithms."
               link="/dsa"
-              onClick={() => navigate("/dsa")}
+              onClick={() => navigate('/dsa')}
             />
 
             <Card
@@ -164,14 +166,14 @@ const LandingPage = ({ user }) => {
               title="Web Development"
               description="Build dynamic and responsive websites for impactful online experiences."
               link="/webdev"
-              onClick={() => navigate("/webdev")}
+              onClick={() => navigate('/webdev')}
             />
             <Card
               imgSrc={design}
               title="Design"
               description="Craft visually appealing and user-friendly interfaces with design principles."
               link="/design"
-              onClick={() => navigate("/design")}
+              onClick={() => navigate('/design')}
             />
           </div>
           <div className="flex flex-wrap justify-center space-x-10">
@@ -193,7 +195,7 @@ const LandingPage = ({ user }) => {
         <div></div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
