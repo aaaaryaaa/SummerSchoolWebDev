@@ -35,8 +35,10 @@ const Design = () => {
             </div>
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">Week 1</time>
-              <div className="text-lg font-black">Introduction to Design</div>
-              Understand the basics of design principles and elements.
+              <div className="text-lg font-black">
+                introduction to video editing and graphic design
+              </div>
+              Learning premiere pro and figma basics
             </div>
             <hr />
           </li>
@@ -59,9 +61,9 @@ const Design = () => {
             <div className="timeline-end mb-10">
               <time className="font-mono italic">Week 2</time>
               <div className="text-lg font-black">
-                Color Theory and Typography
+                Introduction to UI/UX design
               </div>
-              Learn about color theory and typography basics.
+              Basics of Canva and Illustrator
             </div>
             <hr />
           </li>
@@ -84,9 +86,9 @@ const Design = () => {
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">Week 3</time>
               <div className="text-lg font-black">
-                Layout Design and Grid Systems
+                Introduction to Web Design
               </div>
-              Explore layout design and grid systems.
+              Integration with Web Development domain and basics of Web Design
             </div>
             <hr />
           </li>
@@ -108,8 +110,8 @@ const Design = () => {
             </div>
             <div className="timeline-end mb-10">
               <time className="font-mono italic">Week 4</time>
-              <div className="text-lg font-black">UI/UX Design Principles</div>
-              Dive into UI/UX design principles and wireframing.
+              <div className="text-lg font-black">Project Implementation</div>
+              Final Project Review and Submission integrated with Web Development Domain
             </div>
             <hr />
           </li>

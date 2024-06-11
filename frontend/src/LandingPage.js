@@ -1,21 +1,24 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "./images/Navigation+hero part1.svg";
-import aiml from "./images/aiml.jpg";
-import appdev from "./images/appdev.jpg";
-import design from "./images/design.jpg";
-import dsa from "./images/dsa.jpg";
-import webdev from "./images/webdev.jpg";
+import aiml from "./images/aiml-Photoroom.jpg";
+import appdev from "./images/appdev-Photoroom.jpg";
+import design from "./images/design-Photoroom.jpg";
+import dsa from "./images/dsa-Photoroom.jpg";
+import webdev from "./images/webdev-Photoroom.jpg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scroll from "./Scroll";
+
 gsap.registerPlugin(ScrollTrigger);
 
-const Card = ({ imgSrc, title, description, link }) => (
-  <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5">
+const Card = ({ imgSrc, title, description, link, onClick }) => (
+  <div
+    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5"
+    onClick={onClick}
+  >
     <div className="h-96 w-72">
       <img
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
+        className="h-full w-full object-contain transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
         src={imgSrc}
         alt={title}
       />
@@ -35,8 +38,7 @@ const Card = ({ imgSrc, title, description, link }) => (
 const LandingPage = ({ user }) => {
   const navigate = useNavigate();
   const main = useRef();
-
-
+  const welcomeRef = useRef();
 
   const handleSignup = () => {
     navigate("/signup");
@@ -58,11 +60,91 @@ const LandingPage = ({ user }) => {
     return checkArray.includes(domain);
   };
 
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      const t1 = gsap.timeline();
+      t1.from("#intro-slider", {
+        xPercent: "-100",
+        duration: 1.3,
+        delay: 0.3,
+      })
+        .from(["#title-1", "#title-2", "#title-3"], {
+          opacity: 0,
+          y: "+=30",
+          stagger: 0.5,
+        })
+        .to(["#title-1", "#title-2", "#title-3"], {
+          opacity: 0,
+          y: "-=30",
+          delay: 0.3,
+          stagger: 0.5,
+        })
+        .to("#intro-slider", {
+          xPercent: "-100",
+          duration: 1.3,
+        })
+        .from("#welcome", {
+          opacity: 0,
+          duration: 0.5,
+        });
+
+      gsap.to(welcomeRef.current, {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: welcomeRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.to(main.current, {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: welcomeRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, main);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="bg-black">
-      {/* section1 */}
-    <Scroll />
+      <Scroll />
 
+      <div className="h-screen flex bg-black justify-center place-items-center">
+        <h1
+          id="welcome"
+          ref={welcomeRef}
+          className="text-9xl font-bold font-spaceGrotesk bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text"
+        >
+          Welcome.
+        </h1>
+      </div>
+      {!user ? (
+        <div className="flex flex-row justify-center items-center space-x-4 -mt-32">
+          <button
+            onClick={handleSignup}
+            className="px-6 py-3 bg-yellow-500 text-white rounded shadow-2xl hover:bg-green-700 transition duration-300 "
+          >
+            Signup
+          </button>
+          <button
+            onClick={handleLogin}
+            className="px-6 py-3 bg-yellow-500 text-white rounded hover:bg-blue-600 transition duration-300"
+          >
+            Login
+          </button>
+        </div>
+      ) : (
+        <div></div>
+      )}
       {user ? (
         <div
           className="flex flex-col items-center justify-center space-y-10"
@@ -76,19 +158,20 @@ const LandingPage = ({ user }) => {
               link="/dsa"
               onClick={() => navigate("/dsa")}
             />
-            <Card
-              imgSrc={design}
-              title="Design"
-              description="Craft visually appealing and user-friendly interfaces with design principles."
-              link="/design"
-              onClick={() => navigate("/design")}
-            />
+
             <Card
               imgSrc={webdev}
               title="Web Development"
               description="Build dynamic and responsive websites for impactful online experiences."
               link="/webdev"
               onClick={() => navigate("/webdev")}
+            />
+            <Card
+              imgSrc={design}
+              title="Design"
+              description="Craft visually appealing and user-friendly interfaces with design principles."
+              link="/design"
+              onClick={() => navigate("/design")}
             />
           </div>
           <div className="flex flex-wrap justify-center space-x-10">
