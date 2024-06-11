@@ -15,11 +15,8 @@ const WebDev = () => {
       <Sidebar domain="webdev" />
       <div className="flex-1 ml-52 p-4 mt-24">
         <h1 className="text-6xl font-bold text-center text-white">
-          Welcome to Web Dev
+          Welcome to Web Dev Domain
         </h1>
-        <div className="flex justify-center mt-12">
-          <img src={sampleimg} alt="sample" className="w-2/3" />
-        </div>
 
         {/* DaisyUI Timeline Component */}
         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical flex-1 p-4 mt-12">

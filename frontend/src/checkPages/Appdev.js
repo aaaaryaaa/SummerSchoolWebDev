@@ -12,9 +12,10 @@ const Appdev = () => {
   return (
     <div className="flex">
       <Sidebar domain="appdev" />
-      <div className="flex-1 ml-64 p-4 mt-32">
-        
-    
+      <div className="flex-1  p-4 mt-24">
+        <h1 className="text-6xl font-bold text-center text-white ml-52">
+          Welcome to App Dev Domain
+        </h1>
 
         {/* DaisyUI Timeline Component */}
         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
