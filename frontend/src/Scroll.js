@@ -51,11 +51,14 @@ const Scroll = () => {
           Developer
         </h1>
       </div>
-      <div className="h-screen flex bg-black justify-center place-items-center">
-        <h1 id="welcome" className="text-9xl font-bold font-spaceGrotesk">
+      {/* <div className="h-screen flex bg-black justify-center place-items-center">
+        <h1
+          id="welcome"
+          className="text-9xl font-bold font-spaceGrotesk bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text"
+        >
           Welcome.
         </h1>
-      </div>
+      </div> */}
     </div>
   );
 };
