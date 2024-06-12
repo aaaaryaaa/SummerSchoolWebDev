@@ -68,7 +68,7 @@ function PageNotFoundAnimation() {
         </div>
       </section>
       <section className="outro">
-        <h1>Slow</h1>
+        <h1>you didnt choose this domain, kid.</h1>
       </section>
     </div>
   );

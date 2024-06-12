@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #000;
 }
 html,
 body {
@@ -24,7 +25,7 @@ a {
 h1 {
   width: 100%;
   color: white;
-  font-size: 48vw;
+  font-size: 30vw;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -32,7 +33,7 @@ h1 {
 
 .container {
   width: 100%;
-  height: 1200vh;
+  height: 100%;
 }
 
 
@@ -69,9 +70,9 @@ h1 {
 }
 .outro {
   position: absolute;
-  top: 150vh;
+  top: 1500px;
   width: 100%;
-  height: 100vh;
+  height: 500px;
 }
 .outro h1 {
   position: absolute;
