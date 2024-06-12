@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import everyoneprog from '../../assets/everyoneprogress.svg'
 import Sidebar from '../Sidebar'
+import BaseUrl from '../../BaseUrl'
 
 export default function AIMLWeek1({ user }) {
   const navigate = useNavigate()
@@ -34,7 +35,7 @@ export default function AIMLWeek1({ user }) {
   }
 
   const fetchWeek = async () => {
-    const response = await fetch('http://localhost:4000/api/progress/aimlweek1')
+    const response = await fetch(BaseUrl + '/api/progress/aimlweek1')
     const json = await response.json()
 
     if (response.ok) {
@@ -45,7 +46,7 @@ export default function AIMLWeek1({ user }) {
   const fetchRecord = async () => {
     // console.log(user.user.phone_number)
     const response = await fetch(
-      'http://localhost:4000/api/progress/aimlweek1/' + user.phone_number
+      BaseUrl + '/api/progress/aimlweek1/' + user.phone_number
     )
     const json = await response.json()
 
@@ -102,11 +103,11 @@ export default function AIMLWeek1({ user }) {
       link2,
       link3,
       link4,
-      link5
+      link5,
     }
 
     const response = await fetch(
-      'http://localhost:4000/api/progress/aimlweek1/' + user.phone_number,
+      BaseUrl + '/api/progress/aimlweek1/' + user.phone_number,
       {
         method: 'PATCH',
         body: JSON.stringify(task),
@@ -164,11 +165,13 @@ export default function AIMLWeek1({ user }) {
 
   return (
     <div className="grid grid-cols-10 w-full">
-      <div className='col-span-1'><Sidebar domain="aiml" /></div>
+      <div className="col-span-1">
+        <Sidebar domain="aiml" />
+      </div>
       <div className="col-span-9">
         <div className="mt-24 w-full">
           <h1 className=" text-center text-6xl py-10">AIML WEEK 1</h1>
-          <div className='w-full'>
+          <div className="w-full">
             {record && (
               <div className="progressdash w-full flex flex-row">
                 {/* card design */}
@@ -186,12 +189,16 @@ export default function AIMLWeek1({ user }) {
                         </div>
                         <div className="flex">
                           <div className="mt-14">
-                            <p className="text-[#00CDB7]">$ npm install details</p>
+                            <p className="text-[#00CDB7]">
+                              $ npm install details
+                            </p>
                             <p className="truncate">Name: {record.name}</p>
                             <p className="">Phone No: {record._id}</p>
-                            <p className="text-[#00CDB7]">$ npm install links</p>
+                            <p className="text-[#00CDB7]">
+                              $ npm install links
+                            </p>
                             {record.link1 !== '' ? (
-                              <a href={record.link1} target='_blank'>
+                              <a href={record.link1} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link1}
                                 </p>
@@ -200,7 +207,7 @@ export default function AIMLWeek1({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link2 !== '' ? (
-                              <a href={record.link2} target='_blank'>
+                              <a href={record.link2} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link2}
                                 </p>
@@ -209,7 +216,7 @@ export default function AIMLWeek1({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link3 !== '' ? (
-                              <a href={record.link3} target='_blank'>
+                              <a href={record.link3} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link3}
                                 </p>
@@ -218,7 +225,7 @@ export default function AIMLWeek1({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link4 !== '' ? (
-                              <a href={record.link4} target='_blank'>
+                              <a href={record.link4} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link4}
                                 </p>
@@ -227,7 +234,7 @@ export default function AIMLWeek1({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link5 !== '' ? (
-                              <a href={record.link5} target='_blank'>
+                              <a href={record.link5} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link5}
                                 </p>
@@ -240,7 +247,7 @@ export default function AIMLWeek1({ user }) {
                           <div
                             className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                             style={{
-                              '--value': calcProgress(record, 6),
+                              '--value': calcProgress(record, 7),
                               '--size': '16rem',
                               '--thickness': '0.75rem',
                             }}
@@ -345,7 +352,7 @@ export default function AIMLWeek1({ user }) {
                                 id="cbx"
                                 className="inp-cbx"
                               />
-                              <label htmlFor="cbx" className="cbx">
+                              {/* <label htmlFor="cbx" className="cbx">
                                 <span>
                                   <svg
                                     viewBox="0 0 12 9"
@@ -356,7 +363,7 @@ export default function AIMLWeek1({ user }) {
                                   </svg>
                                 </span>
                                 <span className="text-lg">Task 5</span>
-                              </label>
+                              </label> */}
 
                               <input
                                 style={{ display: 'none' }}
@@ -378,6 +385,27 @@ export default function AIMLWeek1({ user }) {
                                   </svg>
                                 </span>
                                 <span className="text-lg">Task 6</span>
+                              </label>
+                              <input
+                                style={{ display: 'none' }}
+                                checked={taskseven}
+                                onChange={handleCheck7}
+                                disabled={true}
+                                type="checkbox"
+                                id="cbx"
+                                className="inp-cbx"
+                              />
+                              <label htmlFor="cbx" className="cbx">
+                                <span>
+                                  <svg
+                                    viewBox="0 0 12 9"
+                                    height="9px"
+                                    width="12px"
+                                  >
+                                    <polyline points="1 5 4 8 11 1"></polyline>
+                                  </svg>
+                                </span>
+                                <span className="text-lg">Task 7</span>
                               </label>
                             </div>
                           </div>
@@ -402,12 +430,20 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
-                          Open Task 1 : THE TASK NAME OR WTV
+                          Open Task 1 : Python
                         </a>
                         <a id="show1" href="#show1" className="show">
-                          Close Task 1 : THE TASK NAME OR WTV
+                          Close Task 1 : Python
                         </a>
-                        <div className="details"> THE CONTENT HERE REPLACE LOREM IPSUM
+                        <div className="details">
+                          Watch below youtube video atleast till functions{' '}
+                          <br />
+                          <a
+                            href="https://youtu.be/_uQrJ0TkZlc?si=IOxgKASUH_utA8UM"
+                            target="_blank"
+                          >
+                            https://youtu.be/_uQrJ0TkZlc?si=IOxgKASUH_utA8UM
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -422,15 +458,19 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
-                          Open Task 2
+                          Open Task 2 : Numpy
                         </a>
                         <a id="show2" href="#show2" className="show">
-                          Close Task 2
+                          Close Task 2 : Numpy
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video <br />
+                          <a
+                            href="https://youtu.be/QUT1VHiLmmI?si=oHvKXETBFXFcwLfW"
+                            target="_blank"
+                          >
+                            https://youtu.be/QUT1VHiLmmI?si=oHvKXETBFXFcwLfW
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -445,15 +485,19 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
-                          Open Task 3
+                          Open Task 3 : Pandas
                         </a>
                         <a id="show3" href="#show3" className="show">
-                          Close Task 3
+                          Close Task 3 : Pandas
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video <br />
+                          <a
+                            href="https://youtu.be/vmEHCJofslg?si=lzeBhdk94JTdAhU"
+                            target="_blank"
+                          >
+                            https://youtu.be/vmEHCJofslg?si=lzeBhdk94JTdAhU
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -468,15 +512,23 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
-                          Open Task 4
+                          Open Task 4 : Installation of Anaconda and Jupyter
+                          Notebook
                         </a>
                         <a id="show4" href="#show4" className="show">
-                          Close Task 4
+                          Close Task 4 : Installation of Anaconda and Jupyter
+                          Notebook
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video and complete installation
+                          <br />
+                          <a
+                            href="https://youtu.be/i0DCPOiNK4A?si=un4DSP6eSBfPfksy"
+                            target="_blank"
+                          >
+                            {' '}
+                            https://youtu.be/i0DCPOiNK4A?si=un4DSP6eSBfPfksy
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -491,15 +543,13 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide5" href="#hide5" className="hide">
-                          Open Task 5
+                          Open Task 5 : Hackerrank
                         </a>
                         <a id="show5" href="#show5" className="show">
-                          Close Task 5
+                          Close Task 5 : Hackerrank
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Get atleast 3 stars on HackerRank for python.
                         </div>
                       </div>
                     </div>
@@ -514,10 +564,39 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide6" href="#hide6" className="hide">
-                          Open Task 6
+                          Open Task 6 : Panda Questions
                         </a>
                         <a id="show6" href="#show6" className="show">
-                          Close Task 6
+                          Close Task 6 : Panda Questions
+                        </a>
+                        <div className="details">
+                          There are a set of basic questions on pandas in the
+                          following doc. Solve them in a python notebook and
+                          push this notebook on GitHub. <br />
+                          <a
+                            href="https://docs.google.com/document/d/1-sZrZIofImcD4l2X-S0Mu1_BEArMlysAYejEV01LUBg/edit?usp=sharing"
+                            target="_blank"
+                          >
+                            https://docs.google.com/document/d/1-sZrZIofImcD4l2X-S0Mu1_BEArMlysAYejEV01LUBg/edit?usp=sharing
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskseven}
+                          onChange={handleCheck7}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-6 w-full">
+                        <a id="hide7" href="#hide7" className="hide">
+                          Open Task 7
+                        </a>
+                        <a id="show7" href="#show7" className="show">
+                          Close Task 7
                         </a>
                         <div className="details">
                           Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -573,7 +652,7 @@ export default function AIMLWeek1({ user }) {
                         </div>
                       </div>
                     </div>
-                    <div className='centereddiv'>
+                    <div className="centereddiv">
                       <button className="btn-31">
                         <span className="text-container">
                           <span className="text">Update Progress</span>
@@ -587,7 +666,7 @@ export default function AIMLWeek1({ user }) {
             )}
           </div>
         </div>
-        <div className='centereddiv flex flex-row'>
+        <div className="centereddiv flex flex-row">
           <img src={everyoneprog} alt="everyone's progress" />
           <div className="centereddiv bgfiltercard scrollcontainer h-[50rem] overflow-auto m-10 gap-5">
             {week &&
@@ -608,7 +687,7 @@ export default function AIMLWeek1({ user }) {
                         <p className="">Phone No: {x._id}</p>
                         <p className="text-[#00CDB7]">$ npm install links</p>
                         {x.link1 !== '' ? (
-                          <a href={x.link1} target='_blank'>
+                          <a href={x.link1} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link1}
                             </p>
@@ -617,7 +696,7 @@ export default function AIMLWeek1({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link2 !== '' ? (
-                          <a href={x.link2} target='_blank'>
+                          <a href={x.link2} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link2}
                             </p>
@@ -626,7 +705,7 @@ export default function AIMLWeek1({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link3 !== '' ? (
-                          <a href={x.link3} target='_blank'>
+                          <a href={x.link3} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link3}
                             </p>
@@ -635,7 +714,7 @@ export default function AIMLWeek1({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link4 !== '' ? (
-                          <a href={x.link4} target='_blank'>
+                          <a href={x.link4} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link4}
                             </p>
@@ -644,7 +723,7 @@ export default function AIMLWeek1({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link5 !== '' ? (
-                          <a href={x.link5} target='_blank'>
+                          <a href={x.link5} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link5}
                             </p>
@@ -657,7 +736,7 @@ export default function AIMLWeek1({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 7),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}

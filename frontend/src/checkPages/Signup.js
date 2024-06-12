@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import background from '../assets/background1.jpg'
-
+import BaseUrl from '../BaseUrl'
 const Signup = ({ user, setUser }) => {
   const navigate = useNavigate()
 
@@ -91,10 +91,7 @@ const Signup = ({ user, setUser }) => {
     try {
       console.log(dataToSubmit)
 
-      const response = await axios.post(
-        'http://localhost:4000/api/auth/signup',
-        formData
-      )
+      const response = await axios.post(BaseUrl + '/api/auth/signup', formData)
 
       let dsa = false
       let aiml = false
@@ -108,177 +105,159 @@ const Signup = ({ user, setUser }) => {
         console.log(checkDomainAccess('DSA') + ' dsa')
         dsa = true
         // Initializing all weeks db
-        const res1 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek1',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res1 = await fetch(BaseUrl + '/api/progress/dsaweek1', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json1 = await res1.json()
 
-        const res2 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek2',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res2 = await fetch(BaseUrl + '/api/progress/dsaweek2', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json2 = await res2.json()
 
-        const res3 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek3',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res3 = await fetch(BaseUrl + '/api/progress/dsaweek3', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json3 = await res3.json()
 
-        const res4 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek4',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res4 = await fetch(BaseUrl + '/api/progress/dsaweek4', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json4 = await res4.json()
 
-        const res5 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek5',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res5 = await fetch(BaseUrl + '/api/progress/dsaweek5', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json5 = await res5.json()
 
-        const res6 = await fetch(
-          'http://localhost:4000/api/progress/dsaweek6',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res6 = await fetch(BaseUrl + '/api/progress/dsaweek6', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json6 = await res6.json()
       }
@@ -287,119 +266,107 @@ const Signup = ({ user, setUser }) => {
         console.log(checkDomainAccess('AI-ML') + ' aiml')
         aiml = true
 
-        const res1 = await fetch(
-          'http://localhost:4000/api/progress/aimlweek1',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res1 = await fetch(BaseUrl + '/api/progress/aimlweek1', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json1 = await res1.json()
 
-        const res2 = await fetch(
-          'http://localhost:4000/api/progress/aimlweek2',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res2 = await fetch(BaseUrl + '/api/progress/aimlweek2', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json2 = await res2.json()
 
-        const res3 = await fetch(
-          'http://localhost:4000/api/progress/aimlweek3',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res3 = await fetch(BaseUrl + '/api/progress/aimlweek3', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json3 = await res3.json()
 
-        const res4 = await fetch(
-          'http://localhost:4000/api/progress/aimlweek4',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res4 = await fetch(BaseUrl + '/api/progress/aimlweek4', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json4 = await res4.json()
       }
@@ -408,148 +375,133 @@ const Signup = ({ user, setUser }) => {
         console.log(checkDomainAccess('Web Development') + ' web')
         web = true
 
-        const res1 = await fetch(
-          'http://localhost:4000/api/progress/webweek1',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res1 = await fetch(BaseUrl + '/api/progress/webweek1', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json1 = await res1.json()
 
-        const res2 = await fetch(
-          'http://localhost:4000/api/progress/webweek2',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res2 = await fetch(BaseUrl + '/api/progress/webweek2', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json2 = await res2.json()
 
-        const res3 = await fetch(
-          'http://localhost:4000/api/progress/webweek3',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res3 = await fetch(BaseUrl + '/api/progress/webweek3', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json3 = await res3.json()
 
-        const res4 = await fetch(
-          'http://localhost:4000/api/progress/webweek4',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res4 = await fetch(BaseUrl + '/api/progress/webweek4', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json4 = await res4.json()
 
-        const res5 = await fetch(
-          'http://localhost:4000/api/progress/webweek5',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res5 = await fetch(BaseUrl + '/api/progress/webweek5', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json5 = await res5.json()
       }
@@ -558,119 +510,107 @@ const Signup = ({ user, setUser }) => {
         console.log(checkDomainAccess('App Development') + ' app')
         app = true
 
-        const res1 = await fetch(
-          'http://localhost:4000/api/progress/appweek1',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res1 = await fetch(BaseUrl + '/api/progress/appweek1', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json1 = await res1.json()
 
-        const res2 = await fetch(
-          'http://localhost:4000/api/progress/appweek2',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res2 = await fetch(BaseUrl + '/api/progress/appweek2', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json2 = await res2.json()
 
-        const res3 = await fetch(
-          'http://localhost:4000/api/progress/appweek3',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res3 = await fetch(BaseUrl + '/api/progress/appweek3', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json3 = await res3.json()
 
-        const res4 = await fetch(
-          'http://localhost:4000/api/progress/appweek4',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res4 = await fetch(BaseUrl + '/api/progress/appweek4', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json4 = await res4.json()
       }
@@ -679,119 +619,107 @@ const Signup = ({ user, setUser }) => {
         console.log(checkDomainAccess('Design') + ' Design')
         des = true
 
-        const res1 = await fetch(
-          'http://localhost:4000/api/progress/designweek1',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res1 = await fetch(BaseUrl + '/api/progress/designweek1', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json1 = await res1.json()
 
-        const res2 = await fetch(
-          'http://localhost:4000/api/progress/designweek2',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res2 = await fetch(BaseUrl + '/api/progress/designweek2', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json2 = await res2.json()
 
-        const res3 = await fetch(
-          'http://localhost:4000/api/progress/designweek3',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res3 = await fetch(BaseUrl + '/api/progress/designweek3', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json3 = await res3.json()
 
-        const res4 = await fetch(
-          'http://localhost:4000/api/progress/designweek4',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              _id: formData.phone_number,
-              name: formData.name,
-              task1: false,
-              task2: false,
-              task3: false,
-              task4: false,
-              task5: false,
-              task6: false,
-              task7: false,
-              task8: false,
-              link1: '',
-              link2: '',
-              link3: '',
-              link4: '',
-              link5: '',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+        const res4 = await fetch(BaseUrl + '/api/progress/designweek4', {
+          method: 'POST',
+          body: JSON.stringify({
+            _id: formData.phone_number,
+            name: formData.name,
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+            task6: false,
+            task7: false,
+            task8: false,
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
 
         const json4 = await res4.json()
       }

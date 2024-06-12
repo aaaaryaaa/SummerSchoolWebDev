@@ -177,6 +177,9 @@ nav {
 .hide:target {
   display: none;
 }
+.details{
+  padding-top: 1rem;
+}
 .hide:target + .show,
 .hide:target ~ .details {
   display: block;

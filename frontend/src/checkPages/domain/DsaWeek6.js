@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import everyoneprog from '../../assets/everyoneprogress.svg'
 import Sidebar from '../Sidebar'
-
+import BaseUrl from '../../BaseUrl'
 export default function DsaWeek6({ user }) {
   const navigate = useNavigate()
 
@@ -34,7 +34,7 @@ export default function DsaWeek6({ user }) {
   }
 
   const fetchWeek = async () => {
-    const response = await fetch('http://localhost:4000/api/progress/dsaweek6')
+    const response = await fetch(BaseUrl + '/api/progress/dsaweek6')
     const json = await response.json()
 
     if (response.ok) {
@@ -45,7 +45,7 @@ export default function DsaWeek6({ user }) {
   const fetchRecord = async () => {
     // console.log(user.user.phone_number)
     const response = await fetch(
-      'http://localhost:4000/api/progress/dsaweek6/' + user.phone_number
+      BaseUrl + '/api/progress/dsaweek6/' + user.phone_number
     )
     const json = await response.json()
 
@@ -102,11 +102,11 @@ export default function DsaWeek6({ user }) {
       link2,
       link3,
       link4,
-      link5
+      link5,
     }
 
     const response = await fetch(
-      'http://localhost:4000/api/progress/dsaweek6/' + user.phone_number,
+      BaseUrl + '/api/progress/dsaweek6/' + user.phone_number,
       {
         method: 'PATCH',
         body: JSON.stringify(task),
@@ -164,11 +164,13 @@ export default function DsaWeek6({ user }) {
 
   return (
     <div className="grid grid-cols-10 w-full">
-      <div className='col-span-1'><Sidebar domain="dsa" /></div>
+      <div className="col-span-1">
+        <Sidebar domain="dsa" />
+      </div>
       <div className="col-span-9">
         <div className="mt-24 w-full">
           <h1 className=" text-center text-6xl py-10">DSA WEEK 6</h1>
-          <div className='w-full'>
+          <div className="w-full">
             {record && (
               <div className="progressdash w-full flex flex-row">
                 {/* card design */}
@@ -186,12 +188,16 @@ export default function DsaWeek6({ user }) {
                         </div>
                         <div className="flex">
                           <div className="mt-14">
-                            <p className="text-[#00CDB7]">$ npm install details</p>
+                            <p className="text-[#00CDB7]">
+                              $ npm install details
+                            </p>
                             <p className="truncate">Name: {record.name}</p>
                             <p className="">Phone No: {record._id}</p>
-                            <p className="text-[#00CDB7]">$ npm install links</p>
+                            <p className="text-[#00CDB7]">
+                              $ npm install links
+                            </p>
                             {record.link1 !== '' ? (
-                              <a href={record.link1} target='_blank'>
+                              <a href={record.link1} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link1}
                                 </p>
@@ -200,7 +206,7 @@ export default function DsaWeek6({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link2 !== '' ? (
-                              <a href={record.link2} target='_blank'>
+                              <a href={record.link2} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link2}
                                 </p>
@@ -209,7 +215,7 @@ export default function DsaWeek6({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link3 !== '' ? (
-                              <a href={record.link3} target='_blank'>
+                              <a href={record.link3} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link3}
                                 </p>
@@ -218,7 +224,7 @@ export default function DsaWeek6({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link4 !== '' ? (
-                              <a href={record.link4} target='_blank'>
+                              <a href={record.link4} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link4}
                                 </p>
@@ -227,7 +233,7 @@ export default function DsaWeek6({ user }) {
                               <p>Nothing yet.</p>
                             )}
                             {record.link5 !== '' ? (
-                              <a href={record.link5} target='_blank'>
+                              <a href={record.link5} target="_blank">
                                 <p className="text-white underline underline-offset-1 truncate">
                                   {record.link5}
                                 </p>
@@ -576,7 +582,7 @@ export default function DsaWeek6({ user }) {
                         </div>
                       </div>
                     </div>
-                    <div className='centereddiv'>
+                    <div className="centereddiv">
                       <button className="btn-31">
                         <span className="text-container">
                           <span className="text">Update Progress</span>
@@ -590,7 +596,7 @@ export default function DsaWeek6({ user }) {
             )}
           </div>
         </div>
-        <div className='centereddiv flex flex-row'>
+        <div className="centereddiv flex flex-row">
           <img src={everyoneprog} alt="everyone's progress" />
           <div className="centereddiv bgfiltercard scrollcontainer h-[50rem] overflow-auto m-10 gap-5">
             {week &&
@@ -611,7 +617,7 @@ export default function DsaWeek6({ user }) {
                         <p className="">Phone No: {x._id}</p>
                         <p className="text-[#00CDB7]">$ npm install links</p>
                         {x.link1 !== '' ? (
-                          <a href={x.link1} target='_blank'>
+                          <a href={x.link1} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link1}
                             </p>
@@ -620,7 +626,7 @@ export default function DsaWeek6({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link2 !== '' ? (
-                          <a href={x.link2} target='_blank'>
+                          <a href={x.link2} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link2}
                             </p>
@@ -629,7 +635,7 @@ export default function DsaWeek6({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link3 !== '' ? (
-                          <a href={x.link3} target='_blank'>
+                          <a href={x.link3} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link3}
                             </p>
@@ -638,7 +644,7 @@ export default function DsaWeek6({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link4 !== '' ? (
-                          <a href={x.link4} target='_blank'>
+                          <a href={x.link4} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link4}
                             </p>
@@ -647,7 +653,7 @@ export default function DsaWeek6({ user }) {
                           <p>Nothing yet.</p>
                         )}
                         {x.link5 !== '' ? (
-                          <a href={x.link5} target='_blank'>
+                          <a href={x.link5} target="_blank">
                             <p className="text-white underline underline-offset-1 truncate">
                               {x.link5}
                             </p>
