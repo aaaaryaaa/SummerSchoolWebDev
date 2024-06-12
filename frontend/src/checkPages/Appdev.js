@@ -1,13 +1,13 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Sidebar from "./Sidebar";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import Sidebar from './Sidebar'
 
 const Appdev = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleWeekNavigation = (week) => {
-    navigate(`/appdev/week${week}`);
-  };
+    navigate(`/appdev/week${week}`)
+  }
 
   return (
     <div className="flex">
@@ -87,7 +87,7 @@ const Appdev = () => {
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">Week 3</time>
               <div className="text-lg font-black">Backend Development</div>
-              Dive into backend development and learn to build robust APIs.
+              Dive into backend development and learn to implement robust APIs.
             </div>
             <hr />
           </li>
@@ -141,7 +141,7 @@ const Appdev = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Appdev;
+export default Appdev
