@@ -72,13 +72,13 @@ const Scroll = () => {
         ref={introSliderRef}
         className="h-screen p-10 bg-black absolute top-0 left-0 font-spaceGrotesk z-10 w-full flex flex-col gap-10 tracking-tight"
       >
-        <h1 className="text-9xl" id="title-1" ref={title1Ref}>
+        <h1 className="text-5xl sm:text-9xl" id="title-1" ref={title1Ref}>
           Data Analyst
         </h1>
-        <h1 className="text-9xl" id="title-2" ref={title2Ref}>
+        <h1 className="text-5xl sm:text-9xl" id="title-2" ref={title2Ref}>
           Designer
         </h1>
-        <h1 className="text-9xl" id="title-3" ref={title3Ref}>
+        <h1 className="text-5xl sm:text-9xl" id="title-3" ref={title3Ref}>
           Developer
         </h1>
       </div>
