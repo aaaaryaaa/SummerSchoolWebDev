@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import crossmark from './assets/crossmark.svg'
+import hamburgericon from './assets/hamburgericon.svg'
 import istemask from './images/istemask.svg'
 
 export default function Navbar({ user, setUser }) {
+  const dropdownRef = useRef(null);
   const navigate = useNavigate()
 
   const [navOpen, setNavOpen] = useState(false)
@@ -16,6 +19,19 @@ export default function Navbar({ user, setUser }) {
   const handleNavOpen = () => {
     setNavOpen(!navOpen)
   }
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setNavOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleWebDev = () => {
     navigate('/webdev')
@@ -44,7 +60,7 @@ export default function Navbar({ user, setUser }) {
   return (
     <div className="fixed z-10 w-full">
       {user ? (
-        <nav className=" border-gray-200 dark:bg-transaprent h-20">
+        <nav className=" border-gray-200 dark:bg-transaprent lg:h-20">
           {' '}
           {/*absolute inset-0 z-10*/}
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -74,15 +90,18 @@ export default function Navbar({ user, setUser }) {
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 17 14"
-                >
-                  <path stroke="currentColor" d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
+                <>
+                {!navOpen && (
+                  <>
+                  <img src={hamburgericon} alt='ham' />
+                  </>
+                )}
+                {navOpen && (
+                  <>
+                  <img src={crossmark} alt='cross' />
+                  </>
+                )}
+                </>
               </button>
             </div>
             <div
@@ -142,7 +161,7 @@ export default function Navbar({ user, setUser }) {
             </div>
             <div className="md:hidden lg:hidden w-full">
               {navOpen ? (
-                <div className="w-full bg-transparent h-fit">
+                <div className="w-full bg-transparent h-fit" ref={dropdownRef}>
                   <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                     <li>
                       <button

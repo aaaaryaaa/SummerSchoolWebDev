@@ -1,7 +1,7 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Sidebar from './Sidebar'
-import sampleimg from '../images/sample.jpg'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import MobileSidebar from "./MobileSidebar";
+import Sidebar from "./Sidebar";
 
 const WebDev = () => {
   const navigate = useNavigate()
@@ -11,10 +11,15 @@ const WebDev = () => {
   }
 
   return (
-    <div className="flex bg-black">
-      <Sidebar domain="webdev" />
-      <div className="flex-1 ml-52 p-4 mt-24">
-        <h1 className="text-6xl font-bold text-center text-white">
+    <div className="flex flex-col bg-black">
+      <div className="lg:block hidden ">
+        <Sidebar domain="webdev" />
+      </div>
+      <div className="lg:hidden block relative top-20">
+        <MobileSidebar domain="webdev" />
+      </div>
+      <div className="flex-1 lg:ml-52 p-4 mt-24">
+        <h1 className="lg:text-6xl text-3xl font-bold text-center text-white">
           Welcome to Web Dev Domain
         </h1>
 
@@ -141,6 +146,7 @@ const WebDev = () => {
           </li>
         </ul>
       </div>
+      <div className="h-20"></div>
     </div>
   )
 }
