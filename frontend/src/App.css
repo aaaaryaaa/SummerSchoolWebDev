@@ -25,16 +25,22 @@ nav {
   background-color: rgba(65, 65, 65, 0.308);
 }
 
-.scrollcontainer {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+
+@media screen and (min-width: 1000px) {
+  .scrollcontainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 .truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px;
+  /* Adjust the width as needed */
 }
 
 /**/
@@ -46,12 +52,12 @@ nav {
   justify-content: center;
 }
 
-.card {
+/* .card {
   position: relative;
   display: flex;
   padding: 25px 15px;
   border-radius: 10px;
-}
+} */
 
 .bgfiltercard {
   padding: 20px 10px;
@@ -177,11 +183,13 @@ nav {
 .hide:target {
   display: none;
 }
-.details{
+
+.details {
   padding-top: 1rem;
 }
-.hide:target + .show,
-.hide:target ~ .details {
+
+.hide:target+.show,
+.hide:target~.details {
   display: block;
 }
 
@@ -240,18 +248,14 @@ nav {
 .btn-31:before {
   --progress: 100%;
   background: #00CDB7;
-  -webkit-clip-path: polygon(
-    100% 0,
-    var(--progress) var(--progress),
-    0 100%,
-    100% 100%
-  );
-  clip-path: polygon(
-    100% 0,
-    var(--progress) var(--progress),
-    0 100%,
-    100% 100%
-  );
+  -webkit-clip-path: polygon(100% 0,
+      var(--progress) var(--progress),
+      0 100%,
+      100% 100%);
+  clip-path: polygon(100% 0,
+      var(--progress) var(--progress),
+      0 100%,
+      100% 100%);
   content: "";
   inset: 0;
   position: absolute;
@@ -316,4 +320,88 @@ nav {
   to {
     transform: translateY(0);
   }
+}
+
+/*dropdown for mobile css*/
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index: 9;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-input {
+  display: none;
+  z-index: 999;
+}
+
+.dd-menu {
+  width: full;
+  position: absolute;
+  top: 70%;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  backdrop-filter: blur(30px);
+  background-color: rgba(65, 65, 65, 0.308);
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  list-style-type: none;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
 }

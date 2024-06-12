@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import MobileSidebar from "./MobileSidebar";
 import Sidebar from "./Sidebar";
 
 const Appdev = () => {
@@ -10,10 +11,15 @@ const Appdev = () => {
   };
 
   return (
-    <div className="flex">
-      <Sidebar domain="appdev" />
+    <div className="flex flex-col">
+      <div className="lg:block hidden ">
+        <Sidebar domain="appdev" />
+      </div>
+      <div className="lg:hidden block relative top-20">
+        <MobileSidebar domain="appdev" />
+      </div>
       <div className="flex-1  p-4 mt-24">
-        <h1 className="text-6xl font-bold text-center text-white ml-52">
+        <h1 className="lg:text-6xl text-3xl font-bold text-center text-white lg:ml-52">
           Welcome to App Dev Domain
         </h1>
 
@@ -140,6 +146,7 @@ const Appdev = () => {
           </li>
         </ul>
       </div>
+      <div className="h-20"></div>
     </div>
   );
 };
