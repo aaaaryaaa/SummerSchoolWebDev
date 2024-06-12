@@ -39,6 +39,8 @@ import WebWeek3 from './checkPages/domain/WebWeek3'
 import WebWeek4 from './checkPages/domain/WebWeek4'
 import WebWeek5 from './checkPages/domain/WebWeek5'
 import BaseUrl from './BaseUrl'
+import PageNotFoundAnimation from './PageNotFoundAnimation'
+
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('user')
@@ -87,6 +89,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage user={user} />} />
           <Route path="/footer" element={<Footer />} />
+          <Route path="/roopesh" element={<PageNotFoundAnimation />} />
           <Route
             path="/login"
             element={
@@ -101,7 +104,11 @@ function App() {
           <Route
             path="/dsa"
             element={
-              checkDomainAccess('DSA') ? <Dsa user={user} /> : <Unselected />
+              checkDomainAccess('DSA') ? (
+                <Dsa user={user} />
+              ) : (
+                <PageNotFoundAnimation />
+              )
             }
           />
           <Route
@@ -110,7 +117,7 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek1 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -120,7 +127,7 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek2 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -130,7 +137,7 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek3 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -140,7 +147,7 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek4 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -150,7 +157,7 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek5 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -160,14 +167,18 @@ function App() {
               checkDomainAccess('DSA') ? (
                 <DsaWeek6 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
           <Route
             path="/aiml"
             element={
-              checkDomainAccess('AI-ML') ? <AIML user={user} /> : <Unselected />
+              checkDomainAccess('AI-ML') ? (
+                <AIML user={user} />
+              ) : (
+                <PageNotFoundAnimation />
+              )
             }
           />
           <Route
@@ -176,7 +187,7 @@ function App() {
               checkDomainAccess('AI-ML') ? (
                 <AIMLWeek1 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -186,7 +197,7 @@ function App() {
               checkDomainAccess('AI-ML') ? (
                 <AIMLWeek2 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -196,7 +207,7 @@ function App() {
               checkDomainAccess('AI-ML') ? (
                 <AIMLWeek3 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -206,7 +217,7 @@ function App() {
               checkDomainAccess('AI-ML') ? (
                 <AIMLWeek4 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -216,7 +227,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebDev user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -226,7 +237,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebWeek1 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -236,7 +247,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebWeek2 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -246,7 +257,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebWeek3 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -256,7 +267,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebWeek4 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -266,7 +277,7 @@ function App() {
               checkDomainAccess('Web Development') ? (
                 <WebWeek5 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -276,7 +287,7 @@ function App() {
               checkDomainAccess('App Development') ? (
                 <Appdev user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -286,7 +297,7 @@ function App() {
               checkDomainAccess('App Development') ? (
                 <AppWeek1 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -296,7 +307,7 @@ function App() {
               checkDomainAccess('App Development') ? (
                 <AppWeek2 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -306,7 +317,7 @@ function App() {
               checkDomainAccess('App Development') ? (
                 <AppWeek3 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -316,7 +327,7 @@ function App() {
               checkDomainAccess('App Development') ? (
                 <AppWeek4 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -326,7 +337,7 @@ function App() {
               checkDomainAccess('Design') ? (
                 <Design user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -336,7 +347,7 @@ function App() {
               checkDomainAccess('Design') ? (
                 <DesignWeek1 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -346,7 +357,7 @@ function App() {
               checkDomainAccess('Design') ? (
                 <DesignWeek2 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -356,7 +367,7 @@ function App() {
               checkDomainAccess('Design') ? (
                 <DesignWeek3 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
@@ -366,7 +377,7 @@ function App() {
               checkDomainAccess('Design') ? (
                 <DesignWeek4 user={user} />
               ) : (
-                <Unselected />
+                <PageNotFoundAnimation />
               )
             }
           />
