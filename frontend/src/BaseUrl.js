@@ -1,3 +1,3 @@
 // BaseUrl.js
-const baseUrl = 'https://istetrackspace.azurewebsites.net'
-export default baseUrl
+const baseUrl = "http://localhost:4000";
+export default baseUrl;
