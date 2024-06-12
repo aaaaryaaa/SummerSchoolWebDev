@@ -4,11 +4,11 @@ import MobileSidebar from "./MobileSidebar";
 import Sidebar from "./Sidebar";
 
 const WebDev = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleWeekNavigation = (week) => {
-    navigate(`/webdev/week${week}`);
-  };
+    navigate(`/webdev/week${week}`)
+  }
 
   return (
     <div className="flex flex-col bg-black">
@@ -67,10 +67,8 @@ const WebDev = () => {
             </div>
             <div className="timeline-end mb-10">
               <time className="font-mono italic">Week 2</time>
-              <div className="text-lg font-black">
-                JavaScript and DOM Manipulation
-              </div>
-              Learn advanced JavaScript concepts and DOM manipulation.
+              <div className="text-lg font-black">Responsive Design</div>
+              Learn about responsive design using CSS frameworks.
             </div>
             <hr />
           </li>
@@ -92,8 +90,10 @@ const WebDev = () => {
             </div>
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">Week 3</time>
-              <div className="text-lg font-black">Responsive Design</div>
-              Learn about responsive design using CSS frameworks.
+              <div className="text-lg font-black">
+                JavaScript and DOM Manipulation
+              </div>
+              Learn advanced JavaScript concepts and DOM manipulation.
             </div>
             <hr />
           </li>
@@ -148,7 +148,7 @@ const WebDev = () => {
       </div>
       <div className="h-20"></div>
     </div>
-  );
-};
+  )
+}
 
-export default WebDev;
+export default WebDev
