@@ -421,20 +421,22 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 1
+                            Open Task 1 : HTML Basics
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 1
+                            Close Task 1 : HTML Basics
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <ul>
+                            <li>Html for beginners for a crash course - Traversy Media <a href="https://youtu.be/UB1O30fR-EE" target='_blank' className='text-[blue]'>Link 1</a></li>
+                            <li>Learn HTML-Full course for beginners(2022) -freeCodeCamp (Detailed) <a href="https://youtu.be/kUMe1FH4CHE" target='_blank' className='text-[blue]'> Link2</a></li>
+                            <li>Complete HTML Tutorial in 1 Video in HINDI (2023) (If you prefer Hindi as the medium of instruction) <a href="https://youtu.be/k7ELO356Npo?si=Dy0eEYS28bTG2_1E" target='_blank' className='text-[blue]'>Link 3</a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -450,20 +452,22 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 2
+                            Open Task 2 : HTML Forms
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 2
+                            Close Task 2 : HTML Forms
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <ul>
+                            <li>Html for beginners for a crash course - Traversy Media <a href="https://youtu.be/UB1O30fR-EE" target='_blank' className='text-[blue]'>Link 1</a></li>
+                            <li>Learn HTML-Full course for beginners(2022) -freeCodeCamp (Detailed) <a href="https://youtu.be/kUMe1FH4CHE" target='_blank' className='text-[blue]'> Link2</a></li>
+                            <li>Complete HTML Tutorial in 1 Video in HINDI (2023) (If you prefer Hindi as the medium of instruction) <a href="https://youtu.be/k7ELO356Npo?si=Dy0eEYS28bTG2_1E" target='_blank' className='text-[blue]'>Link 3</a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -479,20 +483,22 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 3
+                            Open Task 3 : HTML Tables
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 3
+                            Close Task 3 : HTML Tables
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <ul>
+                            <li>Html for beginners for a crash course - Traversy Media <a href="https://youtu.be/UB1O30fR-EE" target='_blank' className='text-[blue]'>Link 1</a></li>
+                            <li>Learn HTML-Full course for beginners(2022) -freeCodeCamp (Detailed) <a href="https://youtu.be/kUMe1FH4CHE" target='_blank' className='text-[blue]'> Link2</a></li>
+                            <li>Complete HTML Tutorial in 1 Video in HINDI (2023) (If you prefer Hindi as the medium of instruction) <a href="https://youtu.be/k7ELO356Npo?si=Dy0eEYS28bTG2_1E" target='_blank' className='text-[blue]'>Link 3</a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -508,20 +514,18 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 4
+                            Open Task 4 : CSS Basics
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show4" href="#show4" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 4
+                            Close Task 4 : CSS Basics
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          CSS Crash Course for absolute beginners -Traversy Media <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target='_blank' className='text-[blue]'>https://www.youtube.com/watch?v=yfoY53QXEnI</a>
                         </div>
                       </div>
                     </div>
@@ -537,20 +541,18 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide5" href="#hide5" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 5
+                            Open Task 5 : CSS Flexbox
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show5" href="#show5" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 5
+                            Close Task 5 : CSS Flexbox
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          CSS Flexbox <a href="https://youtu.be/3YW65K6LcIA?si=omxcXCcQBMf86BI9" target='_blank' className='text-[blue]'>https://youtu.be/3YW65K6LcIA?si=omxcXCcQBMf86BI9</a>
                         </div>
                       </div>
                     </div>
@@ -566,20 +568,36 @@ export default function WebWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide6" href="#hide6" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 6
+                            Open Task 6 : Week Submissions
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show6" href="#show6" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 6
+                            Close Task 6 : Week Submissions
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <ul>
+                            Projects for Week 1: HTML CSS basics
+                            <li>1. <a href="https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm" target='_blank' className='text-[blue] underline'>Click Mini Project 1 </a></li>
+                            <li>2. <a href="https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ" target='_blank' className='text-[blue] underline'>Click Mini Project 2 </a></li>
+                            <li>3. <a href="https://www.frontendmentor.io/challenges/huddle-landing-page-with-curved-sections-5ca5ecd01e82137ec91a50f2" target='_blank' className='text-[blue] underline'>Click Mini Project 2 </a></li>
+
+                            You can choose to do any one of them. download the starter code for basic design and assets
+                          </ul>
+                          <ul>
+                            for people who wanted to start with javascript, we want you to brush up your html and css before starting.
+                            it is recommended that you use tailwind css for this project.
+
+                            <li><a href="https://www.frontendmentor.io/challenges/chat-app-css-illustration-O5auMkFqY" target='_blank' className='text-[blue] underline'>Click Project</a></li>
+
+                            OR
+
+                            build an ecommerce website OR a personal portfolio website.
+                          </ul>
+
                           <div className="mt-2 grid gap-2">
                             <input
                               type="text"

@@ -32,8 +32,8 @@ export default function AppWeek1({ user }) {
     if (obj.task2) n += 1
     if (obj.task3) n += 1
     if (obj.task4) n += 1
-    if (obj.task5) n += 1
-    if (obj.task6) n += 1
+    // if (obj.task5) n += 1
+    // if (obj.task6) n += 1
     return ((n * 100) / num).toFixed(2)
   }
 
@@ -257,7 +257,7 @@ export default function AppWeek1({ user }) {
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
-                                '--value': calcProgress(record, 6),
+                                '--value': calcProgress(record, 4),
                                 '--size': '14rem',
                                 '--thickness': '0.75rem',
                               }}
@@ -353,7 +353,7 @@ export default function AppWeek1({ user }) {
                                   <span className="text-lg">Task 4</span>
                                 </label>
 
-                                <input
+                                {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfive}
                                   onChange={handleCheck5}
@@ -395,7 +395,7 @@ export default function AppWeek1({ user }) {
                                     </svg>
                                   </span>
                                   <span className="text-lg">Task 6</span>
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>
@@ -421,20 +421,20 @@ export default function AppWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 1
+                            Open Task 1 : Install Flutter
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 1
+                            Close Task 1 : Install Flutter
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://docs.flutter.dev/get-started/install" target='_blank' className='text-[blue]'>Flutter Installation Docs</a></li>
+                          <li><a href="https://youtu.be/9WT9s7jkGEQ?si=BDwhm-smGXglTSIa" target='_blank' className='text-[blue]'>Flutter Installation (Windows)</a></li>
+                          <li><a href="https://www.youtube.com/watch?v=f09c-nw15K8" target='_blank' className='text-[blue]'>Flutter Installation (Mac)</a></li>
                         </div>
                       </div>
                     </div>
@@ -450,20 +450,18 @@ export default function AppWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 2
+                            Open Task 2 : Flutter Tutorial (Videos: 1-11)
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 2
+                            Close Task 2 : Flutter Tutorial (Videos: 1-11)
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ" target='_blank' className='text-[blue]'>Flutter Beginner Tutorial Playlist</a></li>
                         </div>
                       </div>
                     </div>
@@ -479,20 +477,18 @@ export default function AppWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 3
+                            Open Task 3 : Flutter Documentation
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 3
+                            Close Task 3 : Flutter Documentation
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://docs.flutter.dev/" target='_blank' className='text-[blue]'>Flutter Docs - Learn Dart Basics and Widgets</a></li>
                         </div>
                       </div>
                     </div>
@@ -508,21 +504,30 @@ export default function AppWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 4
+                            Open Task 4 : Week Submission
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show4" href="#show4" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 4
+                            Close Task 4 : Week Submission
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
-                        </div>
+                          <ul>
+                            <li>Mini Project: Basic Flutter App</li>
+                            <li>Task: Build a simple Flutter app that displays a welcome message and a basic profile page.</li>
+                            <li>Requirements:-
+                              <li>
+                                <li>1. Display a welcome message using a Text widget.</li>
+                                <li>2. Create a basic profile page with details like name, age, and a short bio.</li>
+                                <li>3. Use both Stateless and Stateful Widgets.</li>
+                                <li>4. Practice Dart basics by using variables and different data types to hold profile information.</li>
+                              </li>
+                            </li>
+                          </ul>
+                        {/* </div>
                       </div>
                     </div>
                     <div className="form-control flex flex-row">
@@ -576,10 +581,10 @@ export default function AppWeek1({ user }) {
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
-                        <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <div className="details"> */}
+                          {/* Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          explicabo asperiores? */}
                           <div className="mt-2 grid gap-2">
                             <input
                               type="text"
@@ -714,7 +719,7 @@ export default function AppWeek1({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 4),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}
@@ -790,7 +795,7 @@ export default function AppWeek1({ user }) {
                             <span className="text-lg"></span>
                           </label>
 
-                          <input
+                          {/* <input
                             style={{ display: 'none' }}
                             checked={x.task5}
                             disabled={true}
@@ -822,7 +827,7 @@ export default function AppWeek1({ user }) {
                               </svg>
                             </span>
                             <span className="text-lg"></span>
-                          </label>
+                          </label> */}
                         </div>
                       </div>
                     </div>
