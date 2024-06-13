@@ -1,6 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const Registration = require("../models/registration");
+const User = require("../models/user"); // Assuming your user model is named 'User'
 const Enrollment = require("../models/Enrollment");
 
 module.exports = function (passport) {
@@ -18,7 +18,7 @@ module.exports = function (passport) {
           }
 
           // Check if user is registered
-          const user = await Registration.findOne({ phone_number });
+          const user = await User.findOne({ phone_number });
           if (!user) {
             return done(null, false, { message: "User not found" });
           }
@@ -43,7 +43,7 @@ module.exports = function (passport) {
 
   passport.deserializeUser(async (id, done) => {
     try {
-      const user = await Registration.findById(id);
+      const user = await User.findById(id);
       done(null, user);
     } catch (err) {
       done(err);

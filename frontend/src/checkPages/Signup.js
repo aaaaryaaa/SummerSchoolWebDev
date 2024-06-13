@@ -6,10 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import background from "../assets/background1.jpg";
 import BaseUrl from "../BaseUrl";
 const Signup = ({ user, setUser }) => {
-  const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone_number: "",
     password: "",
@@ -45,7 +43,6 @@ const Signup = ({ user, setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     const selectedDomains = Object.keys(formData.domains).filter(
       (domain) => formData.domains[domain]
     );
@@ -727,13 +724,14 @@ const Signup = ({ user, setUser }) => {
         const json4 = await res4.json();
       }
 
-      toast.success(response.data.message)
-      toast.success('Please login to begin using the site')
+      toast.success(response.data.message);
+      toast.success("Please login to begin using the site");
       setTimeout(() => {
-        navigate('/login')
-      }, 3000)
+        navigate("/login");
+      }, 3000);
     } catch (error) {
       toast.error(error.response.data.error);
+      setLoading(false);
     }
   };
 
@@ -742,7 +740,7 @@ const Signup = ({ user, setUser }) => {
   };
 
   return (
-    <div className={`relative h-screen ${loading ? "backdrop-blur-lg" : ""}`}>
+    <div className="relative h-screen">
       <div
         className="absolute inset-0 bg-cover bg-center filter blur-md"
         style={{
@@ -861,9 +859,9 @@ const Signup = ({ user, setUser }) => {
             Login
           </button>
         </div>
-        {loading && (
+        {loading && ( // Conditionally render loading component
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-ring loading-lg"></span>
           </div>
         )}
       </div>
