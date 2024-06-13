@@ -1,2 +1,2 @@
-const baseUrl = 'https://trackspaceiste-r5ha7.ondigitalocean.app'
+const baseUrl = '';
 export default baseUrl
