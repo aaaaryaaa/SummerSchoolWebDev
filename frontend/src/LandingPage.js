@@ -1,14 +1,13 @@
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Scroll from './Scroll'
 import aiml from './images/aiml-Photoroom.jpg'
 import appdev from './images/appdev-Photoroom.jpg'
 import design from './images/design-Photoroom.jpg'
 import dsa from './images/dsa-Photoroom.jpg'
 import webdev from './images/webdev-Photoroom.jpg'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Scroll from './Scroll'
-import baseUrl from './BaseUrl'
 gsap.registerPlugin(ScrollTrigger)
 
 const Card = ({ imgSrc, title, description, link, onClick }) => (
@@ -182,14 +181,17 @@ const LandingPage = ({ user }) => {
               title="App Development"
               description="Create engaging mobile apps for iOS and Android platforms."
               link="/appdev"
+              onClick={() => navigate('/appdev')}
             />
             <Card
               imgSrc={aiml}
               title="AI & ML"
               description="Explore the frontier of AI and ML for intelligent systems."
               link="/aiml"
+              onClick={() => navigate('/aiml')}
             />
           </div>
+          <div className='h-20'></div>
         </div>
       ) : (
         <div></div>

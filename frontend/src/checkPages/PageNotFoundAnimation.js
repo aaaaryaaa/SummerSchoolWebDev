@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import "./PageNotFound.css";
+import React, { useEffect } from "react";
 import niks1 from "../images/niks1.jpg";
 import niks2 from "../images/niks2.jpg";
 import niks3 from "../images/niks3.jpg";
 import niks4 from "../images/niks4.jpg";
+import "./PageNotFound.css";
 function PageNotFoundAnimation() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,9 +51,9 @@ function PageNotFoundAnimation() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container bg-black">
       <section className="wrapper-404">
-        <h1>Page Not Found</h1>
+        <h1>page Not Found</h1>
         <div className="card" id="card-1">
           <img src={niks1} alt="" />
         </div>

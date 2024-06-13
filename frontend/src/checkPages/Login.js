@@ -7,6 +7,7 @@ import bgImage from "../assets/background.svg";
 
 const Login = ({ setUser, setSelectedDomains }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     phone_number: "",
@@ -23,6 +24,7 @@ const Login = ({ setUser, setSelectedDomains }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -50,6 +52,7 @@ const Login = ({ setUser, setSelectedDomains }) => {
     } catch (error) {
       console.error(error); // Log the error for debugging
       toast.error(error.response?.data?.error || "An error occurred");
+      setLoading(false);
     }
   };
 
@@ -111,6 +114,11 @@ const Login = ({ setUser, setSelectedDomains }) => {
           </button>
         </div>
       </div>
+      {loading && ( // Conditionally render loading component
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <span className="loading loading-ring loading-lg"></span>
+          </div>
+        )}
     </div>
   );
 };

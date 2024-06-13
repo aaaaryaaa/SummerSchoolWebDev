@@ -748,7 +748,7 @@ const Signup = ({ user, setUser }) => {
         }}
       ></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 rounded-md p-8 w-full h-auto md:w-4/5 md:h-3/4 lg:w-2/3 lg:h-3/4 xl:w-1/2 xl:h-3/4 2xl:p-8 2xl:w-2/5 2xl:h-3/4">
-        <h2 className="text-2xl font-bold text-center mb-6 text-white text-[43.89px] font-['Archivo'] leading-[65.83px]">
+        <h2 className="lg:text-2xl text-[2.5rem] relative top-5 font-bold text-center mb-6 text-white text-[43.89px] font-['Archivo'] leading-[65.83px]">
           Signup
         </h2>
         <form onSubmit={handleSubmit}>
@@ -792,8 +792,8 @@ const Signup = ({ user, setUser }) => {
             />
           </div>
           <div className="mb-4 flex flex-col text-white text-[30.89px] font-normal font-['Ruda'] px-6 mt-2">
-            Domains:
-            <div className="ml-4 flex flex-row ">
+            <div className="lg:block hidden">Domains:</div>
+            <div className="ml-4 flex lg:flex-row flex-col justify-center ">
               <label className="flex items-center space-x-2">
                 <input
                   type="checkbox"

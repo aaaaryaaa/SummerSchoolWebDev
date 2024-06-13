@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import React, { useEffect } from 'react'
 import './PageNotFound.css'
 // import img from './images/image 1.png'
 function PageNotFoundAnimation() {
