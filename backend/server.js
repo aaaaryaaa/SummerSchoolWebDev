@@ -7,6 +7,7 @@ const session = require("express-session");
 const passport = require("passport");
 const routes = require("./routes/routes");
 const authRoutes = require("./routes/auth"); // Make sure this points to your auth routes file
+const path = require('path')
 require("./config/passport")(passport); // Passport configuration
 
 const app = express();
@@ -34,6 +35,11 @@ app.use((req, res, next) => {
 
 app.use("/api/progress", routes); // Mount the general routes
 app.use("/api/auth", authRoutes); // Mount the auth routes
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 const port = process.env.PORT || 3000;
 mongoose

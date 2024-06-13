@@ -725,8 +725,10 @@ const Signup = ({ user, setUser }) => {
       }
 
       toast.success(response.data.message)
-      toast.success('Please login to continue')
-      navigate('/')
+      toast.success('Please login to begin using the site')
+      setTimeout(() => {
+        navigate('/login')
+      }, 3000)
     } catch (error) {
       toast.error(error.response.data.error)
     }

@@ -16,7 +16,7 @@ const Card = ({ imgSrc, title, description, link, onClick }) => (
     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 m-5"
     onClick={onClick}
   >
-    <div className="h-96 w-72">
+    <div className="h-75 w-60 mb-16 sm:mb-0 sm:h-96 sm:w-72">
       <img
         className="h-full w-full object-contain transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
         src={imgSrc}
@@ -25,7 +25,7 @@ const Card = ({ imgSrc, title, description, link, onClick }) => (
     </div>
     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
     <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
-      <h1 className="font-dmserif text-2xl font-bold mb-6 text-white">
+      <h1 className=" font-dmserif text-2xl font-bold mb-6 text-white">
         {title}
       </h1>
       <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -117,12 +117,12 @@ const LandingPage = ({ user }) => {
         <h1
           id="welcome"
           ref={welcomeRef}
-          className="text-9xl font-bold font-spaceGrotesk bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text"
+          className="text-6xl sm:text-9xl font-bold font-spaceGrotesk bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text"
         >
           Welcome.
         </h1>
         {user ? (
-          <h2 className="text-4xl font-bold font-spaceGrotes text-gray-400 bg-clip-text mt-5">
+          <h2 className="text-2xl sm:text-4xl font-bold font-spaceGrotes text-gray-400 bg-clip-text mt-5">
             {user.name}
           </h2>
         ) : (

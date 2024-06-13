@@ -21,7 +21,8 @@
     "mongoose": "^8.4.0",
     "nodemon": "^3.1.2",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   },
   "description": ""
 }
