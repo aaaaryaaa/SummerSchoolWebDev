@@ -69,7 +69,7 @@ const Design = () => {
               <div className="text-lg font-black">
                 Introduction to UI/UX design
               </div>
-              Basics of Canva and Illustrator
+              Basics of Canva, Figma advance tutorial, and Illustrator
             </div>
             <hr />
           </li>

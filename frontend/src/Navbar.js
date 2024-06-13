@@ -69,7 +69,7 @@ export default function Navbar({ user, setUser }) {
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img src={istemask} className="h-8" alt="ISTE LOGO" />
-              <span className="self-center lg:text-2xl text-lg font-semibold whitespace-nowrap dark:text-white">
+              <span className="lg:block hidden self-center lg:text-2xl text-lg font-semibold whitespace-nowrap dark:text-white">
                 ISTE TrackSpace
               </span>
             </a>
