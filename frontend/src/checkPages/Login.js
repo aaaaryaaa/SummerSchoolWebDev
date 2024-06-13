@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import BaseUrl from '../BaseUrl';
 
 const Login = ({ setUser, setSelectedDomains }) => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Login = ({ setUser, setSelectedDomains }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
+        BaseUrl + "/api/auth/login",
         formData
       );
 
