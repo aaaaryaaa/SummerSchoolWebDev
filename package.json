@@ -1,0 +1,21 @@
+{
+  "name": "iste-trackspace",
+  "version": "1.0.0",
+  "description": "this is for running iste trackspace app",
+  "main": "/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "cd backend && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaaaryaaa/SummerSchoolWebDev.git"
+  },
+  "author": "Aarya R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaaaryaaa/SummerSchoolWebDev/issues"
+  },
+  "homepage": "https://github.com/aaaaryaaa/SummerSchoolWebDev#readme"
+}
