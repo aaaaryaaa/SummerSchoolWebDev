@@ -177,7 +177,9 @@ export default function AIMLWeek1({ user }) {
       </div>
       <div className="lg:col-span-9 ">
         <div className="lg:mt-20 w-full">
-          <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">AIML WEEK 1</h1>
+          <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
+            AIML WEEK 1
+          </h1>
           <div className="w-full">
             {record && (
               <div className="lg:w-full lg:flex lg:flex-row w-fit ml-auto mr-auto">
@@ -187,7 +189,7 @@ export default function AIMLWeek1({ user }) {
                     <div className="flex flex-col space-y-4">
                       <aside className=" text-white p-10 rounded-lg w-fit lg:max-w-[40rem] font-mono">
                         <div className="flex lg:flex-row flex-col gap-10 bgfiltercard">
-                          <div className=' p-2'>
+                          <div className=" p-2">
                             <div className="flex justify-between items-center pb-4">
                               <div className="flex space-x-2 text-red-500">
                                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -252,12 +254,14 @@ export default function AIMLWeek1({ user }) {
                               <p className="text-[#00CDB7]">$</p>
                             </div>
                           </div>
-                          <div className='flex flex-col justify-center gap-5'>
-                            <div className='flex justify-center text-2xl'>Your Progress</div>
+                          <div className="flex flex-col justify-center gap-5">
+                            <div className="flex justify-center text-2xl">
+                              Your Progress
+                            </div>
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
-                                '--value': calcProgress(record, 6),
+                                '--value': calcProgress(record, 7),
                                 '--size': '14rem',
                                 '--thickness': '0.75rem',
                               }}
@@ -396,6 +400,27 @@ export default function AIMLWeek1({ user }) {
                                   </span>
                                   <span className="text-lg">Task 6</span>
                                 </label>
+                                <input
+                                  style={{ display: 'none' }}
+                                  checked={taskseven}
+                                  onChange={handleCheck7}
+                                  disabled={true}
+                                  type="checkbox"
+                                  id="cbx"
+                                  className="inp-cbx"
+                                />
+                                <label htmlFor="cbx" className="cbx">
+                                  <span>
+                                    <svg
+                                      viewBox="0 0 12 9"
+                                      height="9px"
+                                      width="12px"
+                                    >
+                                      <polyline points="1 5 4 8 11 1"></polyline>
+                                    </svg>
+                                  </span>
+                                  <span className="text-lg">Task 7</span>
+                                </label>
                               </div>
                             </div>
                           </div>
@@ -420,21 +445,35 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 1
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 1 : Python
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 1
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 1 : Python
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video atleast till functions{' '}
+                          <br />
+                          <a
+                            href="https://youtu.be/_uQrJ0TkZlc?si=IOxgKASUH_utA8UM"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Python Basics
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -449,21 +488,34 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 2
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 2 : Numpy
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 2
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 2 : Numpy
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video <br />
+                          <a
+                            href="https://youtu.be/QUT1VHiLmmI?si=oHvKXETBFXFcwLfW"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Numpy
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -478,21 +530,34 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 3
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 3 : Pandas
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 3
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 3 : Pandas
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video <br />
+                          <a
+                            href="https://youtu.be/vmEHCJofslg?si=lzeBhdk94JTdAhU"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Pandas
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -507,21 +572,37 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 4
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 4 : Installation of Anaconda and Jupyter
+                            Notebook
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show4" href="#show4" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 4
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 4 : Installation of Anaconda and Jupyter
+                            Notebook
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch below youtube video and complete installation
+                          <br />
+                          <a
+                            href="https://youtu.be/i0DCPOiNK4A?si=un4DSP6eSBfPfksy"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Installation Link
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -536,21 +617,27 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide5" href="#hide5" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 5
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 5 : Hackerrank
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show5" href="#show5" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 5
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 5 : Hackerrank
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Get atleast 3 stars on HackerRank for python.
                         </div>
                       </div>
                     </div>
@@ -565,15 +652,67 @@ export default function AIMLWeek1({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide6" href="#hide6" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 6
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 6 : Pandas Questions
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show6" href="#show6" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 6
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 6 : Pandas Questions
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
+                          </div>
+                        </a>
+                        <div className="details">
+                          There are a set of basic questions on pandas in the
+                          following doc. Solve them in a python notebook and
+                          push this notebook on GitHub. <br />
+                          <a
+                            href="https://docs.google.com/document/d/1-sZrZIofImcD4l2X-S0Mu1_BEArMlysAYejEV01LUBg/edit?usp=sharing"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Pandas Questions
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row">
+                      <label className="cursor-pointer label">
+                        <input
+                          type="checkbox"
+                          checked={taskseven}
+                          onChange={handleCheck7}
+                          className="checkbox checkbox-accent"
+                        />
+                      </label>
+                      <div className="bgfiltercard ml-6 w-full">
+                        <a id="hide7" href="#hide7" className="hide">
+                          <div className="flex justify-between align-middle">
+                            Open Links
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
+                          </div>
+                        </a>
+                        <a id="show7" href="#show7" className="show">
+                          <div className="flex justify-between align-middle">
+                            Close Links
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
@@ -714,7 +853,7 @@ export default function AIMLWeek1({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 7),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}
@@ -823,6 +962,22 @@ export default function AIMLWeek1({ user }) {
                             </span>
                             <span className="text-lg"></span>
                           </label>
+                          <input
+                            style={{ display: 'none' }}
+                            checked={x.task7}
+                            disabled={true}
+                            type="checkbox"
+                            id="cbx"
+                            className="inp-cbx"
+                          />
+                          <label htmlFor="cbx" className="cbx">
+                            <span>
+                              <svg viewBox="0 0 12 9" height="9px" width="12px">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span className="text-lg"></span>
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -833,7 +988,7 @@ export default function AIMLWeek1({ user }) {
         </div>
         {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
       </div>
-      <div className='h-20 w-full'></div>
+      <div className="h-20 w-full"></div>
     </div>
   )
 }
