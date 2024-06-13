@@ -34,6 +34,7 @@ export default function DesignWeek1({ user }) {
     if (obj.task4) n += 1
     if (obj.task5) n += 1
     if (obj.task6) n += 1
+    if (obj.task7) n+=1
     return ((n * 100) / num).toFixed(2)
   }
 

@@ -33,7 +33,7 @@ export default function AIMLWeek4({ user }) {
     if (obj.task3) n += 1
     if (obj.task4) n += 1
     if (obj.task5) n += 1
-    if (obj.task6) n += 1
+    // if (obj.task6) n += 1
     return ((n * 100) / num).toFixed(2)
   }
 
@@ -176,7 +176,8 @@ export default function AIMLWeek4({ user }) {
         <MobileSidebar domain="aiml" />
       </div>
       <div className="lg:col-span-9 ">
-        <div className="lg:mt-20 w-full">
+        {false ? (<>
+          <div className="lg:mt-20 w-full">
           <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
             AIML WEEK 4
           </h1>
@@ -906,7 +907,9 @@ export default function AIMLWeek4({ user }) {
               ))}
           </div>
         </div>
-        {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
+        </>) : (<div>
+          <h1 className="h-screen text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">COMING SOON...</h1>
+        </div>)}
       </div>
       <div className="h-20 w-full"></div>
     </div>

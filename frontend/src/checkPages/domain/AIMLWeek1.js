@@ -34,6 +34,7 @@ export default function AIMLWeek1({ user }) {
     if (obj.task4) n += 1
     if (obj.task5) n += 1
     if (obj.task6) n += 1
+    if (obj.task7) n+=1
     return ((n * 100) / num).toFixed(2)
   }
 
@@ -697,7 +698,7 @@ export default function AIMLWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide7" href="#hide7" className="hide">
                           <div className="flex justify-between align-middle">
-                            Open Links
+                            Open Week Submissions
                             <img
                               src={arrowdownblack}
                               alt=">"
@@ -707,7 +708,7 @@ export default function AIMLWeek1({ user }) {
                         </a>
                         <a id="show7" href="#show7" className="show">
                           <div className="flex justify-between align-middle">
-                            Close Links
+                            Close Week SUbmissions
                             <img
                               src={arrowupblack}
                               alt="<"
@@ -716,9 +717,7 @@ export default function AIMLWeek1({ user }) {
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Submit required links.
                           <div className="mt-2 grid gap-2">
                             <input
                               type="text"
