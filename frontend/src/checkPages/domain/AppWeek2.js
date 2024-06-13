@@ -31,9 +31,9 @@ export default function AppWeek2({ user }) {
     if (obj.task1) n += 1
     if (obj.task2) n += 1
     if (obj.task3) n += 1
-    if (obj.task4) n += 1
-    if (obj.task5) n += 1
-    if (obj.task6) n += 1
+    // if (obj.task4) n += 1
+    // if (obj.task5) n += 1
+    // if (obj.task6) n += 1
     return ((n * 100) / num).toFixed(2)
   }
 
@@ -176,7 +176,8 @@ export default function AppWeek2({ user }) {
         <MobileSidebar domain="appdev" />
       </div>
       <div className="lg:col-span-9 ">
-        <div className="lg:mt-20 w-full">
+        {false ? (<>
+          <div className="lg:mt-20 w-full">
           <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">APP WEEK 2</h1>
           <div className="w-full">
             {record && (
@@ -257,7 +258,7 @@ export default function AppWeek2({ user }) {
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
-                                '--value': calcProgress(record, 6),
+                                '--value': calcProgress(record, 3),
                                 '--size': '14rem',
                                 '--thickness': '0.75rem',
                               }}
@@ -331,7 +332,7 @@ export default function AppWeek2({ user }) {
                                   <span className="text-lg">Task 3</span>
                                 </label>
 
-                                <input
+                                {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfour}
                                   onChange={handleCheck4}
@@ -395,7 +396,7 @@ export default function AppWeek2({ user }) {
                                     </svg>
                                   </span>
                                   <span className="text-lg">Task 6</span>
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>
@@ -421,20 +422,19 @@ export default function AppWeek2({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 1
+                            Open Task 1 : Learn more about widgets in Flutter and their properties.
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 1
+                            Close Task 1 : Learn more about widgets in Flutter and their properties.
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ" target='_blank' className='text-[blue]'>Flutter Playlist (Videos - 12-24)</a></li>
+                          <li><a href="https://docs.flutter.dev/" target='_blank' className='text-[blue]'>Flutter Docs</a></li>
                         </div>
                       </div>
                     </div>
@@ -450,20 +450,19 @@ export default function AppWeek2({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 2
+                            Open Task 2 : Explore different widgets and how they can be used to make different designs.
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 2
+                            Close Task 2 : Explore different widgets and how they can be used to make different designs.
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ" target='_blank' className='text-[blue]'>Flutter Playlist (Videos - 12-24)</a></li>
+                          <li><a href="https://docs.flutter.dev/" target='_blank' className='text-[blue]'>Flutter Docs</a></li>
                         </div>
                       </div>
                     </div>
@@ -479,21 +478,29 @@ export default function AppWeek2({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 3
+                            Open Task 3 : Week Submissions
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 3
+                            Close Task 3 : Week Submissions
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
-                        <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
-                        </div>
+                        <div className="details"><ul>
+                            <li>Mini Project: Contacts App</li>
+                            <li>Task: Develop a multi-screen app that showcases a list of contact cards with a detail page for each.</li>
+                            <li>Requirements:-
+                              <li>
+                                <li>1.Implement different layout widgets such as Row, Column, and Stack to design the main screen.</li>
+                                <li>2. Use navigation and routing to move between the home screen and the contact detail screen.</li>
+                                <li>3. Implement basic state management to handle user interactions like tapping on an contact to view details.</li>
+                                <li>4. Ensure the app has a responsive design using layout widgets effectively.</li>
+                              </li>
+                            </li>
+                          </ul>
+                          {/* </div>
                       </div>
                     </div>
                     <div className="form-control flex flex-row">
@@ -576,10 +583,10 @@ export default function AppWeek2({ user }) {
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
-                        <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <div className="details"> */}
+                          {/* Lorem ipsum dolor sit amet, consectetur adipisicing
                           elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          explicabo asperiores? */}
                           <div className="mt-2 grid gap-2">
                             <input
                               type="text"
@@ -714,7 +721,7 @@ export default function AppWeek2({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 3),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}
@@ -773,7 +780,7 @@ export default function AppWeek2({ user }) {
                             <span className="text-lg"></span>
                           </label>
 
-                          <input
+                          {/* <input
                             style={{ display: 'none' }}
                             checked={x.task4}
                             disabled={true}
@@ -822,7 +829,7 @@ export default function AppWeek2({ user }) {
                               </svg>
                             </span>
                             <span className="text-lg"></span>
-                          </label>
+                          </label> */}
                         </div>
                       </div>
                     </div>
@@ -831,7 +838,9 @@ export default function AppWeek2({ user }) {
               ))}
           </div>
         </div>
-        {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
+        </>) : (<div>
+          <h1 className="h-screen text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">COMING SOON...</h1>
+        </div>)}
       </div>
       <div className='h-20 w-full'></div>
     </div>

@@ -176,7 +176,8 @@ export default function WebWeek5({ user }) {
         <MobileSidebar domain="webdev" />
       </div>
       <div className="lg:col-span-9 ">
-        <div className="lg:mt-20 w-full">
+        {false ? (<>
+          <div className="lg:mt-20 w-full">
           <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">WEB WEEK 5</h1>
           <div className="w-full">
             {record && (
@@ -831,7 +832,9 @@ export default function WebWeek5({ user }) {
               ))}
           </div>
         </div>
-        {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
+        </>) : (<div>
+          <h1 className="h-screen text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">COMING SOON...</h1>
+        </div>)}
       </div>
       <div className='h-20 w-full'></div>
     </div>
