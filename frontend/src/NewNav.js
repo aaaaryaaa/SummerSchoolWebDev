@@ -59,7 +59,7 @@ const NewNav = ({ user, setUser }) => {
     return (
         <div>
             {user && (
-                <nav className="bgfiltercard  p-4 fixed z-10 w-full">
+                <nav className="bgfiltercard bg-black p-4 fixed z-10 w-full">
                     <div className="container mx-auto flex justify-between items-center">
                         <div>
                             <a
