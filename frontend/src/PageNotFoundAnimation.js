@@ -2,7 +2,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useEffect } from "react";
 import "./PageNotFound.css";
-
 function PageNotFoundAnimation() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

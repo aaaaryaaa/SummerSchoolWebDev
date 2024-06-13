@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import background from "../assets/background1.jpg";
 import BaseUrl from "../BaseUrl";
 const Signup = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -741,12 +740,6 @@ const Signup = ({ user, setUser }) => {
 
   return (
     <div className="relative h-screen">
-      <div
-        className="absolute inset-0 bg-cover bg-center filter blur-md"
-        style={{
-          backgroundImage: `url(${background})`,
-        }}
-      ></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 rounded-md p-8 w-full h-auto md:w-4/5 md:h-3/4 lg:w-2/3 lg:h-3/4 xl:w-1/2 xl:h-3/4 2xl:p-8 2xl:w-2/5 2xl:h-3/4">
         <h2 className="lg:text-2xl text-[2.5rem] relative top-5 font-bold text-center mb-6 text-white text-[43.89px] font-['Archivo'] leading-[65.83px]">
           Signup

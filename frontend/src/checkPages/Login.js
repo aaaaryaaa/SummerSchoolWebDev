@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import bgImage from "../assets/background.svg";
 
 const Login = ({ setUser, setSelectedDomains }) => {
   const navigate = useNavigate();
@@ -62,12 +61,6 @@ const Login = ({ setUser, setSelectedDomains }) => {
 
   return (
     <div className="relative h-screen">
-      <div
-        className="absolute inset-0 bg-cover bg-center filter blur-md"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-        }}
-      ></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 rounded-md p-8 w-full h-auto 2xl:w-2/5 2xl:h-3/5 lg:h-2/3 lg:w-3/5 xl:w-1/2 sm:h-3/5 sm:w-3/5 md:w-2/3 md:h-2/3">
         <h2 className="text-2xl font-bold text-center mb-6 text-white text-[43.89px] font-['Archivo'] leading-[65.83px]">
           Login
