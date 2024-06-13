@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import MobileSidebar from "./MobileSidebar";
 import Sidebar from "./Sidebar";
 
 const Dsa = () => {
@@ -10,14 +11,19 @@ const Dsa = () => {
   };
 
   return (
-    <div className="flex bg-black">
-      <Sidebar domain="dsa" />
+    <div className="flex bg-black flex-col">
+      <div className="lg:block hidden ">
+        <Sidebar domain="dsa" />
+      </div>
+      <div className="lg:hidden block relative top-20">
+        <MobileSidebar domain="dsa" />
+      </div>
       <div className="flex-1  p-4 mt-24">
-        <h1 className="text-6xl font-bold text-center text-white ml-52">
+        <h1 className="lg:text-6xl text-3xl font-bold text-center text-white lg:ml-52">
           Welcome to DSA Domain
         </h1>
         {/* DaisyUI Timeline Component */}
-        <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical flex-1 ml-64 p-4 mt-32">
+        <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical flex-1 lg:ml-64 p-4 lg:mt-32">
           <li>
             <div className="timeline-middle">
               <svg
@@ -159,6 +165,7 @@ const Dsa = () => {
           </li>
         </ul>
       </div>
+      <div className="h-20"></div>
     </div>
   );
 };
