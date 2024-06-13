@@ -177,7 +177,9 @@ export default function DesignWeek2({ user }) {
       </div>
       <div className="lg:col-span-9 ">
         <div className="lg:mt-20 w-full">
-          <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">DESIGN WEEK 2</h1>
+          <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
+            DESIGN WEEK 2
+          </h1>
           <div className="w-full">
             {record && (
               <div className="lg:w-full lg:flex lg:flex-row w-fit ml-auto mr-auto">
@@ -187,7 +189,7 @@ export default function DesignWeek2({ user }) {
                     <div className="flex flex-col space-y-4">
                       <aside className=" text-white p-10 rounded-lg w-fit lg:max-w-[40rem] font-mono">
                         <div className="flex lg:flex-row flex-col gap-10 bgfiltercard">
-                          <div className=' p-2'>
+                          <div className=" p-2">
                             <div className="flex justify-between items-center pb-4">
                               <div className="flex space-x-2 text-red-500">
                                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -252,8 +254,10 @@ export default function DesignWeek2({ user }) {
                               <p className="text-[#00CDB7]">$</p>
                             </div>
                           </div>
-                          <div className='flex flex-col justify-center gap-5'>
-                            <div className='flex justify-center text-2xl'>Your Progress</div>
+                          <div className="flex flex-col justify-center gap-5">
+                            <div className="flex justify-center text-2xl">
+                              Your Progress
+                            </div>
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
@@ -353,7 +357,7 @@ export default function DesignWeek2({ user }) {
                                   <span className="text-lg">Task 4</span>
                                 </label>
 
-                                <input
+                                {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfive}
                                   onChange={handleCheck5}
@@ -395,7 +399,7 @@ export default function DesignWeek2({ user }) {
                                     </svg>
                                   </span>
                                   <span className="text-lg">Task 6</span>
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>
@@ -420,21 +424,34 @@ export default function DesignWeek2({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 1
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 1 : Wireframing
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 1
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 1 : Wireframing
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch the given youtube video by freecodecamp -<br />
+                          <a
+                            href="https://youtu.be/pN92rnO_n5U?si=TDGUviMLyQSRy6yw"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Wireframing
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -449,21 +466,35 @@ export default function DesignWeek2({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 2
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Task 2 : Figma Advanced
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 2
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Task 2 : Figma Advanced
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Watch the given youtube video by 'bring your own
+                          laptop' -<br />
+                          <a
+                            href="https://youtu.be/31wzhvz0vsw?si=V41qlTUHsnNDXemZ"
+                            target="_blank"
+                            className="underline text-blue-500"
+                          >
+                            Figma Advanced
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -478,25 +509,32 @@ export default function DesignWeek2({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 3
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Open Assignment
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 3
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                          <div className="flex justify-between align-middle">
+                            Close Assignment
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          Several other pages of the website (wireframing +
+                          design ) , with prototyping
                         </div>
                       </div>
                     </div>
-                    <div className="form-control flex flex-row">
+                    {/* <div className="form-control flex flex-row">
                       <label className="cursor-pointer label">
                         <input
                           type="checkbox"
@@ -507,15 +545,23 @@ export default function DesignWeek2({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide4" href="#hide4" className="hide">
-                          <div className='flex justify-between align-middle'>
+                          <div className="flex justify-between align-middle">
                             Open Task 4
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show4" href="#show4" className="show">
-                          <div className='flex justify-between align-middle'>
+                          <div className="flex justify-between align-middle">
                             Close Task 4
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
@@ -536,15 +582,23 @@ export default function DesignWeek2({ user }) {
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide5" href="#hide5" className="hide">
-                          <div className='flex justify-between align-middle'>
+                          <div className="flex justify-between align-middle">
                             Open Task 5
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <a id="show5" href="#show5" className="show">
-                          <div className='flex justify-between align-middle'>
+                          <div className="flex justify-between align-middle">
                             Close Task 5
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
@@ -553,27 +607,35 @@ export default function DesignWeek2({ user }) {
                           explicabo asperiores?
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="form-control flex flex-row">
                       <label className="cursor-pointer label">
                         <input
                           type="checkbox"
-                          checked={tasksix}
-                          onChange={handleCheck6}
+                          checked={taskfour}
+                          onChange={handleCheck4}
                           className="checkbox checkbox-accent"
                         />
                       </label>
                       <div className="bgfiltercard ml-6 w-full">
-                        <a id="hide6" href="#hide6" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 6
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                        <a id="hide4" href="#hide4" className="hide">
+                          <div className="flex justify-between align-middle">
+                            Open Links
+                            <img
+                              src={arrowdownblack}
+                              alt=">"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
-                        <a id="show6" href="#show6" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 6
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
+                        <a id="show4" href="#show4" className="show">
+                          <div className="flex justify-between align-middle">
+                            Close Links
+                            <img
+                              src={arrowupblack}
+                              alt="<"
+                              className="w-8 h-8"
+                            />
                           </div>
                         </a>
                         <div className="details">
@@ -714,7 +776,7 @@ export default function DesignWeek2({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 4),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}
@@ -790,7 +852,7 @@ export default function DesignWeek2({ user }) {
                             <span className="text-lg"></span>
                           </label>
 
-                          <input
+                          {/* <input
                             style={{ display: 'none' }}
                             checked={x.task5}
                             disabled={true}
@@ -822,7 +884,7 @@ export default function DesignWeek2({ user }) {
                               </svg>
                             </span>
                             <span className="text-lg"></span>
-                          </label>
+                          </label> */}
                         </div>
                       </div>
                     </div>
@@ -833,7 +895,7 @@ export default function DesignWeek2({ user }) {
         </div>
         {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
       </div>
-      <div className='h-20 w-full'></div>
+      <div className="h-20 w-full"></div>
     </div>
   )
 }
