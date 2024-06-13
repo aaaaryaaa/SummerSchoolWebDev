@@ -20,8 +20,8 @@ body {
   margin-right: auto;
 }
 
-nav {
-  backdrop-filter: blur(30px);
+nav, .mynav {
+  backdrop-filter: blur(40px);
   background-color: rgba(65, 65, 65, 0.308);
 }
 
@@ -65,6 +65,16 @@ nav {
   backdrop-filter: blur(30px);
   background-color: rgba(65, 65, 65, 0.308);
   border: 1px solid rgba(255, 255, 255, 0.089);
+}
+
+@media screen and (max-width: 330px) {
+  .bgfiltercard {
+    padding: 10px 2px;
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    background-color: rgba(65, 65, 65, 0.308);
+    border: 1px solid rgba(255, 255, 255, 0.089);
+  }
 }
 
 

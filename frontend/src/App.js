@@ -4,7 +4,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 import LandingPage from './LandingPage'
-import Navbar from './Navbar'
+import NewNav from './NewNav'
+import PageNotFoundAnimation from './PageNotFoundAnimation'
 import AIML from './checkPages/AIML'
 import Appdev from './checkPages/Appdev'
 import Design from './checkPages/Design'
@@ -13,7 +14,6 @@ import ErrorPage from './checkPages/ErrorPage'
 import Footer from './checkPages/Footer'
 import Login from './checkPages/Login'
 import Signup from './checkPages/Signup'
-import Unselected from './checkPages/Unselected'
 import WebDev from './checkPages/WebDev'
 import AIMLWeek1 from './checkPages/domain/AIMLWeek1'
 import AIMLWeek2 from './checkPages/domain/AIMLWeek2'
@@ -38,8 +38,6 @@ import WebWeek2 from './checkPages/domain/WebWeek2'
 import WebWeek3 from './checkPages/domain/WebWeek3'
 import WebWeek4 from './checkPages/domain/WebWeek4'
 import WebWeek5 from './checkPages/domain/WebWeek5'
-import BaseUrl from './BaseUrl'
-import PageNotFoundAnimation from './PageNotFoundAnimation'
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -81,10 +79,14 @@ function App() {
   return (
     <div className="w-full">
       <Router>
-        <Navbar
+        {/* <Navbar
           user={user}
           setUser={setUser}
           selectedDomains={selectedDomains}
+        /> */}
+        <NewNav
+          user={user}
+          setUser={setUser}
         />
         <Routes>
           <Route path="/" element={<LandingPage user={user} />} />
