@@ -434,7 +434,7 @@ export default function DsaWeek1({ user }) {
                         <div className="details">
                           <li>For C++: <a href="https://www.youtube.com/watch?v=EAR7De6Goz4" target='_blank' className='text-[blue]'>C++ Basics</a></li>
                           <li>--------</li>
-                          <li>For Java: <a href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s" target='_blank' className='text-[blue]'>Java Basics A</a> (OR) <a href="https://www.youtube.com/watch?v=eIrMbAQSU34&t=5694s">Java Basics B</a></li>
+                          <li>For Java: <a href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s" target='_blank' className='text-[blue]'>Java Basics A</a> (OR) <a href="https://www.youtube.com/watch?v=eIrMbAQSU34&t=5694s" target='_blank' className='text-[blue]'>Java Basics B</a></li>
                         </div>
                       </div>
                     </div>
@@ -463,7 +463,7 @@ export default function DsaWeek1({ user }) {
                         <div className="details">
                           <li>C++ STL (in hindi) <a href="https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn" target='_blank' className='text-[blue]'>C++ Hindi Playlist</a></li>
                           <li>Or C++ STL (in english) <a href="https://youtu.be/RRVYpIET_RU?si=sBxKXw15wTGX7qXJ" target='_blank' className='text-[blue]'>C++ STL in English</a></li>
-                          <li>Documentation Links for C++: <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/" target='_blank' className='text-[blue]'>Vectors</a>, <a href="https://www.geeksforgeeks.org/pair-in-cpp-stl/">Pair</a>, <a href="https://www.geeksforgeeks.org/iterators-c-stl/">Iterators</a></li>
+                          <li>Documentation Links for C++: <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/" target='_blank' className='text-[blue]'>Vectors</a>, <a href="https://www.geeksforgeeks.org/pair-in-cpp-stl/" target='_blank' className='text-[blue]'>Pair</a>, <a href="https://www.geeksforgeeks.org/iterators-c-stl/" target='_blank' className='text-[blue]'>Iterators</a></li>
                           <li>-----</li>
                           <li>Java Collection <a href="https://www.youtube.com/watch?v=rzA7UJ-hQn4" target='_blank' className='text-[blue]'>Java Collection</a></li>
                           <li></li>
