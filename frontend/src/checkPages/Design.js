@@ -1,23 +1,23 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import MobileSidebar from "./MobileSidebar";
-import Sidebar from "./Sidebar";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import MobileSidebar from './MobileSidebar'
+import Sidebar from './Sidebar'
 
 const Design = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleWeekNavigation = (week) => {
-    navigate(`/design/week${week}`);
-  };
+    navigate(`/design/week${week}`)
+  }
 
   return (
     <div className="flex flex-col bg-black">
-    <div className="lg:block hidden ">
-      <Sidebar domain="design" />
-    </div>
-    <div className="lg:hidden block relative top-20">
-      <MobileSidebar domain="design" />
-    </div>
+      <div className="lg:block hidden ">
+        <Sidebar domain="design" />
+      </div>
+      <div className="lg:hidden block relative top-20">
+        <MobileSidebar domain="design" />
+      </div>
       <div className="flex-1  p-4 mt-24">
         <h1 className="lg:text-6xl text-3xl font-bold text-center text-white lg:ml-52">
           Welcome to Design Domain
@@ -117,7 +117,8 @@ const Design = () => {
             <div className="timeline-end mb-10">
               <time className="font-mono italic">Week 4</time>
               <div className="text-lg font-black">Project Implementation</div>
-              Final Project Review and Submission integrated with Web Development Domain
+              Final Project Review and Submission integrated with Web
+              Development Domain
             </div>
             <hr />
           </li>
@@ -146,8 +147,19 @@ const Design = () => {
         </ul>
       </div>
       <div className="h-20"></div>
+      <div className="h-10"></div>
+      <div className="relative w-full flex justify-center">
+        <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
+        <p className="z-10 my-5">
+          In case you ever foolishly forget, this was made with{' '}
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>{' '}
+          by Aarya, Roopanshi, and Nikhilesh
+        </p>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Design;
+export default Design

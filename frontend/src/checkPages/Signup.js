@@ -1,111 +1,111 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import BaseUrl from "../BaseUrl";
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import BaseUrl from '../BaseUrl'
 const Signup = ({ user, setUser }) => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
-    phone_number: "",
-    password: "",
-    name: "",
+    phone_number: '',
+    password: '',
+    name: '',
     domains: {
       DSA: false,
-      "AI-ML": false,
-      "Web Development": false,
-      "App Development": false,
+      'AI-ML': false,
+      'Web Development': false,
+      'App Development': false,
       Design: false,
     },
-  });
+  })
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === "checkbox") {
+    const { name, value, type, checked } = e.target
+    if (type === 'checkbox') {
       setFormData({
         ...formData,
         domains: {
           ...formData.domains,
           [value]: checked,
         },
-      });
+      })
     } else {
       setFormData({
         ...formData,
         [name]: value,
-      });
+      })
     }
     // console.log(formData);
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
     const selectedDomains = Object.keys(formData.domains).filter(
       (domain) => formData.domains[domain]
-    );
+    )
 
-    console.log(selectedDomains);
+    console.log(selectedDomains)
 
     if (selectedDomains.length < 1) {
-      toast.error("Select a minimum of 1 domain");
-      return;
+      toast.error('Select a minimum of 1 domain')
+      return
     }
 
     if (
       selectedDomains.length < 1 ||
-      (selectedDomains.length == 4 && !selectedDomains.includes("DSA")) ||
+      (selectedDomains.length == 4 && !selectedDomains.includes('DSA')) ||
       selectedDomains.length > 4
     ) {
-      toast.error("Only a maximum of 3 allowed, 4 allowed if DSA is ticked");
-      return;
+      toast.error('Only a maximum of 3 allowed, 4 allowed if DSA is ticked')
+      return
     }
 
     const dataToSubmit = {
       ...formData,
       domains: selectedDomains,
-    };
+    }
 
-    let arr = dataToSubmit.domains;
+    let arr = dataToSubmit.domains
 
     const checkDomainAccess = (domain) => {
       if (arr === undefined) {
-        return false; // or handle this case as needed
+        return false // or handle this case as needed
       }
-      return arr.includes(domain);
-    };
+      return arr.includes(domain)
+    }
 
     setFormData({
       ...formData,
       domains: {
-        DSA: checkDomainAccess("DSA"),
-        "AI-ML": checkDomainAccess("AI-ML"),
-        "Web Development": checkDomainAccess("Web Development"),
-        "App Development": checkDomainAccess("App Development"),
-        Design: checkDomainAccess("Design"),
+        DSA: checkDomainAccess('DSA'),
+        'AI-ML': checkDomainAccess('AI-ML'),
+        'Web Development': checkDomainAccess('Web Development'),
+        'App Development': checkDomainAccess('App Development'),
+        Design: checkDomainAccess('Design'),
       },
-    });
+    })
 
     try {
-      console.log(dataToSubmit);
+      console.log(dataToSubmit)
 
-      const response = await axios.post(BaseUrl + "/api/auth/signup", formData);
+      const response = await axios.post(BaseUrl + '/api/auth/signup', formData)
 
-      let dsa = false;
-      let aiml = false;
-      let web = false;
-      let app = false;
-      let des = false;
+      let dsa = false
+      let aiml = false
+      let web = false
+      let app = false
+      let des = false
 
       //THIS CODE FOR INITIALISING REQUIRED DBS ONLY
 
-      if (checkDomainAccess("DSA")) {
-        console.log(checkDomainAccess("DSA") + " dsa");
-        dsa = true;
+      if (checkDomainAccess('DSA')) {
+        console.log(checkDomainAccess('DSA') + ' dsa')
+        dsa = true
         // Initializing all weeks db
-        const res1 = await fetch(BaseUrl + "/api/progress/dsaweek1", {
-          method: "POST",
+        const res1 = await fetch(BaseUrl + '/api/progress/dsaweek1', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -117,21 +117,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json1 = await res1.json();
+        const json1 = await res1.json()
 
-        const res2 = await fetch(BaseUrl + "/api/progress/dsaweek2", {
-          method: "POST",
+        const res2 = await fetch(BaseUrl + '/api/progress/dsaweek2', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -143,21 +143,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json2 = await res2.json();
+        const json2 = await res2.json()
 
-        const res3 = await fetch(BaseUrl + "/api/progress/dsaweek3", {
-          method: "POST",
+        const res3 = await fetch(BaseUrl + '/api/progress/dsaweek3', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -169,21 +169,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json3 = await res3.json();
+        const json3 = await res3.json()
 
-        const res4 = await fetch(BaseUrl + "/api/progress/dsaweek4", {
-          method: "POST",
+        const res4 = await fetch(BaseUrl + '/api/progress/dsaweek4', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -195,21 +195,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json4 = await res4.json();
+        const json4 = await res4.json()
 
-        const res5 = await fetch(BaseUrl + "/api/progress/dsaweek5", {
-          method: "POST",
+        const res5 = await fetch(BaseUrl + '/api/progress/dsaweek5', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -221,21 +221,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json5 = await res5.json();
+        const json5 = await res5.json()
 
-        const res6 = await fetch(BaseUrl + "/api/progress/dsaweek6", {
-          method: "POST",
+        const res6 = await fetch(BaseUrl + '/api/progress/dsaweek6', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -247,26 +247,26 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json6 = await res6.json();
+        const json6 = await res6.json()
       }
 
-      if (checkDomainAccess("AI-ML")) {
-        console.log(checkDomainAccess("AI-ML") + " aiml");
-        aiml = true;
+      if (checkDomainAccess('AI-ML')) {
+        console.log(checkDomainAccess('AI-ML') + ' aiml')
+        aiml = true
 
-        const res1 = await fetch(BaseUrl + "/api/progress/aimlweek1", {
-          method: "POST",
+        const res1 = await fetch(BaseUrl + '/api/progress/aimlweek1', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -278,21 +278,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json1 = await res1.json();
+        const json1 = await res1.json()
 
-        const res2 = await fetch(BaseUrl + "/api/progress/aimlweek2", {
-          method: "POST",
+        const res2 = await fetch(BaseUrl + '/api/progress/aimlweek2', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -304,21 +304,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json2 = await res2.json();
+        const json2 = await res2.json()
 
-        const res3 = await fetch(BaseUrl + "/api/progress/aimlweek3", {
-          method: "POST",
+        const res3 = await fetch(BaseUrl + '/api/progress/aimlweek3', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -330,21 +330,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json3 = await res3.json();
+        const json3 = await res3.json()
 
-        const res4 = await fetch(BaseUrl + "/api/progress/aimlweek4", {
-          method: "POST",
+        const res4 = await fetch(BaseUrl + '/api/progress/aimlweek4', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -356,26 +356,26 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json4 = await res4.json();
+        const json4 = await res4.json()
       }
 
-      if (checkDomainAccess("Web Development")) {
-        console.log(checkDomainAccess("Web Development") + " web");
-        web = true;
+      if (checkDomainAccess('Web Development')) {
+        console.log(checkDomainAccess('Web Development') + ' web')
+        web = true
 
-        const res1 = await fetch(BaseUrl + "/api/progress/webweek1", {
-          method: "POST",
+        const res1 = await fetch(BaseUrl + '/api/progress/webweek1', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -387,21 +387,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json1 = await res1.json();
+        const json1 = await res1.json()
 
-        const res2 = await fetch(BaseUrl + "/api/progress/webweek2", {
-          method: "POST",
+        const res2 = await fetch(BaseUrl + '/api/progress/webweek2', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -413,21 +413,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json2 = await res2.json();
+        const json2 = await res2.json()
 
-        const res3 = await fetch(BaseUrl + "/api/progress/webweek3", {
-          method: "POST",
+        const res3 = await fetch(BaseUrl + '/api/progress/webweek3', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -439,21 +439,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json3 = await res3.json();
+        const json3 = await res3.json()
 
-        const res4 = await fetch(BaseUrl + "/api/progress/webweek4", {
-          method: "POST",
+        const res4 = await fetch(BaseUrl + '/api/progress/webweek4', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -465,21 +465,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json4 = await res4.json();
+        const json4 = await res4.json()
 
-        const res5 = await fetch(BaseUrl + "/api/progress/webweek5", {
-          method: "POST",
+        const res5 = await fetch(BaseUrl + '/api/progress/webweek5', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -491,26 +491,26 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json5 = await res5.json();
+        const json5 = await res5.json()
       }
 
-      if (checkDomainAccess("App Development")) {
-        console.log(checkDomainAccess("App Development") + " app");
-        app = true;
+      if (checkDomainAccess('App Development')) {
+        console.log(checkDomainAccess('App Development') + ' app')
+        app = true
 
-        const res1 = await fetch(BaseUrl + "/api/progress/appweek1", {
-          method: "POST",
+        const res1 = await fetch(BaseUrl + '/api/progress/appweek1', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -522,21 +522,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json1 = await res1.json();
+        const json1 = await res1.json()
 
-        const res2 = await fetch(BaseUrl + "/api/progress/appweek2", {
-          method: "POST",
+        const res2 = await fetch(BaseUrl + '/api/progress/appweek2', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -548,21 +548,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json2 = await res2.json();
+        const json2 = await res2.json()
 
-        const res3 = await fetch(BaseUrl + "/api/progress/appweek3", {
-          method: "POST",
+        const res3 = await fetch(BaseUrl + '/api/progress/appweek3', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -574,21 +574,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json3 = await res3.json();
+        const json3 = await res3.json()
 
-        const res4 = await fetch(BaseUrl + "/api/progress/appweek4", {
-          method: "POST",
+        const res4 = await fetch(BaseUrl + '/api/progress/appweek4', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -600,26 +600,26 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json4 = await res4.json();
+        const json4 = await res4.json()
       }
 
-      if (checkDomainAccess("Design")) {
-        console.log(checkDomainAccess("Design") + " Design");
-        des = true;
+      if (checkDomainAccess('Design')) {
+        console.log(checkDomainAccess('Design') + ' Design')
+        des = true
 
-        const res1 = await fetch(BaseUrl + "/api/progress/designweek1", {
-          method: "POST",
+        const res1 = await fetch(BaseUrl + '/api/progress/designweek1', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -631,21 +631,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json1 = await res1.json();
+        const json1 = await res1.json()
 
-        const res2 = await fetch(BaseUrl + "/api/progress/designweek2", {
-          method: "POST",
+        const res2 = await fetch(BaseUrl + '/api/progress/designweek2', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -657,21 +657,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json2 = await res2.json();
+        const json2 = await res2.json()
 
-        const res3 = await fetch(BaseUrl + "/api/progress/designweek3", {
-          method: "POST",
+        const res3 = await fetch(BaseUrl + '/api/progress/designweek3', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -683,21 +683,21 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json3 = await res3.json();
+        const json3 = await res3.json()
 
-        const res4 = await fetch(BaseUrl + "/api/progress/designweek4", {
-          method: "POST",
+        const res4 = await fetch(BaseUrl + '/api/progress/designweek4', {
+          method: 'POST',
           body: JSON.stringify({
             _id: formData.phone_number,
             name: formData.name,
@@ -709,34 +709,34 @@ const Signup = ({ user, setUser }) => {
             task6: false,
             task7: false,
             task8: false,
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: "",
-            link5: "",
+            link1: '',
+            link2: '',
+            link3: '',
+            link4: '',
+            link5: '',
           }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        });
+        })
 
-        const json4 = await res4.json();
+        const json4 = await res4.json()
       }
 
-      toast.success(response.data.message);
-      toast.success("Please login to begin using the site");
+      toast.success(response.data.message)
+      toast.success('Please login to begin using the site')
       setTimeout(() => {
-        navigate("/login");
-      }, 3000);
+        navigate('/login')
+      }, 3000)
     } catch (error) {
-      toast.error(error.response.data.error);
-      setLoading(false);
+      toast.error(error.response.data.error)
+      setLoading(false)
     }
-  };
+  }
 
   const handleGoLogin = () => {
-    navigate("/login");
-  };
+    navigate('/login')
+  }
 
   return (
     <div className="relative h-screen">
@@ -792,7 +792,7 @@ const Signup = ({ user, setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="DSA"
-                  checked={formData.domains["DSA"]}
+                  checked={formData.domains['DSA']}
                   onChange={handleChange}
                 />
                 <span className="text-[1.1rem] pr-2">DSA</span>
@@ -802,7 +802,7 @@ const Signup = ({ user, setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="AI-ML"
-                  checked={formData.domains["AI-ML"]}
+                  checked={formData.domains['AI-ML']}
                   onChange={handleChange}
                 />
                 <span className="text-[1.1rem] pr-2">AI-ML</span>
@@ -812,7 +812,7 @@ const Signup = ({ user, setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="Web Development"
-                  checked={formData.domains["Web Development"]}
+                  checked={formData.domains['Web Development']}
                   onChange={handleChange}
                 />
                 <span className="text-[1.1rem] pr-2">Web Development</span>
@@ -822,7 +822,7 @@ const Signup = ({ user, setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="App Development"
-                  checked={formData.domains["App Development"]}
+                  checked={formData.domains['App Development']}
                   onChange={handleChange}
                 />
                 <span className="text-[1.1rem] pr-2">App Development</span>
@@ -832,7 +832,7 @@ const Signup = ({ user, setUser }) => {
                   type="checkbox"
                   name="domains"
                   value="Design"
-                  checked={formData.domains["Design"]}
+                  checked={formData.domains['Design']}
                   onChange={handleChange}
                 />
                 <span className="text-[1.1rem]">Design</span>
@@ -844,7 +844,7 @@ const Signup = ({ user, setUser }) => {
           </button>
         </form>
         <div className="mt-6 text-center text-white">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <button
             onClick={handleGoLogin}
             className="text-blue-400 hover:underline"
@@ -858,9 +858,10 @@ const Signup = ({ user, setUser }) => {
           </div>
         )}
       </div>
+
       <ToastContainer />
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
