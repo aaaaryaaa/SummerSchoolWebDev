@@ -31,9 +31,9 @@ export default function DsaWeek1({ user }) {
     if (obj.task1) n += 1
     if (obj.task2) n += 1
     if (obj.task3) n += 1
-    if (obj.task4) n += 1
-    if (obj.task5) n += 1
-    if (obj.task6) n += 1
+    // if (obj.task4) n += 1
+    // if (obj.task5) n += 1
+    // if (obj.task6) n += 1
     return ((n * 100) / num).toFixed(2)
   }
 
@@ -257,7 +257,7 @@ export default function DsaWeek1({ user }) {
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
-                                '--value': calcProgress(record, 6),
+                                '--value': calcProgress(record, 3),
                                 '--size': '14rem',
                                 '--thickness': '0.75rem',
                               }}
@@ -331,7 +331,7 @@ export default function DsaWeek1({ user }) {
                                   <span className="text-lg">Task 3</span>
                                 </label>
 
-                                <input
+                                {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfour}
                                   onChange={handleCheck4}
@@ -395,7 +395,7 @@ export default function DsaWeek1({ user }) {
                                     </svg>
                                   </span>
                                   <span className="text-lg">Task 6</span>
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>
@@ -421,20 +421,20 @@ export default function DsaWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide1" href="#hide1" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 1
+                            Open Task 1 : Language Basics
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show1" href="#show1" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 1
+                            Close Task 1 : Language Basics
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li>For C++: <a href="https://www.youtube.com/watch?v=EAR7De6Goz4">C++ Basics</a></li>
+                          <li>--------</li>
+                          <li>For Java: <a href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s">Java Basics A</a> (OR) <a href="https://www.youtube.com/watch?v=eIrMbAQSU34&t=5694s">Java Basics B</a></li>
                         </div>
                       </div>
                     </div>
@@ -450,20 +450,23 @@ export default function DsaWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide2" href="#hide2" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 2
+                            Open Task 2 : C++ STL/ Java Collections
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show2" href="#show2" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 2
+                            Close Task 2 : C++ STL/ Java Collections
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li>C++ STL (in hindi) <a href="https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn">C++ Hindi Playlist</a></li>
+                          <li>Or C++ STL (in english) <a href="https://youtu.be/RRVYpIET_RU?si=sBxKXw15wTGX7qXJ">C++ STL in English</a></li>
+                          <li>Documentation Links for C++: <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">Vectors</a>, <a href="https://www.geeksforgeeks.org/pair-in-cpp-stl/">Pair</a>, <a href="https://www.geeksforgeeks.org/iterators-c-stl/">Iterators</a></li>
+                          <li>-----</li>
+                          <li>Java Collection <a href="https://www.youtube.com/watch?v=rzA7UJ-hQn4 "></a></li>
+                          <li></li>
                         </div>
                       </div>
                     </div>
@@ -479,24 +482,22 @@ export default function DsaWeek1({ user }) {
                       <div className="bgfiltercard ml-6 w-full">
                         <a id="hide3" href="#hide3" className="hide">
                           <div className='flex justify-between align-middle'>
-                            Open Task 3
+                            Open Task 3 : Time & Space Complexity
                             <img src={arrowdownblack} alt=">" className='w-8 h-8' />
                           </div>
                         </a>
                         <a id="show3" href="#show3" className="show">
                           <div className='flex justify-between align-middle'>
-                            Close Task 3
+                            Close Task 3 : Time & Space Complexity
                             <img src={arrowupblack} alt="<" className='w-8 h-8' />
                           </div>
                         </a>
                         <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
+                          <li><a href="https://www.youtube.com/watch?v=FPu9Uld7W-E">Time & Space Complexity</a></li>
                         </div>
                       </div>
                     </div>
-                    <div className="form-control flex flex-row">
+                    {/* <div className="form-control flex flex-row">
                       <label className="cursor-pointer label">
                         <input
                           type="checkbox"
@@ -629,7 +630,7 @@ export default function DsaWeek1({ user }) {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="centereddiv">
                       <button className="btn-31">
                         <span className="text-container">
@@ -714,7 +715,7 @@ export default function DsaWeek1({ user }) {
                       <div
                         className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                         style={{
-                          '--value': calcProgress(x, 6),
+                          '--value': calcProgress(x, 3),
                           '--size': '10rem',
                           '--thickness': '0.75rem',
                         }}
@@ -773,7 +774,7 @@ export default function DsaWeek1({ user }) {
                             <span className="text-lg"></span>
                           </label>
 
-                          <input
+                          {/* <input
                             style={{ display: 'none' }}
                             checked={x.task4}
                             disabled={true}
@@ -822,7 +823,7 @@ export default function DsaWeek1({ user }) {
                               </svg>
                             </span>
                             <span className="text-lg"></span>
-                          </label>
+                          </label> */}
                         </div>
                       </div>
                     </div>
