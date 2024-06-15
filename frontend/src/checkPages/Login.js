@@ -1,64 +1,61 @@
 // src/components/Login.js
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import BaseUrl from '../BaseUrl';
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import BaseUrl from '../BaseUrl'
 
 const Login = ({ setUser, setSelectedDomains }) => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   const [formData, setFormData] = useState({
-    phone_number: "",
-    password: "",
-  });
+    phone_number: '',
+    password: '',
+  })
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     try {
-      const response = await axios.post(
-        BaseUrl + "/api/auth/login",
-        formData
-      );
+      const response = await axios.post(BaseUrl + '/api/auth/login', formData)
 
-      console.log(response.data); // Log the entire response for debugging
+      console.log(response.data) // Log the entire response for debugging
 
-      const user = response.data.user; // Assuming the server returns the user object
+      const user = response.data.user // Assuming the server returns the user object
       if (!user) {
-        throw new Error("User data is not present in the response");
+        throw new Error('User data is not present in the response')
       }
 
-      setUser(user);
+      setUser(user)
 
       if (!user.domains) {
-        throw new Error("Domains are not present in the user data");
+        throw new Error('Domains are not present in the user data')
       }
 
-      setSelectedDomains(user.domains); // Assuming the user object contains selected domains
+      setSelectedDomains(user.domains) // Assuming the user object contains selected domains
 
-      toast.success("Login successful");
-      navigate("/");
+      toast.success('Login successful')
+      navigate('/')
     } catch (error) {
-      console.error(error); // Log the error for debugging
-      toast.error(error.response?.data?.error || "An error occurred");
-      setLoading(false);
+      console.error(error) // Log the error for debugging
+      toast.error(error.response?.data?.error || 'An error occurred')
+      setLoading(false)
     }
-  };
+  }
 
   const handleGoSignup = () => {
-    navigate("/signup");
-  };
+    navigate('/signup')
+  }
 
   return (
     <div className="relative h-screen">
@@ -98,7 +95,7 @@ const Login = ({ setUser, setSelectedDomains }) => {
           </button>
         </form>
         <div className="mt-6 text-center text-white">
-          Don't have an account?{" |   "}
+          Don't have an account?{' |   '}
           <button
             type="button"
             onClick={handleGoSignup}
@@ -108,13 +105,14 @@ const Login = ({ setUser, setSelectedDomains }) => {
           </button>
         </div>
       </div>
-      {loading && ( // Conditionally render loading component
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <span className="loading loading-ring loading-lg"></span>
-          </div>
-        )}
-    </div>
-  );
-};
 
-export default Login;
+      {loading && ( // Conditionally render loading component
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <span className="loading loading-ring loading-lg"></span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Login

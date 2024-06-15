@@ -1,14 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import MobileSidebar from "./MobileSidebar";
-import Sidebar from "./Sidebar";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import MobileSidebar from './MobileSidebar'
+import Sidebar from './Sidebar'
 
 const Dsa = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleWeekNavigation = (week) => {
-    navigate(`/dsa/week${week}`);
-  };
+    navigate(`/dsa/week${week}`)
+  }
 
   return (
     <div className="flex bg-black flex-col">
@@ -166,8 +166,19 @@ const Dsa = () => {
         </ul>
       </div>
       <div className="h-20"></div>
+      <div className="h-10"></div>
+      <div className="relative w-full flex justify-center">
+        <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
+        <p className="z-10 my-5">
+          In case you ever foolishly forget, this was made with{' '}
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>{' '}
+          by Aarya, Roopanshi, and Nikhilesh
+        </p>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dsa;
+export default Dsa

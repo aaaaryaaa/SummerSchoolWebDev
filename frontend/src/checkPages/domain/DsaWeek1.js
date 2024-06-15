@@ -168,170 +168,175 @@ export default function DsaWeek1({ user }) {
   }
 
   return (
-    <div className="lg:grid lg:grid-cols-10 w-full">
-      <div className="col-span-1 lg:block hidden ">
-        <Sidebar domain="dsa" />
-      </div>
-      <div className="lg:hidden block relative top-20">
-        <MobileSidebar domain="dsa" />
-      </div>
-      <div className="lg:col-span-9 ">
-        <div className="lg:mt-20 w-full">
-          <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">DSA WEEK 1</h1>
-          <div className="w-full">
-            {record && (
-              <div className="lg:w-full lg:flex lg:flex-row w-fit ml-auto mr-auto">
-                {/* card design */}
-                <div className="cardContainer lg:pl-5">
-                  <div className="card flex flex-row justify-center lg:space-x-16">
-                    <div className="flex flex-col space-y-4">
-                      <aside className=" text-white p-10 rounded-lg w-fit lg:max-w-[40rem] font-mono">
-                        <div className="flex lg:flex-row flex-col gap-10 bgfiltercard">
-                          <div className=' p-2'>
-                            <div className="flex justify-between items-center pb-4">
-                              <div className="flex space-x-2 text-red-500">
-                                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    <div>
+      <div className="lg:grid lg:grid-cols-10 w-full">
+        <div className="col-span-1 lg:block hidden ">
+          <Sidebar domain="dsa" />
+        </div>
+        <div className="lg:hidden block relative top-20">
+          <MobileSidebar domain="dsa" />
+        </div>
+        <div className="lg:col-span-9 ">
+          <div className="lg:mt-20 w-full">
+            <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
+              DSA WEEK 1
+            </h1>
+            <div className="w-full">
+              {record && (
+                <div className="lg:w-full lg:flex lg:flex-row w-fit ml-auto mr-auto">
+                  {/* card design */}
+                  <div className="cardContainer lg:pl-5">
+                    <div className="card flex flex-row justify-center lg:space-x-16">
+                      <div className="flex flex-col space-y-4">
+                        <aside className=" text-white p-10 rounded-lg w-fit lg:max-w-[40rem] font-mono">
+                          <div className="flex lg:flex-row flex-col gap-10 bgfiltercard">
+                            <div className=" p-2">
+                              <div className="flex justify-between items-center pb-4">
+                                <div className="flex space-x-2 text-red-500">
+                                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                              </div>
+                              <div className="lg:mt-14">
+                                <p className="text-[#00CDB7]">
+                                  $ npm install details
+                                </p>
+                                <p className="truncate">Name: {record.name}</p>
+                                <p className="">Phone No: {record._id}</p>
+                                <p className="text-[#00CDB7]">
+                                  $ npm install links
+                                </p>
+                                {record.link1 !== '' ? (
+                                  <a href={record.link1} target="_blank">
+                                    <p className="text-white underline underline-offset-1 truncate">
+                                      {record.link1}
+                                    </p>
+                                  </a>
+                                ) : (
+                                  <p>Nothing yet.</p>
+                                )}
+                                {record.link2 !== '' ? (
+                                  <a href={record.link2} target="_blank">
+                                    <p className="text-white underline underline-offset-1 truncate">
+                                      {record.link2}
+                                    </p>
+                                  </a>
+                                ) : (
+                                  <p>Nothing yet.</p>
+                                )}
+                                {record.link3 !== '' ? (
+                                  <a href={record.link3} target="_blank">
+                                    <p className="text-white underline underline-offset-1 truncate">
+                                      {record.link3}
+                                    </p>
+                                  </a>
+                                ) : (
+                                  <p>Nothing yet.</p>
+                                )}
+                                {record.link4 !== '' ? (
+                                  <a href={record.link4} target="_blank">
+                                    <p className="text-white underline underline-offset-1 truncate">
+                                      {record.link4}
+                                    </p>
+                                  </a>
+                                ) : (
+                                  <p>Nothing yet.</p>
+                                )}
+                                {record.link5 !== '' ? (
+                                  <a href={record.link5} target="_blank">
+                                    <p className="text-white underline underline-offset-1 truncate">
+                                      {record.link5}
+                                    </p>
+                                  </a>
+                                ) : (
+                                  <p>Nothing yet.</p>
+                                )}
+                                <p className="text-[#00CDB7]">$</p>
                               </div>
                             </div>
-                            <div className="lg:mt-14">
-                              <p className="text-[#00CDB7]">
-                                $ npm install details
-                              </p>
-                              <p className="truncate">Name: {record.name}</p>
-                              <p className="">Phone No: {record._id}</p>
-                              <p className="text-[#00CDB7]">
-                                $ npm install links
-                              </p>
-                              {record.link1 !== '' ? (
-                                <a href={record.link1} target="_blank">
-                                  <p className="text-white underline underline-offset-1 truncate">
-                                    {record.link1}
-                                  </p>
-                                </a>
-                              ) : (
-                                <p>Nothing yet.</p>
-                              )}
-                              {record.link2 !== '' ? (
-                                <a href={record.link2} target="_blank">
-                                  <p className="text-white underline underline-offset-1 truncate">
-                                    {record.link2}
-                                  </p>
-                                </a>
-                              ) : (
-                                <p>Nothing yet.</p>
-                              )}
-                              {record.link3 !== '' ? (
-                                <a href={record.link3} target="_blank">
-                                  <p className="text-white underline underline-offset-1 truncate">
-                                    {record.link3}
-                                  </p>
-                                </a>
-                              ) : (
-                                <p>Nothing yet.</p>
-                              )}
-                              {record.link4 !== '' ? (
-                                <a href={record.link4} target="_blank">
-                                  <p className="text-white underline underline-offset-1 truncate">
-                                    {record.link4}
-                                  </p>
-                                </a>
-                              ) : (
-                                <p>Nothing yet.</p>
-                              )}
-                              {record.link5 !== '' ? (
-                                <a href={record.link5} target="_blank">
-                                  <p className="text-white underline underline-offset-1 truncate">
-                                    {record.link5}
-                                  </p>
-                                </a>
-                              ) : (
-                                <p>Nothing yet.</p>
-                              )}
-                              <p className="text-[#00CDB7]">$</p>
-                            </div>
-                          </div>
-                          <div className='flex flex-col justify-center gap-5'>
-                            <div className='flex justify-center text-2xl'>Your Progress</div>
-                            <div
-                              className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
-                              style={{
-                                '--value': calcProgress(record, 3),
-                                '--size': '14rem',
-                                '--thickness': '0.75rem',
-                              }}
-                              role="progressbar"
-                            >
-                              {/* {calcProgress(record, 6)} */}
-                              <div className="checkbox-wrapper flex flex-col text-[#b9b8c3]">
-                                <input
-                                  style={{ display: 'none' }}
-                                  checked={taskone}
-                                  onChange={handleCheck1}
-                                  disabled={true}
-                                  type="checkbox"
-                                  id="cbx"
-                                  className="inp-cbx"
-                                />
-                                <label htmlFor="cbx" className="cbx">
-                                  <span>
-                                    <svg
-                                      viewBox="0 0 12 9"
-                                      height="9px"
-                                      width="12px"
-                                    >
-                                      <polyline points="1 5 4 8 11 1"></polyline>
-                                    </svg>
-                                  </span>
-                                  <span className="text-lg">Task 1</span>
-                                </label>
+                            <div className="flex flex-col justify-center gap-5">
+                              <div className="flex justify-center text-2xl">
+                                Your Progress
+                              </div>
+                              <div
+                                className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
+                                style={{
+                                  '--value': calcProgress(record, 3),
+                                  '--size': '14rem',
+                                  '--thickness': '0.75rem',
+                                }}
+                                role="progressbar"
+                              >
+                                {/* {calcProgress(record, 6)} */}
+                                <div className="checkbox-wrapper flex flex-col text-[#b9b8c3]">
+                                  <input
+                                    style={{ display: 'none' }}
+                                    checked={taskone}
+                                    onChange={handleCheck1}
+                                    disabled={true}
+                                    type="checkbox"
+                                    id="cbx"
+                                    className="inp-cbx"
+                                  />
+                                  <label htmlFor="cbx" className="cbx">
+                                    <span>
+                                      <svg
+                                        viewBox="0 0 12 9"
+                                        height="9px"
+                                        width="12px"
+                                      >
+                                        <polyline points="1 5 4 8 11 1"></polyline>
+                                      </svg>
+                                    </span>
+                                    <span className="text-lg">Task 1</span>
+                                  </label>
 
-                                <input
-                                  style={{ display: 'none' }}
-                                  checked={tasktwo}
-                                  onChange={handleCheck2}
-                                  disabled={true}
-                                  type="checkbox"
-                                  id="cbx"
-                                  className="inp-cbx"
-                                />
-                                <label htmlFor="cbx" className="cbx">
-                                  <span>
-                                    <svg
-                                      viewBox="0 0 12 9"
-                                      height="9px"
-                                      width="12px"
-                                    >
-                                      <polyline points="1 5 4 8 11 1"></polyline>
-                                    </svg>
-                                  </span>
-                                  <span className="text-lg">Task 2</span>
-                                </label>
+                                  <input
+                                    style={{ display: 'none' }}
+                                    checked={tasktwo}
+                                    onChange={handleCheck2}
+                                    disabled={true}
+                                    type="checkbox"
+                                    id="cbx"
+                                    className="inp-cbx"
+                                  />
+                                  <label htmlFor="cbx" className="cbx">
+                                    <span>
+                                      <svg
+                                        viewBox="0 0 12 9"
+                                        height="9px"
+                                        width="12px"
+                                      >
+                                        <polyline points="1 5 4 8 11 1"></polyline>
+                                      </svg>
+                                    </span>
+                                    <span className="text-lg">Task 2</span>
+                                  </label>
 
-                                <input
-                                  style={{ display: 'none' }}
-                                  checked={taskthree}
-                                  onChange={handleCheck3}
-                                  disabled={true}
-                                  type="checkbox"
-                                  id="cbx"
-                                  className="inp-cbx"
-                                />
-                                <label htmlFor="cbx" className="cbx">
-                                  <span>
-                                    <svg
-                                      viewBox="0 0 12 9"
-                                      height="9px"
-                                      width="12px"
-                                    >
-                                      <polyline points="1 5 4 8 11 1"></polyline>
-                                    </svg>
-                                  </span>
-                                  <span className="text-lg">Task 3</span>
-                                </label>
+                                  <input
+                                    style={{ display: 'none' }}
+                                    checked={taskthree}
+                                    onChange={handleCheck3}
+                                    disabled={true}
+                                    type="checkbox"
+                                    id="cbx"
+                                    className="inp-cbx"
+                                  />
+                                  <label htmlFor="cbx" className="cbx">
+                                    <span>
+                                      <svg
+                                        viewBox="0 0 12 9"
+                                        height="9px"
+                                        width="12px"
+                                      >
+                                        <polyline points="1 5 4 8 11 1"></polyline>
+                                      </svg>
+                                    </span>
+                                    <span className="text-lg">Task 3</span>
+                                  </label>
 
-                                {/* <input
+                                  {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfour}
                                   onChange={handleCheck4}
@@ -396,69 +401,168 @@ export default function DsaWeek1({ user }) {
                                   </span>
                                   <span className="text-lg">Task 6</span>
                                 </label> */}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </aside>
+                        </aside>
+                      </div>
                     </div>
                   </div>
-                </div>
-                {/* card design end */}
+                  {/* card design end */}
 
-                {/* start of form */}
-                <form onSubmit={handleSubmit} className="w-full lg:p-20 p-5">
-                  <div className="grid gap-4 w-full">
-                    <div className="form-control flex flex-row w-full">
-                      <label className="cursor-pointer label">
-                        <input
-                          type="checkbox"
-                          checked={taskone}
-                          onChange={handleCheck1}
-                          className="checkbox checkbox-accent"
-                        />
-                      </label>
-                      <div className="bgfiltercard ml-6 w-full">
-                        <a id="hide1" href="#hide1" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 1 : Language Basics
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                  {/* start of form */}
+                  <form onSubmit={handleSubmit} className="w-full lg:p-20 p-5">
+                    <div className="grid gap-4 w-full">
+                      <div className="form-control flex flex-row w-full">
+                        <label className="cursor-pointer label">
+                          <input
+                            type="checkbox"
+                            checked={taskone}
+                            onChange={handleCheck1}
+                            className="checkbox checkbox-accent"
+                          />
+                        </label>
+                        <div className="bgfiltercard ml-6 w-full">
+                          <a id="hide1" href="#hide1" className="hide">
+                            <div className="flex justify-between align-middle">
+                              Open Task 1 : Language Basics
+                              <img
+                                src={arrowdownblack}
+                                alt=">"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <a id="show1" href="#show1" className="show">
+                            <div className="flex justify-between align-middle">
+                              Close Task 1 : Language Basics
+                              <img
+                                src={arrowupblack}
+                                alt="<"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <div className="details">
+                            <li>
+                              For C++:{' '}
+                              <a
+                                href="https://www.youtube.com/watch?v=EAR7De6Goz4"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                C++ Basics
+                              </a>
+                            </li>
+                            <li>--------</li>
+                            <li>
+                              For Java:{' '}
+                              <a
+                                href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                Java Basics A
+                              </a>{' '}
+                              (OR){' '}
+                              <a href="https://www.youtube.com/watch?v=eIrMbAQSU34&t=5694s">
+                                Java Basics B
+                              </a>
+                            </li>
                           </div>
-                        </a>
-                        <a id="show1" href="#show1" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 1 : Language Basics
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
-                          </div>
+
                         </a>
                         <div className="details">
                           <li>For C++: <a href="https://www.youtube.com/watch?v=EAR7De6Goz4" target='_blank' className='text-[blue]'>C++ Basics</a></li>
                           <li>--------</li>
                           <li>For Java: <a href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s" target='_blank' className='text-[blue]'>Java Basics A</a> (OR) <a href="https://www.youtube.com/watch?v=eIrMbAQSU34&t=5694s" target='_blank' className='text-[blue]'>Java Basics B</a></li>
+
                         </div>
                       </div>
-                    </div>
-                    <div className="form-control flex flex-row">
-                      <label className="cursor-pointer label">
-                        <input
-                          type="checkbox"
-                          checked={tasktwo}
-                          onChange={handleCheck2}
-                          className="checkbox checkbox-accent"
-                        />
-                      </label>
-                      <div className="bgfiltercard ml-6 w-full">
-                        <a id="hide2" href="#hide2" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 2 : C++ STL/ Java Collections
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                      <div className="form-control flex flex-row">
+                        <label className="cursor-pointer label">
+                          <input
+                            type="checkbox"
+                            checked={tasktwo}
+                            onChange={handleCheck2}
+                            className="checkbox checkbox-accent"
+                          />
+                        </label>
+                        <div className="bgfiltercard ml-6 w-full">
+                          <a id="hide2" href="#hide2" className="hide">
+                            <div className="flex justify-between align-middle">
+                              Open Task 2 : C++ STL/ Java Collections
+                              <img
+                                src={arrowdownblack}
+                                alt=">"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <a id="show2" href="#show2" className="show">
+                            <div className="flex justify-between align-middle">
+                              Close Task 2 : C++ STL/ Java Collections
+                              <img
+                                src={arrowupblack}
+                                alt="<"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <div className="details">
+                            <li>
+                              C++ STL (in hindi){' '}
+                              <a
+                                href="https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                C++ Hindi Playlist
+                              </a>
+                            </li>
+                            <li>
+                              Or C++ STL (in english){' '}
+                              <a
+                                href="https://youtu.be/RRVYpIET_RU?si=sBxKXw15wTGX7qXJ"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                C++ STL in English
+                              </a>
+                            </li>
+                            <li>
+                              Documentation Links for C++:{' '}
+                              <a
+                                href="https://www.geeksforgeeks.org/vector-in-cpp-stl/"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                Vectors
+                              </a>
+                              ,{' '}
+                              <a href="https://www.geeksforgeeks.org/pair-in-cpp-stl/">
+                                Pair
+                              </a>
+                              ,{' '}
+                              <a href="https://www.geeksforgeeks.org/iterators-c-stl/">
+                                Iterators
+                              </a>
+                            </li>
+                            <li>-----</li>
+                            <li>
+                              Java Collection{' '}
+                              <a
+                                href="https://www.youtube.com/watch?v=rzA7UJ-hQn4"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                Java Collection
+                              </a>
+                            </li>
+                            <li></li>
                           </div>
-                        </a>
-                        <a id="show2" href="#show2" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 2 : C++ STL/ Java Collections
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
-                          </div>
+
                         </a>
                         <div className="details">
                           <li>C++ STL (in hindi) <a href="https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn" target='_blank' className='text-[blue]'>C++ Hindi Playlist</a></li>
@@ -467,37 +571,53 @@ export default function DsaWeek1({ user }) {
                           <li>-----</li>
                           <li>Java Collection <a href="https://www.youtube.com/watch?v=rzA7UJ-hQn4" target='_blank' className='text-[blue]'>Java Collection</a></li>
                           <li></li>
+
                         </div>
                       </div>
-                    </div>
-                    <div className="form-control flex flex-row">
-                      <label className="cursor-pointer label">
-                        <input
-                          type="checkbox"
-                          checked={taskthree}
-                          onChange={handleCheck3}
-                          className="checkbox checkbox-accent"
-                        />
-                      </label>
-                      <div className="bgfiltercard ml-6 w-full">
-                        <a id="hide3" href="#hide3" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 3 : Time & Space Complexity
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
+                      <div className="form-control flex flex-row">
+                        <label className="cursor-pointer label">
+                          <input
+                            type="checkbox"
+                            checked={taskthree}
+                            onChange={handleCheck3}
+                            className="checkbox checkbox-accent"
+                          />
+                        </label>
+                        <div className="bgfiltercard ml-6 w-full">
+                          <a id="hide3" href="#hide3" className="hide">
+                            <div className="flex justify-between align-middle">
+                              Open Task 3 : Time & Space Complexity
+                              <img
+                                src={arrowdownblack}
+                                alt=">"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <a id="show3" href="#show3" className="show">
+                            <div className="flex justify-between align-middle">
+                              Close Task 3 : Time & Space Complexity
+                              <img
+                                src={arrowupblack}
+                                alt="<"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <div className="details">
+                            <li>
+                              <a
+                                href="https://www.youtube.com/watch?v=FPu9Uld7W-E"
+                                target="_blank"
+                                className="text-[blue]"
+                              >
+                                Time & Space Complexity
+                              </a>
+                            </li>
                           </div>
-                        </a>
-                        <a id="show3" href="#show3" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 3 : Time & Space Complexity
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
-                          </div>
-                        </a>
-                        <div className="details">
-                          <li><a href="https://www.youtube.com/watch?v=FPu9Uld7W-E" target='_blank' className='text-[blue]'>Time & Space Complexity</a></li>
                         </div>
                       </div>
-                    </div>
-                    {/* <div className="form-control flex flex-row">
+                      {/* <div className="form-control flex flex-row">
                       <label className="cursor-pointer label">
                         <input
                           type="checkbox"
@@ -631,150 +751,164 @@ export default function DsaWeek1({ user }) {
                         </div>
                       </div>
                     </div> */}
-                    <div className="centereddiv">
-                      <button className="btn-31">
-                        <span className="text-container">
-                          <span className="text">Update Progress</span>
-                        </span>
-                      </button>
+                      <div className="centereddiv">
+                        <button className="btn-31">
+                          <span className="text-container">
+                            <span className="text">Update Progress</span>
+                          </span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </form>
-                {/* end of form */}
-              </div>
-            )}
+                  </form>
+                  {/* end of form */}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="centereddiv flex flex-row">
-          <img src={everyoneprog} alt="everyone's progress" />
-          <div className=" bgfiltercard scrollcontainer h-[50rem] overflow-auto m-5 gap-5">
-            {week &&
-              week.map((x) => (
-                <div key={x._id} className="flex flex-col my-1">
-                  <aside className="bg-black text-white rounded-lg w-full lg:max-w-[25rem] font-mono p-4">
-                    <div className="flex justify-between items-center">
-                      <div className="flex space-x-2 text-red-500">
-                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <div className="centereddiv flex flex-row">
+            <img src={everyoneprog} alt="everyone's progress" />
+            <div className=" bgfiltercard scrollcontainer h-[50rem] overflow-auto m-5 gap-5">
+              {week &&
+                week.map((x) => (
+                  <div key={x._id} className="flex flex-col my-1">
+                    <aside className="bg-black text-white rounded-lg w-full lg:max-w-[25rem] font-mono p-4">
+                      <div className="flex justify-between items-center">
+                        <div className="flex space-x-2 text-red-500">
+                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="lg:flex ">
-                      <div className="mt-4">
-                        <p className="text-[#00CDB7]">$ npm install details</p>
-                        <p className="truncate">Name: {x.name}</p>
-                        <p className="">Phone No: {x._id}</p>
-                        <p className="text-[#00CDB7]">$ npm install links</p>
-                        {x.link1 !== '' ? (
-                          <a href={x.link1} target="_blank">
-                            <p className="text-white underline underline-offset-1 truncate">
-                              {x.link1}
-                            </p>
-                          </a>
-                        ) : (
-                          <p>Nothing yet.</p>
-                        )}
-                        {x.link2 !== '' ? (
-                          <a href={x.link2} target="_blank">
-                            <p className="text-white underline underline-offset-1 truncate">
-                              {x.link2}
-                            </p>
-                          </a>
-                        ) : (
-                          <p>Nothing yet.</p>
-                        )}
-                        {x.link3 !== '' ? (
-                          <a href={x.link3} target="_blank">
-                            <p className="text-white underline underline-offset-1 truncate">
-                              {x.link3}
-                            </p>
-                          </a>
-                        ) : (
-                          <p>Nothing yet.</p>
-                        )}
-                        {x.link4 !== '' ? (
-                          <a href={x.link4} target="_blank">
-                            <p className="text-white underline underline-offset-1 truncate">
-                              {x.link4}
-                            </p>
-                          </a>
-                        ) : (
-                          <p>Nothing yet.</p>
-                        )}
-                        {x.link5 !== '' ? (
-                          <a href={x.link5} target="_blank">
-                            <p className="text-white underline underline-offset-1 truncate">
-                              {x.link5}
-                            </p>
-                          </a>
-                        ) : (
-                          <p>Nothing yet.</p>
-                        )}
-                        <p className="text-[#00CDB7]">$</p>
-                      </div>
-                      <div
-                        className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
-                        style={{
-                          '--value': calcProgress(x, 3),
-                          '--size': '10rem',
-                          '--thickness': '0.75rem',
-                        }}
-                        role="progressbar"
-                      >
-                        {/* {calcProgress(record, 6)} */}
-                        <div className="checkbox-wrapper grid grid-cols-3 text-[#b9b8c3]">
-                          <input
-                            style={{ display: 'none' }}
-                            checked={x.task1}
-                            disabled={true}
-                            type="checkbox"
-                            id="cbx"
-                            className="inp-cbx"
-                          />
-                          <label htmlFor="cbx" className="cbx">
-                            <span>
-                              <svg viewBox="0 0 12 9" height="9px" width="12px">
-                                <polyline points="1 5 4 8 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span className="text-lg"></span>
-                          </label>
+                      <div className="lg:flex ">
+                        <div className="mt-4">
+                          <p className="text-[#00CDB7]">
+                            $ npm install details
+                          </p>
+                          <p className="truncate">Name: {x.name}</p>
+                          <p className="">Phone No: {x._id}</p>
+                          <p className="text-[#00CDB7]">$ npm install links</p>
+                          {x.link1 !== '' ? (
+                            <a href={x.link1} target="_blank">
+                              <p className="text-white underline underline-offset-1 truncate">
+                                {x.link1}
+                              </p>
+                            </a>
+                          ) : (
+                            <p>Nothing yet.</p>
+                          )}
+                          {x.link2 !== '' ? (
+                            <a href={x.link2} target="_blank">
+                              <p className="text-white underline underline-offset-1 truncate">
+                                {x.link2}
+                              </p>
+                            </a>
+                          ) : (
+                            <p>Nothing yet.</p>
+                          )}
+                          {x.link3 !== '' ? (
+                            <a href={x.link3} target="_blank">
+                              <p className="text-white underline underline-offset-1 truncate">
+                                {x.link3}
+                              </p>
+                            </a>
+                          ) : (
+                            <p>Nothing yet.</p>
+                          )}
+                          {x.link4 !== '' ? (
+                            <a href={x.link4} target="_blank">
+                              <p className="text-white underline underline-offset-1 truncate">
+                                {x.link4}
+                              </p>
+                            </a>
+                          ) : (
+                            <p>Nothing yet.</p>
+                          )}
+                          {x.link5 !== '' ? (
+                            <a href={x.link5} target="_blank">
+                              <p className="text-white underline underline-offset-1 truncate">
+                                {x.link5}
+                              </p>
+                            </a>
+                          ) : (
+                            <p>Nothing yet.</p>
+                          )}
+                          <p className="text-[#00CDB7]">$</p>
+                        </div>
+                        <div
+                          className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
+                          style={{
+                            '--value': calcProgress(x, 3),
+                            '--size': '10rem',
+                            '--thickness': '0.75rem',
+                          }}
+                          role="progressbar"
+                        >
+                          {/* {calcProgress(record, 6)} */}
+                          <div className="checkbox-wrapper grid grid-cols-3 text-[#b9b8c3]">
+                            <input
+                              style={{ display: 'none' }}
+                              checked={x.task1}
+                              disabled={true}
+                              type="checkbox"
+                              id="cbx"
+                              className="inp-cbx"
+                            />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg
+                                  viewBox="0 0 12 9"
+                                  height="9px"
+                                  width="12px"
+                                >
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className="text-lg"></span>
+                            </label>
 
-                          <input
-                            style={{ display: 'none' }}
-                            checked={x.task2}
-                            disabled={true}
-                            type="checkbox"
-                            id="cbx"
-                            className="inp-cbx"
-                          />
-                          <label htmlFor="cbx" className="cbx">
-                            <span>
-                              <svg viewBox="0 0 12 9" height="9px" width="12px">
-                                <polyline points="1 5 4 8 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span className="text-lg"></span>
-                          </label>
+                            <input
+                              style={{ display: 'none' }}
+                              checked={x.task2}
+                              disabled={true}
+                              type="checkbox"
+                              id="cbx"
+                              className="inp-cbx"
+                            />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg
+                                  viewBox="0 0 12 9"
+                                  height="9px"
+                                  width="12px"
+                                >
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className="text-lg"></span>
+                            </label>
 
-                          <input
-                            style={{ display: 'none' }}
-                            checked={x.task3}
-                            disabled={true}
-                            type="checkbox"
-                            id="cbx"
-                            className="inp-cbx"
-                          />
-                          <label htmlFor="cbx" className="cbx">
-                            <span>
-                              <svg viewBox="0 0 12 9" height="9px" width="12px">
-                                <polyline points="1 5 4 8 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span className="text-lg"></span>
-                          </label>
+                            <input
+                              style={{ display: 'none' }}
+                              checked={x.task3}
+                              disabled={true}
+                              type="checkbox"
+                              id="cbx"
+                              className="inp-cbx"
+                            />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg
+                                  viewBox="0 0 12 9"
+                                  height="9px"
+                                  width="12px"
+                                >
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className="text-lg"></span>
+                            </label>
 
-                          {/* <input
+                            {/* <input
                             style={{ display: 'none' }}
                             checked={x.task4}
                             disabled={true}
@@ -824,17 +958,29 @@ export default function DsaWeek1({ user }) {
                             </span>
                             <span className="text-lg"></span>
                           </label> */}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </aside>
-                </div>
-              ))}
+                    </aside>
+                  </div>
+                ))}
+            </div>
           </div>
+          {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
         </div>
-        {/* <button onClick={handleGoHome}>GO BACK TO HOME</button> */}
+        <div className="h-20 w-full"></div>
       </div>
-      <div className='h-20 w-full'></div>
+      <div className="h-40"></div>
+      <div className=" w-auto flex justify-center ml-60">
+        <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
+        <p className="z-10 my-5 pt-5 border-t-2 border-white">
+          In case you ever foolishly forget, this was made with{' '}
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>{' '}
+          by Aarya, Roopanshi, and Nikhilesh
+        </p>
+      </div>
     </div>
   )
 }
