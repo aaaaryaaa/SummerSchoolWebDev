@@ -931,15 +931,17 @@ export default function DsaWeek3({ user }) {
         <div className="h-20 w-full"></div>
       </div>
       <div className="h-40"></div>
-      <div className=" w-auto flex justify-center ml-60">
-        <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
-        <p className="z-10 my-5 pt-5 border-t-2 border-white">
-          In case you ever foolishly forget, this was made with{' '}
-          <span role="img" aria-label="heart">
-            ❤️
-          </span>{' '}
-          by Aarya, Roopanshi, and Nikhilesh
-        </p>
+      <div className='lg:block hidden'>
+        <div className=" w-auto flex justify-center ml-60">
+          <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
+          <p className="z-10 my-5 pt-5 border-t-2 border-white">
+            In case you ever foolishly forget, this was made with{' '}
+            <span role="img" aria-label="heart">
+              ❤️
+            </span>{' '}
+            by Aarya, Roopanshi, and Nikhilesh
+          </p>
+        </div>
       </div>
     </div>
   )

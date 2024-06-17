@@ -1020,7 +1020,7 @@ export default function AIMLWeek1({ user }) {
         </div>
       </div>
       <div className="h-40"></div>
-      <div className=" w-auto flex justify-center ml-60">
+      <div className="lg:hidden w-auto flex justify-center ml-60">
         <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
         <p className="z-10 my-5 pt-5 border-t-2 border-white">
           In case you ever foolishly forget, this was made with{' '}
