@@ -177,7 +177,7 @@ export default function DsaWeek2({ user }) {
           <MobileSidebar domain="dsa" />
         </div>
         <div className="lg:col-span-9 ">
-          {false ? (
+          {true ? (
             <>
               <div className="lg:mt-20 w-full">
                 <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
@@ -384,7 +384,7 @@ export default function DsaWeek2({ user }) {
                                         <span className="text-lg">Task 5</span>
                                       </label>
 
-                                      <input
+                                      {/* <input
                                         style={{ display: 'none' }}
                                         checked={tasksix}
                                         onChange={handleCheck6}
@@ -404,7 +404,7 @@ export default function DsaWeek2({ user }) {
                                           </svg>
                                         </span>
                                         <span className="text-lg">Task 6</span>
-                                      </label>
+                                      </label> */}
                                     </div>
                                   </div>
                                 </div>
@@ -433,7 +433,7 @@ export default function DsaWeek2({ user }) {
                             <div className="bgfiltercard ml-6 w-full">
                               <a id="hide1" href="#hide1" className="hide">
                                 <div className="flex justify-between align-middle">
-                                  Open Task 1
+                                  Open Task 1 : STL (maps and sets)
                                   <img
                                     src={arrowdownblack}
                                     alt=">"
@@ -443,7 +443,7 @@ export default function DsaWeek2({ user }) {
                               </a>
                               <a id="show1" href="#show1" className="show">
                                 <div className="flex justify-between align-middle">
-                                  Close Task 1
+                                  Close Task 1 : STL (maps and sets)
                                   <img
                                     src={arrowupblack}
                                     alt="<"
@@ -452,9 +452,51 @@ export default function DsaWeek2({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Laborum ducimus labore facilis
-                                quia nihil explicabo asperiores?
+                                Youtube links for STL:
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=gUrfXZ0hqoA&list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn&index=6 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  STL Part 1
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=okLflHtlCuk&list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn&index=7 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  STL Part 2
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=7mx2BasNK0w&list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn&index=8 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  STL Part 3
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=hoT_D60UzAU&list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn&index=9 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  STL Part 4
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=zyGSg3U1K94&list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn&index=10 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  STL Part 5
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -470,7 +512,8 @@ export default function DsaWeek2({ user }) {
                             <div className="bgfiltercard ml-6 w-full">
                               <a id="hide2" href="#hide2" className="hide">
                                 <div className="flex justify-between align-middle">
-                                  Open Task 2
+                                  Open Task 2 : Java collections (same as week
+                                  1)
                                   <img
                                     src={arrowdownblack}
                                     alt=">"
@@ -480,7 +523,8 @@ export default function DsaWeek2({ user }) {
                               </a>
                               <a id="show2" href="#show2" className="show">
                                 <div className="flex justify-between align-middle">
-                                  Close Task 2
+                                  Close Task 2 : Java collections (same as week
+                                  1)
                                   <img
                                     src={arrowupblack}
                                     alt="<"
@@ -489,9 +533,14 @@ export default function DsaWeek2({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Laborum ducimus labore facilis
-                                quia nihil explicabo asperiores?
+                                Java collections :{' '}
+                                <a
+                                  href="https://www.youtube.com/watch?v=rzA7UJ-hQn4 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  Java Collections Video
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -507,7 +556,7 @@ export default function DsaWeek2({ user }) {
                             <div className="bgfiltercard ml-6 w-full">
                               <a id="hide3" href="#hide3" className="hide">
                                 <div className="flex justify-between align-middle">
-                                  Open Task 3
+                                  Open Task 3 : Recursion
                                   <img
                                     src={arrowdownblack}
                                     alt=">"
@@ -517,7 +566,7 @@ export default function DsaWeek2({ user }) {
                               </a>
                               <a id="show3" href="#show3" className="show">
                                 <div className="flex justify-between align-middle">
-                                  Close Task 3
+                                  Close Task 3 : Recursion
                                   <img
                                     src={arrowupblack}
                                     alt="<"
@@ -526,9 +575,50 @@ export default function DsaWeek2({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Laborum ducimus labore facilis
-                                quia nihil explicabo asperiores?
+                                Watch youtube videos on recursion:
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=yVdKa8dnKiE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=1 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  Recursion Part 1
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=un6PLygfXrA&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=2 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  Recursion Part 2
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=69ZCDFy-OUo&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=3 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  Recursion Part 3
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=twuC1F6gLI8&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=4 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  {' '}
+                                  Recursion Part 4
+                                </a>
+                                <br />
+                                <a
+                                  href="https://www.youtube.com/watch?v=kvRjNm4rVBE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=5 "
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  Recursion Part 5
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -544,7 +634,7 @@ export default function DsaWeek2({ user }) {
                             <div className="bgfiltercard ml-6 w-full">
                               <a id="hide4" href="#hide4" className="hide">
                                 <div className="flex justify-between align-middle">
-                                  Open Task 4
+                                  Open Task 4 : Assignment
                                   <img
                                     src={arrowdownblack}
                                     alt=">"
@@ -554,7 +644,7 @@ export default function DsaWeek2({ user }) {
                               </a>
                               <a id="show4" href="#show4" className="show">
                                 <div className="flex justify-between align-middle">
-                                  Close Task 4
+                                  Close Task 4 : Assignment
                                   <img
                                     src={arrowupblack}
                                     alt="<"
@@ -563,13 +653,12 @@ export default function DsaWeek2({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Laborum ducimus labore facilis
-                                quia nihil explicabo asperiores?
+                                Assignment sent on the group for week 2. Upload
+                                on GitHub and paste link in links below
                               </div>
                             </div>
                           </div>
-                          <div className="form-control flex flex-row">
+                          {/* <div className="form-control flex flex-row">
                             <label className="cursor-pointer label">
                               <input
                                 type="checkbox"
@@ -605,20 +694,20 @@ export default function DsaWeek2({ user }) {
                                 quia nihil explicabo asperiores?
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                           <div className="form-control flex flex-row">
                             <label className="cursor-pointer label">
                               <input
                                 type="checkbox"
-                                checked={tasksix}
-                                onChange={handleCheck6}
+                                checked={taskfive}
+                                onChange={handleCheck5}
                                 className="checkbox checkbox-accent"
                               />
                             </label>
                             <div className="bgfiltercard ml-6 w-full">
-                              <a id="hide6" href="#hide6" className="hide">
+                              <a id="hide5" href="#hide5" className="hide">
                                 <div className="flex justify-between align-middle">
-                                  Open Task 6
+                                  Open Task 5 : Links
                                   <img
                                     src={arrowdownblack}
                                     alt=">"
@@ -626,9 +715,9 @@ export default function DsaWeek2({ user }) {
                                   />
                                 </div>
                               </a>
-                              <a id="show6" href="#show6" className="show">
+                              <a id="show5" href="#show5" className="show">
                                 <div className="flex justify-between align-middle">
-                                  Close Task 6
+                                  Close Task 5 : Links
                                   <img
                                     src={arrowupblack}
                                     alt="<"
@@ -637,9 +726,7 @@ export default function DsaWeek2({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Laborum ducimus labore facilis
-                                quia nihil explicabo asperiores?
+                                Submission links below
                                 <div className="mt-2 grid gap-2">
                                   <input
                                     type="text"
@@ -778,7 +865,7 @@ export default function DsaWeek2({ user }) {
                             <div
                               className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                               style={{
-                                '--value': calcProgress(x, 6),
+                                '--value': calcProgress(x, 5),
                                 '--size': '10rem',
                                 '--thickness': '0.75rem',
                               }}
@@ -891,7 +978,7 @@ export default function DsaWeek2({ user }) {
                                   <span className="text-lg"></span>
                                 </label>
 
-                                <input
+                                {/* <input
                                   style={{ display: 'none' }}
                                   checked={x.task6}
                                   disabled={true}
@@ -910,7 +997,7 @@ export default function DsaWeek2({ user }) {
                                     </svg>
                                   </span>
                                   <span className="text-lg"></span>
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>
@@ -931,7 +1018,7 @@ export default function DsaWeek2({ user }) {
         <div className="h-20 w-full"></div>
       </div>
       <div className="h-40"></div>
-      <div className='lg:block hidden'>
+      <div className="lg:block hidden">
         <div className=" w-auto flex justify-center ml-60">
           <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
           <p className="z-10 my-5 pt-5 border-t-2 border-white">

@@ -450,7 +450,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.youtube.com/watch?v=EAR7De6Goz4"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 C++ Basics
                               </a>
@@ -461,7 +461,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.youtube.com/watch?v=UmnCZ7-9yDY&t=425s"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Java Basics A
                               </a>{' '}
@@ -513,7 +513,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 C++ Hindi Playlist
                               </a>
@@ -523,7 +523,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://youtu.be/RRVYpIET_RU?si=sBxKXw15wTGX7qXJ"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 C++ STL in English
                               </a>
@@ -533,7 +533,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.geeksforgeeks.org/vector-in-cpp-stl/"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Vectors
                               </a>
@@ -541,7 +541,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.geeksforgeeks.org/pair-in-cpp-stl/"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Pair
                               </a>
@@ -549,7 +549,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.geeksforgeeks.org/iterators-c-stl/"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Iterators
                               </a>
@@ -560,7 +560,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.youtube.com/watch?v=rzA7UJ-hQn4"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Java Collection
                               </a>
@@ -604,7 +604,7 @@ export default function DsaWeek1({ user }) {
                               <a
                                 href="https://www.youtube.com/watch?v=FPu9Uld7W-E"
                                 target="_blank"
-                                className="text-[blue]"
+                                className="underline text-blue-500"
                               >
                                 Time & Space Complexity
                               </a>
