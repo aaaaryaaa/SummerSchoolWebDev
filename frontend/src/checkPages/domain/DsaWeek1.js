@@ -336,29 +336,29 @@ export default function DsaWeek1({ user }) {
                                     <span className="text-lg">Task 3</span>
                                   </label>
 
-                                  {/* <input
-                                  style={{ display: 'none' }}
-                                  checked={taskfour}
-                                  onChange={handleCheck4}
-                                  disabled={true}
-                                  type="checkbox"
-                                  id="cbx"
-                                  className="inp-cbx"
-                                />
-                                <label htmlFor="cbx" className="cbx">
-                                  <span>
-                                    <svg
-                                      viewBox="0 0 12 9"
-                                      height="9px"
-                                      width="12px"
-                                    >
-                                      <polyline points="1 5 4 8 11 1"></polyline>
-                                    </svg>
-                                  </span>
-                                  <span className="text-lg">Task 4</span>
-                                </label>
+                                  <input
+                                    style={{ display: 'none' }}
+                                    checked={taskfour}
+                                    onChange={handleCheck4}
+                                    disabled={true}
+                                    type="checkbox"
+                                    id="cbx"
+                                    className="inp-cbx"
+                                  />
+                                  <label htmlFor="cbx" className="cbx">
+                                    <span>
+                                      <svg
+                                        viewBox="0 0 12 9"
+                                        height="9px"
+                                        width="12px"
+                                      >
+                                        <polyline points="1 5 4 8 11 1"></polyline>
+                                      </svg>
+                                    </span>
+                                    <span className="text-lg">Task 4</span>
+                                  </label>
 
-                                <input
+                                  {/* <input
                                   style={{ display: 'none' }}
                                   checked={taskfive}
                                   onChange={handleCheck5}
@@ -669,83 +669,89 @@ export default function DsaWeek1({ user }) {
                           explicabo asperiores?
                         </div>
                       </div>
-                    </div>
-                    <div className="form-control flex flex-row">
-                      <label className="cursor-pointer label">
-                        <input
-                          type="checkbox"
-                          checked={tasksix}
-                          onChange={handleCheck6}
-                          className="checkbox checkbox-accent"
-                        />
-                      </label>
-                      <div className="bgfiltercard ml-6 w-full">
-                        <a id="hide6" href="#hide6" className="hide">
-                          <div className='flex justify-between align-middle'>
-                            Open Task 6
-                            <img src={arrowdownblack} alt=">" className='w-8 h-8' />
-                          </div>
-                        </a>
-                        <a id="show6" href="#show6" className="show">
-                          <div className='flex justify-between align-middle'>
-                            Close Task 6
-                            <img src={arrowupblack} alt="<" className='w-8 h-8' />
-                          </div>
-                        </a>
-                        <div className="details">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Laborum ducimus labore facilis quia nihil
-                          explicabo asperiores?
-                          <div className="mt-2 grid gap-2">
-                            <input
-                              type="text"
-                              value={linkone}
-                              placeholder="Enter Link 1"
-                              onChange={(e) => {
-                                setLinkOne(e.target.value)
-                              }}
-                              className="input input-bordered input-accent w-full max-w-xs"
-                            />
-                            <input
-                              type="text"
-                              value={linktwo}
-                              placeholder="Enter Link 2"
-                              onChange={(e) => {
-                                setLinkTwo(e.target.value)
-                              }}
-                              className="input input-bordered input-accent w-full max-w-xs"
-                            />
-                            <input
-                              type="text"
-                              value={linkthree}
-                              placeholder="Enter Link 3"
-                              onChange={(e) => {
-                                setLinkThree(e.target.value)
-                              }}
-                              className="input input-bordered input-accent w-full max-w-xs"
-                            />
-                            <input
-                              type="text"
-                              value={linkfour}
-                              placeholder="Enter Link 4"
-                              onChange={(e) => {
-                                setLinkFour(e.target.value)
-                              }}
-                              className="input input-bordered input-accent w-full max-w-xs"
-                            />
-                            <input
-                              type="text"
-                              value={linkfive}
-                              placeholder="Enter Link 5"
-                              onChange={(e) => {
-                                setLinkFive(e.target.value)
-                              }}
-                              className="input input-bordered input-accent w-full max-w-xs"
-                            />
+                    </div> */}
+                      <div className="form-control flex flex-row">
+                        <label className="cursor-pointer label">
+                          <input
+                            type="checkbox"
+                            checked={taskfour}
+                            onChange={handleCheck4}
+                            className="checkbox checkbox-accent"
+                          />
+                        </label>
+                        <div className="bgfiltercard ml-6 w-full">
+                          <a id="hide4" href="#hide4" className="hide">
+                            <div className="flex justify-between align-middle">
+                              Open Task 4
+                              <img
+                                src={arrowdownblack}
+                                alt=">"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <a id="show4" href="#show4" className="show">
+                            <div className="flex justify-between align-middle">
+                              Close Task 4
+                              <img
+                                src={arrowupblack}
+                                alt="<"
+                                className="w-8 h-8"
+                              />
+                            </div>
+                          </a>
+                          <div className="details">
+                            Submit links i.e. GitHub for your tasks
+                            <div className="mt-2 grid gap-2">
+                              <input
+                                type="text"
+                                value={linkone}
+                                placeholder="Enter Link 1"
+                                onChange={(e) => {
+                                  setLinkOne(e.target.value)
+                                }}
+                                className="input input-bordered input-accent w-full max-w-xs"
+                              />
+                              <input
+                                type="text"
+                                value={linktwo}
+                                placeholder="Enter Link 2"
+                                onChange={(e) => {
+                                  setLinkTwo(e.target.value)
+                                }}
+                                className="input input-bordered input-accent w-full max-w-xs"
+                              />
+                              <input
+                                type="text"
+                                value={linkthree}
+                                placeholder="Enter Link 3"
+                                onChange={(e) => {
+                                  setLinkThree(e.target.value)
+                                }}
+                                className="input input-bordered input-accent w-full max-w-xs"
+                              />
+                              <input
+                                type="text"
+                                value={linkfour}
+                                placeholder="Enter Link 4"
+                                onChange={(e) => {
+                                  setLinkFour(e.target.value)
+                                }}
+                                className="input input-bordered input-accent w-full max-w-xs"
+                              />
+                              <input
+                                type="text"
+                                value={linkfive}
+                                placeholder="Enter Link 5"
+                                onChange={(e) => {
+                                  setLinkFive(e.target.value)
+                                }}
+                                className="input input-bordered input-accent w-full max-w-xs"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div> */}
                       <div className="centereddiv">
                         <button className="btn-31">
                           <span className="text-container">
@@ -832,7 +838,7 @@ export default function DsaWeek1({ user }) {
                         <div
                           className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                           style={{
-                            '--value': calcProgress(x, 3),
+                            '--value': calcProgress(x, 4),
                             '--size': '10rem',
                             '--thickness': '0.75rem',
                           }}
@@ -903,24 +909,28 @@ export default function DsaWeek1({ user }) {
                               <span className="text-lg"></span>
                             </label>
 
-                            {/* <input
-                            style={{ display: 'none' }}
-                            checked={x.task4}
-                            disabled={true}
-                            type="checkbox"
-                            id="cbx"
-                            className="inp-cbx"
-                          />
-                          <label htmlFor="cbx" className="cbx">
-                            <span>
-                              <svg viewBox="0 0 12 9" height="9px" width="12px">
-                                <polyline points="1 5 4 8 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span className="text-lg"></span>
-                          </label>
+                            <input
+                              style={{ display: 'none' }}
+                              checked={x.task4}
+                              disabled={true}
+                              type="checkbox"
+                              id="cbx"
+                              className="inp-cbx"
+                            />
+                            <label htmlFor="cbx" className="cbx">
+                              <span>
+                                <svg
+                                  viewBox="0 0 12 9"
+                                  height="9px"
+                                  width="12px"
+                                >
+                                  <polyline points="1 5 4 8 11 1"></polyline>
+                                </svg>
+                              </span>
+                              <span className="text-lg"></span>
+                            </label>
 
-                          <input
+                            {/*<input
                             style={{ display: 'none' }}
                             checked={x.task5}
                             disabled={true}
@@ -966,7 +976,7 @@ export default function DsaWeek1({ user }) {
         <div className="h-20 w-full"></div>
       </div>
       <div className="h-40"></div>
-      <div className='lg:block hidden'>
+      <div className="lg:block hidden">
         <div className=" w-auto flex justify-center ml-60">
           <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
           <p className="z-10 my-5 pt-5 border-t-2 border-white">
