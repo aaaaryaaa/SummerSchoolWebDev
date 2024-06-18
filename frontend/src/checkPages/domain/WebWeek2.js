@@ -178,7 +178,7 @@ export default function WebWeek2({ user }) {
         </div>
         <div className="lg:col-span-9 ">
           <div>
-            {false ? (
+            {true ? (
               <>
                 <div className="lg:mt-20 w-full">
                   <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
