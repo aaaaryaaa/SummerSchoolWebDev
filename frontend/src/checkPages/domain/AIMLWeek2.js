@@ -453,12 +453,22 @@ export default function AIMLWeek2({ user }) {
                               </a>
                               <div className="details">
                                 Watch below youtube playlist <br />
+                                Hindi -{' '}
                                 <a
                                   href="https://youtube.com/playlist?list=PLfP3JxW-T70HkhNxdgZeApdpiOfL6KAQE&si=CVu9Bv0SQbHuoEPl"
                                   target="_blank"
                                   className="underline text-blue-500"
                                 >
                                   Data Preprocessing playlist{' '}
+                                </a>
+                                <br />
+                                English -{' '}
+                                <a
+                                  href="https://youtube.com/playlist?list=PLTmQbi1PYZ_EnBmO1-E0Z81ArnE-zSR1a&si=Q81zef1mnGoT9I_U"
+                                  target="_blank"
+                                  className="underline text-blue-500"
+                                >
+                                  Data Preprocessing playlist
                                 </a>
                               </div>
                             </div>
