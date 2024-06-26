@@ -266,7 +266,7 @@ export default function DsaWeek2({ user }) {
                                   <div
                                     className="radial-progress bg-[black] text-[#00CDB7] border-4 border-[black]"
                                     style={{
-                                      '--value': calcProgress(record, 6),
+                                      '--value': calcProgress(record, 5),
                                       '--size': '14rem',
                                       '--thickness': '0.75rem',
                                     }}
