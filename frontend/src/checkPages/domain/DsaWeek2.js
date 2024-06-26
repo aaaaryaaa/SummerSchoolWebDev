@@ -33,7 +33,7 @@ export default function DsaWeek2({ user }) {
     if (obj.task3) n += 1
     if (obj.task4) n += 1
     if (obj.task5) n += 1
-    if (obj.task6) n += 1
+    // if (obj.task6) n += 1
     return ((n * 100) / num).toFixed(2)
   }
 
