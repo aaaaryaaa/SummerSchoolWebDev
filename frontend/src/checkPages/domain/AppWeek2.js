@@ -177,7 +177,7 @@ export default function AppWeek2({ user }) {
           <MobileSidebar domain="appdev" />
         </div>
         <div className="lg:col-span-9 ">
-          {false ? (
+          {true ? (
             <>
               <div className="lg:mt-20 w-full">
                 <h1 className=" text-center text-[#00CDB7] lg:text-6xl text-2xl relative top-14 py-10 font-bold">
@@ -960,7 +960,7 @@ export default function AppWeek2({ user }) {
         <div className="h-20 w-full"></div>
       </div>
       <div className="h-40"></div>
-      <div className='lg:block hidden'>
+      <div className="lg:block hidden">
         <div className=" w-auto flex justify-center ml-60">
           <div className="absolute top-0 w-3/5 border-t-2 border-white"></div>
           <p className="z-10 my-5 pt-5 border-t-2 border-white">
