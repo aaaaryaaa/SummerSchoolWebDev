@@ -581,23 +581,23 @@ export default function WebWeek3({ user }) {
                                 </div>
                               </a>
                               <div className="details">
-                                Try any one:
+                                Choose respective project:
                                 <li>
                                   <a
-                                    href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH"
+                                    href="https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv"
                                     target="_blank"
                                     className="text-[blue]"
                                   >
-                                    Mini Project 1
+                                    For e-commerce
                                   </a>
                                 </li>
                                 <li>
                                   <a
-                                    href="https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G"
+                                    href="https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj"
                                     target="_blank"
                                     className="text-[blue]"
                                   >
-                                    Mini project 2
+                                    For personal portfolio
                                   </a>
                                 </li>
                                 {/* </div>
