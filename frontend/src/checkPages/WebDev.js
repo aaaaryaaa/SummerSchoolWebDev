@@ -140,8 +140,8 @@ const WebDev = () => {
             </div>
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">Project Implementation</time>
-              <div className="text-lg font-black">Full Stack Project</div>
-              Build a full stack web application.
+              <div className="text-lg font-black">Final Project</div>
+              Build a resume ready web application.
             </div>
           </li>
         </ul>
