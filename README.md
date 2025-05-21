@@ -39,27 +39,33 @@ To get started with TrackSpace on your local machine:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/TrackSpace.git
+    git clone https://github.com/aaaaryaaa/SummerSchoolWebDev.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd TrackSpace
+    cd SummerSchoolWebDev
     ```
 
 3. Install the required dependencies:
-    ```bash
+    for both frontend and backend folders:
+   ```bash
     npm install
     ```
 
-4. Set up your environment variables for the database and authentication secrets.
+5. Set up your environment variables for the database and authentication secrets.
 
-5. Start the development server:
+6. Start the development server:
+    for frontend folder:
     ```bash
     npm start
     ```
+    for backend folder:
+   ```bash
+    npm run dev
+   ```
 
-6. Visit the app in your browser:
+7. Visit the app in your browser:
     ```
     http://localhost:3000
     ```
